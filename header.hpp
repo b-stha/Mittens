@@ -32,7 +32,7 @@ struct Participant {
 
 struct Info {
     long long gameLength;
-    std::vector<Participant> participants;
+    std::vector<Player> playerList;
 };
 
 Participant findP(const Info& info, const std::string& puuid) {

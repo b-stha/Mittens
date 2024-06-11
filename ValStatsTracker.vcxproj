@@ -133,13 +133,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="parsejson.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RiotAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.hpp" />
-    <ClInclude Include="PlayerHandling.h" />
+    <ClInclude Include="parsejson.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RiotAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
