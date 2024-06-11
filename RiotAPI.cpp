@@ -18,12 +18,7 @@ Info fetchInfo(const std::string matchID, const std::string apiKey) {
 	cpr::Response infoResponse = cpr::Get(cpr::Url{ infoURL });
 	json infoJson = parseJSON(infoResponse);
 
-	if (infoJson.is_array() && !infoJson.empty()) {
-		return infoJson[0].get<Info>();
-	}
-	else {
-		throw std::runtime_error("Invalid JSON structure: expected non-empty array");
-	}
+	return infoJson["info"].get<Info>();
 };
 
 void setName(Player& player, const std::string apiKey) {

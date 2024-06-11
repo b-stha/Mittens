@@ -36,8 +36,10 @@ int main() {
     Player me(puuid);
 
     std::string matchID = fetchMatchID(me, TFT_APIKEY);
-    me.setMatchInfo(fetchInfo(matchID, TFT_APIKEY));
+    std::cout << matchID << std::endl;
+    Info info = fetchInfo(matchID, TFT_APIKEY);
 
+    std::cout << me.myMatchInfo.augments[0] << std::endl;
 
     return 0;
 }
