@@ -39,7 +39,3 @@ void setName(Player& player, const std::string apiKey) {
 	}
 }
 
-void fetchPlayerInfo(Player& player, const std::string matchID, const std::string apiKey) {
-	return player.setMatchInfo(fetchInfo(matchID, apiKey));
-}
-

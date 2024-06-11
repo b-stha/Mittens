@@ -141,7 +141,6 @@
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header.hpp" />
     <ClInclude Include="parsejson.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RiotAPI.h" />

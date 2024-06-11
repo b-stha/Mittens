@@ -21,11 +21,6 @@ struct Unit {
 	int tier = 0;
 };
 
-struct Info {
-	double gameLength;
-	std::vector<PlayerMatchInfo> playerInfoList;
-};
-
 struct PlayerMatchInfo {
 	std::vector<std::string> augments;
 	std::vector<Trait> traits;
@@ -36,8 +31,15 @@ struct PlayerMatchInfo {
 	std::string puuid;
 };
 
+struct Info {
+	double gameLength;
+	std::vector<PlayerMatchInfo> playerInfoList;
+};
+
+
 class Player {
 	public:
+		Player(std::string inputPuuid);
 		void setMatchInfo(const Info& info);
 		void setNameTag(std::string inputName, std::string inputTag);
 		void setprevMatch(std::string matchID);

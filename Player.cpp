@@ -1,5 +1,9 @@
 #include "Player.h"
 
+Player::Player(std::string inputPuuid) {
+	puuid = inputPuuid;
+}
+
 void Player::setMatchInfo(const Info& info) {
 	for (const auto& player : info.playerInfoList) {
 		if (puuid == player.puuid) {
