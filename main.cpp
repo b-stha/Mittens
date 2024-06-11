@@ -39,6 +39,7 @@ int main() {
     std::cout << matchID << std::endl;
     Info info = fetchInfo(matchID, TFT_APIKEY);
 
+    me.setMatchInfo(info);
     std::cout << me.myMatchInfo.augments[0] << std::endl;
 
     return 0;

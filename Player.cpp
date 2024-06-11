@@ -10,6 +10,7 @@ void Player::setMatchInfo(const Info& info) {
 			myMatchInfo = player;
 			double totGameLength = info.gameLength / 60.0;
 			gameLenSec = modf(totGameLength, &gameLenMin);
+			return;
 		}
 	}
 	throw std::runtime_error("Participant with the specified PUUID not found");
