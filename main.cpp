@@ -12,6 +12,19 @@ const std::string TFT_APIKEY = "RGAPI-2a3e681d-e5a3-411b-aca2-6946243dd526";
 const std::string puuid = "0mIwh5itpbxbDmP7-cON6UG1mx-n518iW2ynO3U9r2s3GGv4h99GAEgwh_f-llq595guEmcS133FTQ";
 
 int main() {
+    //TODO: include transparent and replace newlines with transparents
+    Player me(puuid);
+
+    std::string matchID = fetchMatchID(me, TFT_APIKEY);
+    std::cout << matchID << std::endl;
+    Info info = fetchInfo(matchID, TFT_APIKEY);
+
+    me.setMatchInfo(info);
+
+    Unit item1 = me.myMatchInfo.units[0];
+
+    std::cout << itemListStr(me);
+    /*
     dpp::cluster bot(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content);
 
     bot.on_log(dpp::utility::cout_logger());
@@ -27,7 +40,7 @@ int main() {
             bot.global_command_create(dpp::slashcommand("ping", "Ping pong!", bot.me.id));
         }
     });
-
+    
     Player me(puuid);
 
     std::string matchID = fetchMatchID(me, TFT_APIKEY);
@@ -35,6 +48,8 @@ int main() {
     Info info = fetchInfo(matchID, TFT_APIKEY);
 
     me.setMatchInfo(info);
+
+    Unit item1 = me.myMatchInfo.units[0];
 
     bot.on_slashcommand([&bot, &me](const dpp::slashcommand_t& event) {
         if (event.command.get_command_name() == "embed") {
@@ -52,6 +67,6 @@ int main() {
         });
 
     bot.start(dpp::st_wait);
-
+    */
     return 0;
 }
