@@ -48,6 +48,7 @@ class Player {
 		std::string getCurrMatch() const;
 		std::string getPUUID() const;
 		std::vector<std::string> getFullName() const;
+		std::vector<int> getTime() const;
 		PlayerMatchInfo myMatchInfo;
 
 	private:

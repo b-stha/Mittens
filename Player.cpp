@@ -45,3 +45,10 @@ std::vector<std::string> Player::getFullName() const {
 	std::vector<std::string> nameVec{ userName, tagLine };
 	return nameVec;
 }
+
+std::vector<int> Player::getTime() const {
+	int min = static_cast<int>(gameLenMin);
+	int sec = static_cast<int>(gameLenSec);
+	std::vector<int> timeVec{ min, sec };
+	return timeVec;
+}
