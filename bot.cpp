@@ -20,16 +20,15 @@ dpp::embed createResult(const Player& player) {
 		)
 		.add_field(
 			"Units",
-			"<:tft11_bard:1250562448340156466>\n"
-			"Bard\n"
+			"<:tft11_bard:1250562448340156466> Bard    \n"
 			":star::star:",
 			true
 		)
 		.add_field(
 			"Items",
-			"<:guinsoos_rageblade:1250590494786846771> Guinsoo's Rageblade\n"
-			"<:infinity_edge:1250682671357497454> Infinity Edge"
-			"<:death_blade:1250682711224614994> Deathblade",
+			"<:guinsoos_rageblade:1250590494786846771> "
+			"<:infinity_edge:1250682671357497454> "
+			"<:death_blade:1250682711224614994>",
 			true
 		);
 
