@@ -40,3 +40,8 @@ std::string Player::getTTUrl() const {
 std::string Player::getCurrMatch() const {
 	return currMatchID;
 };
+
+std::vector<std::string> Player::getFullName() const {
+	std::vector<std::string> nameVec{ userName, tagLine };
+	return nameVec;
+}

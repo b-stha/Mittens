@@ -47,11 +47,12 @@ class Player {
 		std::string getTTUrl() const;
 		std::string getCurrMatch() const;
 		std::string getPUUID() const;
-
+		std::vector<std::string> getFullName() const;
 		PlayerMatchInfo myMatchInfo;
+
 	private:
-		double gameLenMin;
-		double gameLenSec;
+		double gameLenMin = 0;
+		double gameLenSec = 0;
 		std::string puuid;
 		std::string prevMatchID = "";
 		std::string currMatchID = "";

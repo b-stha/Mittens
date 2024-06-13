@@ -7,7 +7,7 @@ using json = nlohmann::json;
 
 const std::string BOT_TOKEN = "MTI0ODg2NzYwMDQ0MDc1ODM2NQ.Gm3k1c.mUTjgUzPVocwDVTknVzNHDF15MUy2RaD3nwpwU";
 const std::string MY_GUILD_ID = "1249287556638445658";
-const std::string TFT_APIKEY = "RGAPI-8bbbf5e9-3279-4f41-84a2-5805ce091d35";
+const std::string TFT_APIKEY = "RGAPI-2a3e681d-e5a3-411b-aca2-6946243dd526";
 const std::string puuid = "0mIwh5itpbxbDmP7-cON6UG1mx-n518iW2ynO3U9r2s3GGv4h99GAEgwh_f-llq595guEmcS133FTQ";
 
 int main() {
