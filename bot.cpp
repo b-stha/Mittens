@@ -19,9 +19,19 @@ dpp::embed createResult(const Player& player) {
 			"<:pandora3:1250661046910455858> Pandora's Box III"
 		)
 		.add_field(
-			"Champions",
-			""
+			"Units",
+			"<:tft11_bard:1250562448340156466>\n"
+			"Bard\n"
+			":star::star:",
+			true
+		)
+		.add_field(
+			"Items",
+			"<:guinsoos_rageblade:1250590494786846771> Guinsoo's Rageblade\n"
+			"<:infinity_edge:1250682671357497454> Infinity Edge"
+			"<:death_blade:1250682711224614994> Deathblade",
+			true
 		);
 
-	return 
+	return outEmbed;
 };
