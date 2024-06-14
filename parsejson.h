@@ -5,6 +5,7 @@
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 #include <stdexcept>
+#include <algorithm>
 
 using json = nlohmann::json;
 

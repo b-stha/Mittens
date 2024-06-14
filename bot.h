@@ -6,9 +6,9 @@
 #include "data.h"
 
 std::string operator * (std::string a, unsigned int b);
-std::string itemListStr(const Player& player);
+std::string itemListStr(const Unit& unit);
 std::string starCount(const int& tier);
-std::string unitListStr(const Player& player);
+void unitListStr(const Player& player, dpp::embed& embedObj);
 dpp::embed createResult(const Player& player);
 
 #endif

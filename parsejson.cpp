@@ -22,6 +22,7 @@ void from_json(const json& j, PlayerMatchInfo& p)
     j.at("augments").get_to(p.augments);
     j.at("traits").get_to(p.traits);
     j.at("units").get_to(p.units);
+    std::reverse(p.units.begin(), p.units.end());
     j.at("gold_left").get_to(p.goldLeft);
     j.at("level").get_to(p.level);
     j.at("placement").get_to(p.placement);

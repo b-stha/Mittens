@@ -8,21 +8,32 @@ std::string operator * (std::string a, unsigned int b) {
 	return output;
 }
 
-std::string itemListStr(const Player& player) {
+
+std::string itemListStr(const Unit& unit) {
 	std::string itemListOutput = "";
-	for (const auto& unit : player.myMatchInfo.units) {
-		if (unit.items.empty()) {
-			itemListOutput += "\n";
+	std::string emptyItem = "<:transparent:1250910469330567292> ";
+	if (unit.items.empty()) {
+		itemListOutput += (emptyItem * 3);
+	}
+	else {
+		for (const auto& item : unit.items) {
+			itemListOutput += itemData.at(item) + " ";
 		}
-		else {
-			for (const auto& item : unit.items) {
-				itemListOutput += itemData.at(item) + " ";
-			}
-			itemListOutput += "\n";
-		}
-		itemListOutput += "\n";
 	}
 	return itemListOutput;
+}
+
+std::string augListStr(const Player& player) {
+	std::string augListOutput = "";
+
+	if (player.myMatchInfo.augments.empty()) {
+		return "None";
+	}
+
+	for (const auto& augment : player.myMatchInfo.augments) {
+		augListOutput += "\n";
+	}
+	return augListOutput;
 }
 
 std::string starCount(const int& tier) {
@@ -30,42 +41,41 @@ std::string starCount(const int& tier) {
 	return (star * tier);
 };
 
-std::string unitListStr(const Player& player) {
-	std::string unitListOutput = "";
+void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {
-		unitListOutput += unitData.at(unit.characterID)[1] + unitData.at(unit.characterID)[0] + "    \n";
-		unitListOutput += starCount(unit.tier) + "\n\n";
+		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitData.at(unit.characterID)[0];
+		std::string unitItems = itemListStr(unit);
+		embedObj.add_field(
+			"", 
+			starCount(unit.tier) + "\n" + 
+			unitIconName + "\n" +
+			unitItems,
+			true);
 	};
-	return unitListOutput;
 };
 
 dpp::embed createResult(const Player& player) {
 	std::string matchResultURL = player.getTTUrl() + "/" + player.getCurrMatch();
 	std::string nameStr = player.getFullName()[0] + "#" + player.getFullName()[1];
-	std::string unitList = unitListStr(player);
-	std::string itemList = itemListStr(player);
+	std::string augmentList = augListStr(player);
 	dpp::embed outEmbed = dpp::embed()
-	.set_color(dpp::colors::sti_blue)
-	.set_title("Match result")
-	.set_url(matchResultURL)
-	.set_author(nameStr, player.getTTUrl(), "https://raw.communitydragon.org/pbe/game/assets/ux/tft/outofgame/battlepass/rewards/tactician_serenitysprite_tft_set11b.png")
-	.set_description("Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]))
-	.add_field(
-		"Augments",
-		"<:epoch:1250660808342634546> Epoch\n"
-		"<:crest_storyweaver:1250660995844669551> Storyweaver Crest \n"
-		"<:pandora3:1250661046910455858> Pandora's Box III"
-	)
-	.add_field(
-		"Units",
-		unitList,
-		true
-	)
-	.add_field(
-		"Items",
-		itemList,
-		true
-	);
+		.set_color(dpp::colors::sti_blue)
+		.set_title("Match result")
+		.set_url(matchResultURL)
+		.set_thumbnail("https://raw.communitydragon.org/pbe/game/assets/ux/tft/outofgame/battlepass/rewards/tactician_serenitysprite_tft_set11b.png")
+		.set_description("Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]))
+		.add_field(
+			"Augments",
+			"<:epoch:1250660808342634546> Epoch\n"
+			"<:crest_storyweaver:1250660995844669551> Storyweaver Crest \n"
+			"<:pandora3:1250661046910455858> Pandora's Box III"
+		)
+		.add_field(
+			"Units",
+			"",
+			false
+		);
+	unitListStr(player, outEmbed);
 
 	return outEmbed;
 };
