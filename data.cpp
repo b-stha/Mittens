@@ -96,34 +96,34 @@ std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_ArchangelsStaff", "<:archangel_staff:1250590469784731720>"},
 	{"TFT_Item_GargoyleStoneplate", "<:gargoyle_stoneplate:1250590490718638100>"},
 	{"TFT_Item_Redemption", "<:redemption:1250718297301717035>"},
-	{"TFT_Item_IonicSpark", ""},
-	{"TFT_Item_SteraksGage", ""},
-	{"TFT_Item_DragonsClaw", ""},
-	{"TFT_Item_BrambleVest", ""},
-	{"TFT_Item_SpearOfShojin", ""},
-	{"TFT_Item_Bloodthirster", ""},
-	{"TFT_Item_HextechGunblade", ""},
-	{"TFT_Item_Morellonomicon", ""},
-	{"TFT_Item_TitansResolve", ""},
-	{"TFT_Item_RunaansHurricane", ""},
-	{"TFT_Item_Crownguard", ""},
-	{"TFT_Item_AdaptiveHelm", ""},
-	{"TFT_Item_BlueBuff", ""},
-	{"TFT_Item_LastWhisper", ""},
-	{"TFT_Item_JeweledGauntlet", ""},
-	{"TFT_Item_Quicksilver", ""},
-	{"TFT_Item_WarmogsArmor", ""},
-	{"TFT_Item_StatikkShiv", ""},
-	{"TFT_Item_GuardianAngel", ""},
-	{"TFT_Item_NightHarvester", ""}, //Steadfast
-	{"TFT_Item_SpectralGauntlet", ""}, //Evenshroud
-	{"TFT_Item_Leviathan", ""}, //Nashor's Tooth
-	{"TFT_Item_UnstableConcoction", ""}, //Hand of Justice
-	{"TFT_Item_PowerGauntlet", ""}, //Guardbreaker
-	{"TFT_Item_RabadonsDeathcap", ""},
-	{"TFT_Item_MadredsBloodrazor", ""}, //Giant Slayer
-	{"TFT_Item_FrozenHeart", ""}, //Protector's Vow
-	{"TFT_Item_RedBuff", ""}, //Sunfire Cape
+	{"TFT_Item_IonicSpark", "<:ionic_spark:1250590500461740125>"},
+	{"TFT_Item_SteraksGage", "<:steraks_gage:1251321610842144809>"},
+	{"TFT_Item_DragonsClaw", "<:dragons_claw:1250590484527710218>"},
+	{"TFT_Item_BrambleVest", "<:bramble_vest:1250590474859712624>"},
+	{"TFT_Item_SpearOfShojin", "<:spear_of_shojin:1251321487428817008>"},
+	{"TFT_Item_Bloodthirster", "<:bloodthirster:1250590472754298970>"},
+	{"TFT_Item_HextechGunblade", "<:hextech_gunblade:1250590497374867518>"},
+	{"TFT_Item_Morellonomicon", "<:morellonomicon:1251321477270081568>"},
+	{"TFT_Item_TitansResolve", "<:titans_resolve:1251321495049732168>"},
+	{"TFT_Item_RunaansHurricane", "<:runaans_hurricane:1250590521999753276>"},
+	{"TFT_Item_Crownguard", "<:crownguard:1250590481285648395>"},
+	{"TFT_Item_AdaptiveHelm", "<:adaptive_helm:1250590468643750028>"},
+	{"TFT_Item_BlueBuff", "<:blue_buff:1250590473828175983>"},
+	{"TFT_Item_LastWhisper", "<:last_whisper:1250590503947341905>"},
+	{"TFT_Item_JeweledGauntlet", "<:jeweled_guantlet:1251321475772977294>"},
+	{"TFT_Item_Quicksilver", "<:quicksilver:1251321480537571348>"},
+	{"TFT_Item_WarmogsArmor", "<:warmogs_armor:1250590543017152543>"},
+	{"TFT_Item_StatikkShiv", "<:statikk_shiv:1250590528559386674>"},
+	{"TFT_Item_GuardianAngel", "<:edge_of_night:1251321469636444180>"}, //Edge of Night
+	{"TFT_Item_NightHarvester", "<:behemoth:1250590470690574379>"}, //Steadfast
+	{"TFT_Item_SpectralGauntlet", "<:evenshroud:1250590487325184051>"}, //Evenshroud
+	{"TFT_Item_Leviathan", "<:nashors_tooth:1250590507567157352>"}, //Nashor's Tooth
+	{"TFT_Item_UnstableConcoction", "<:stridebreaker:1250590532397301830>"}, //Hand of Justice
+	{"TFT_Item_PowerGauntlet", "<:stridebreaker:1250590532397301830>"}, //Guardbreaker
+	{"TFT_Item_RabadonsDeathcap", "<:rabadons_deathcap:1250590514617778318>"},
+	{"TFT_Item_MadredsBloodrazor", "<:giant_slayer:1251321472350158868>"}, //Giant Slayer
+	{"TFT_Item_FrozenHeart", "<:winters_approach:1251321613098553415>"}, //Protector's Vow
+	{"TFT_Item_RedBuff", "<:sunfire_cape:1251321491543425116>"}, //Sunfire Cape
 
 	//Spatula Items
 	{"TFT_Item_ForceOfNature", ""},
