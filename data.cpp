@@ -152,42 +152,42 @@ std::unordered_map<std::string, std::string> itemData = {
 	{"TFT11_Item_BruiserEmblemItem", "<:tft_set11_emblem_bruiser:1251322167388536924>"},
 
 	//Radiant Items
-	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1250718016841191566>"},
-	{"TFT5_Item_DragonsClawRadiant", ""},
-	{"TFT5_Item_IonicSparkRadiant", ""},
-	{"TFT5_Item_QuicksilverRadiant", ""},
-	{"TFT5_Item_HextechGunbladeRadiant", ""},
-	{"TFT5_Item_StatikkShivRadian", ""},
-	{"TFT5_Item_FrozenHeartRadiant", ""}, //Radiant Protector's Vow
-	{"TFT5_Item_BlueBuffRadiant", ""},
-	{"TFT5_Item_ArchangelsStaffRadiant", ""},
-	{"TFT5_Item_MorellonomiconRadiant", ""},
-	{"TFT5_Item_BrambleVestRadiant", ""},
-	{"TFT5_Item_RunaansHurricaneRadiant", ""},
-	{"TFT5_Item_GuinsoosRagebladeRadiant", ""},
-	{"TFT5_Item_HandOfJusticeRadiant", ""},
-	{"TFT5_Item_SunfireCapeRadiant", ""},
-	{"TFT5_Item_LastWhisperRadiant", ""},
-	{"TFT5_Item_ThiefsGlovesRadiant", ""},
-	{"TFT5_Item_SteraksGageRadiant", ""},
-	{"TFT5_Item_RedemptionRadiant", ""},
-	{"TFT5_Item_GuardianAngelRadiant", ""},
-	{"TFT5_Item_RapidFirecannonRadiant", ""}, //Radiant Red Buff
-	{"TFT5_Item_NightHarvesterRadiant", ""}, //Radiant Steadfast
-	{"TFT5_Item_TitansResolveRadiant", ""},
-	{"TFT5_Item_GiantSlayerRadiant", ""},
-	{"TFT5_Item_CrownguardRadiant", ""},
-	{"TFT5_Item_BloodthirsterRadiant", ""},
-	{"TFT5_Item_RabadonsDeathcapRadiant", ""},
-	{"TFT5_Item_JeweledGauntletRadiant", ""},
-	{"TFT5_Item_GargoyleStoneplateRadiant", ""},
-	{"TFT5_Item_LeviathanRadiant", ""}, //Radiant Nashor's Tooth
-	{"TFT5_Item_SpearOfShojinRadiant", ""},
-	{"TFT5_Item_InfinityEdgeRadiant", ""},
-	{"TFT5_Item_AdaptiveHelmRadiant", ""},
-	{"TFT5_Item_DeathbladeRadiant", ""},
-	{"TFT5_Item_SpectralGauntletRadiant", ""}, //Radiant Evenshroud
-	{"TFT5_Item_TrapClawRadiant", ""}, //Radiant Guardbreaker
+	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1251370799835910164>"},
+	{"TFT5_Item_DragonsClawRadiant", "<:dragons_claw_radiant:1251322462763876434>"},
+	{"TFT5_Item_IonicSparkRadiant", "<:ionic_spark_radiant:1251322632859553913>"},
+	{"TFT5_Item_QuicksilverRadiant", "<:quicksilver_radiant:1251322759473139752>"},
+	{"TFT5_Item_HextechGunbladeRadiant", "<:hextech_gunblade_radiant:1251322509849006100>"},
+	{"TFT5_Item_StatikkShivRadian", "<:statikk_shiv_radiant:1251322800115941426>"},
+	{"TFT5_Item_FrozenHeartRadiant", "<:fimbulwinter_radiant:1251322466098352188>"}, //Radiant Protector's Vow
+	{"TFT5_Item_BlueBuffRadiant", "<:blue_buff_radiant:1251322432867012669>"},
+	{"TFT5_Item_ArchangelsStaffRadiant", "<:archangel_staff_radiant:1251322429125558353>"},
+	{"TFT5_Item_MorellonomiconRadiant", "<:morellonomicon_radiant:1251322638593294346>"},
+	{"TFT5_Item_BrambleVestRadiant", "<:bramble_vest_radiant:1251322433793949717>"},
+	{"TFT5_Item_RunaansHurricaneRadiant", "<:runaans_hurricane_radiant:1251322764519014570>"},
+	{"TFT5_Item_GuinsoosRagebladeRadiant", "<:guinsoos_rageblade_radiant:1251322469181292565>"},
+	{"TFT5_Item_HandOfJusticeRadiant", "<:hand_of_justice_radiant:1251322508393713874>"},
+	{"TFT5_Item_SunfireCapeRadiant", "<:sunfire_cape_radiant:1251322808844161105>"},
+	{"TFT5_Item_LastWhisperRadiant", "<:last_whisper_radiant:1251322635674058772>"},
+	{"TFT5_Item_ThiefsGlovesRadiant", "<:thieves_gloves_radiant:1251322809918029824>"},
+	{"TFT5_Item_SteraksGageRadiant", "<:steraks_gage_radiant:1251322801357328405>"},
+	{"TFT5_Item_RedemptionRadiant", "<:redemption_radiant:1251322763231105096>"},
+	{"TFT5_Item_GuardianAngelRadiant", "<:edge_of_night_radiant:1251322463787417601>"}, //Radiant Edge of Night
+	{"TFT5_Item_RapidFirecannonRadiant", "<:redbuff_radiant:1251322761515634779>"}, //Radiant Red Buff
+	{"TFT5_Item_NightHarvesterRadiant", "<:behemoth_radiant:1251322430618865675>"}, //Radiant Steadfast
+	{"TFT5_Item_TitansResolveRadiant", "<:titans_resolve_radiant:1251322811222327296>"},
+	{"TFT5_Item_GiantSlayerRadiant", "<:giant_slayer_radiant:1251322468136783934>"},
+	{"TFT5_Item_CrownguardRadiant", "<:crownguard_radiant:1251322436801003571>"},
+	{"TFT5_Item_BloodthirsterRadiant", "<:bloodthirster_radiant:1251322431881216031>"},
+	{"TFT5_Item_RabadonsDeathcapRadiant", "<:rabadons_deathcap_radiant:1251322760127582341>"},
+	{"TFT5_Item_JeweledGauntletRadiant", "<:jeweled_gauntlet_radiant:1251322633996210226>"},
+	{"TFT5_Item_GargoyleStoneplateRadiant", "<:gargoyle_stoneplate_radiant:1251322467042197525>"},
+	{"TFT5_Item_LeviathanRadiant", "<:nashors_tooth_radiant:1251322758223368213>"}, //Radiant Nashor's Tooth
+	{"TFT5_Item_SpearOfShojinRadiant", "<:spear_of_shojin_radiant:1251322766645395477>"},
+	{"TFT5_Item_InfinityEdgeRadiant", "<:infinity_edge_radiant:1251322631639273542>"},
+	{"TFT5_Item_AdaptiveHelmRadiant", "<:adaptive_helm_radiant:1251322428131508375>"},
+	{"TFT5_Item_DeathbladeRadiant", "<:death_blade_radiant:1251322461128097875>"},
+	{"TFT5_Item_SpectralGauntletRadiant", "<:evenshroud_radiant:1251322464492064769>"}, //Radiant Evenshroud
+	{"TFT5_Item_TrapClawRadiant", "<:stridebreakerradiant:1251322807690989598>"}, //Radiant Guardbreaker
 
 	//Ornn Artifacts
 	{"TFT4_Item_OrnnMuramana", ""},
