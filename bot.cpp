@@ -1,28 +1,5 @@
 #include "bot.h"
 
-std::string operator * (std::string a, unsigned int b) {
-	std::string output = "";
-	while (b--) {
-		output += a;
-	}
-	return output;
-}
-
-
-std::string itemListStr(const Unit& unit) {
-	std::string itemListOutput = "";
-	std::string emptyItem = "<:transparent:1250910469330567292> ";
-	if (unit.items.empty()) {
-		itemListOutput += (emptyItem * 3);
-	}
-	else {
-		for (const auto& item : unit.items) {
-			itemListOutput += itemData.at(item) + " ";
-		}
-	}
-	return itemListOutput;
-}
-
 std::string augListStr(const Player& player) {
 	std::string augListOutput = "";
 
@@ -36,22 +13,19 @@ std::string augListStr(const Player& player) {
 	return augListOutput;
 }
 
-std::string starCount(const int& tier) {
-	std::string star = ":star:";
-	return (star * tier);
-};
 
 void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {
 		std::string unitName = unitData.at(unit.characterID)[0];
-
-		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + setStrWidth(unitName, 9);
+		unitName = setStrWidth(unitName, 9);
+		std::cout << "\"" + unitName + "\"";
+		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
 		std::string unitItems = itemListStr(unit);
 		embedObj.add_field(
 			"", 
 			starCount(unit.tier) + "\n" + 
 			unitIconName + "\n" +
-			unitItems,
+			unitItems + "\n",
 			true);
 	};
 };
@@ -85,10 +59,3 @@ dpp::embed createResult(const Player& player) {
 
 	return outEmbed;
 };
-
-std::string setStrWidth(const std::string& str, int len)
-{
-	std::stringstream output;
-	output << std::setw(len) << str;
-	return output.str();
-}

@@ -1,0 +1,6 @@
+- Include /add command
+- Link puuid and user that send message
+- Include trait synergy display
+- Link correct player match history and avatar
+- Spacing issues
+- /matchresult command

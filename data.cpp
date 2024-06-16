@@ -55,7 +55,7 @@ std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"TFT11_Tristana", {"Tristana","<:tft11_tristana:1250696339113771008>"}},
 	{"TFT11_Udyr", {"Udyr","<:tft11_udyr:1250696340393164820>"}},
 	{"TFT11_Volibear", {"Volibear","<:tft11_volibear:1250696342146256936>"}},
-	{"TFT11_WuKong", {"WuKong","<:tft11_wukong:1250696343241101374>"}},
+	{"TFT11_WuKong", {"Wukong","<:tft11_wukong:1250696343241101374>"}},
 	{"TFT11_Xayah", {"Xayah","<:tft11_xayah:1250696344591663185>"}},
 	{"TFT11_Yasuo", {"Yasuo","<:tft11_yasuo:1250696345845628988>"}},
 	{"TFT11_Yone", {"Yone","<:tft11_yone:1250696347019903016>"}},
