@@ -247,7 +247,7 @@ std::unordered_map<std::string, std::string> itemData = {
 };
 
 std::unordered_map<std::string, std::vector<std::string>> augmentData = {
-	{"TFT11_Augment_GoldenRemover", {"The Golden Remover",""}},
+	{"TFT11_Augment_GoldenRemover", {"The Golden Remover","<:goldenremover_i:1251762777358336021>"}},
 	{"TFT9_Augment_ACutAbove", {"A Cut Above","<:acutaboveii:1251323389357064192>"}},
 	{"TFT11_Augment_Accomplice", {"Accomplice","<:accomplice_iii:1251323388295778334>"}},
 	{"TFT11_Augment_AltruistCrest", {"Altruist Crest","<:crest_altruist_ii:1251324996635201608>"}},
