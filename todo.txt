@@ -4,4 +4,4 @@
 - Link correct player match history and avatar *
 - Spacing issues *
 - /matchresult command *
-- store ids in file
+- store ids in file *
