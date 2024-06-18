@@ -15,12 +15,14 @@ const std::string puuid = "0mIwh5itpbxbDmP7-cON6UG1mx-n518iW2ynO3U9r2s3GGv4h99GA
 const dpp::snowflake CHANNEL_ID = 1251792647157317673;
 
 std::atomic <bool> running = false;
+std::vector<std::unique_ptr<Player>> userVec;
 
 void stop() {
     running = false;
 }
 
 int main() {
+    std::vector<std::unique_ptr<Player>> userVec;
     //TODO: include transparent and replace newlines with transparents
 
     dpp::cluster bot(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content);
@@ -36,28 +38,6 @@ int main() {
     bot.on_ready([&bot](const dpp::ready_t& event){
         if (dpp::run_once<struct register_bot_commands>()) {
             bot.global_command_create(dpp::slashcommand("ping", "Ping pong!", bot.me.id));
-        }
-    });
-    
-    Player me(puuid);
-
-    std::string matchID = fetchMatchID(me, TFT_APIKEY);
-    std::cout << matchID << std::endl;
-    Info info = fetchInfo(matchID, TFT_APIKEY);
-
-    me.setMatchInfo(info);
-
-    Unit item1 = me.myMatchInfo.units[0];
-
-    bot.on_slashcommand([&bot, &me](const dpp::slashcommand_t& addUserID) {
-        dpp::command_interaction cmd_data = addUserID.command.get_command_interaction();
-
-        if (addUserID.command.get_command_name() == "add") {
-
-            dpp::embed output = createResult(me);
-            dpp::message msg(addUserID.command.channel_id, output);
-
-            addUserID.reply(msg);
         }
     });
 
@@ -76,17 +56,29 @@ int main() {
             });
     });
 
-    bot.on_interaction_create([&bot](const dpp::interaction_create_t& event) {
+    bot.on_interaction_create([&bot, &userVec](const dpp::interaction_create_t& event) {
         if (event.command.type == dpp::it_application_command) {
             dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 
             if (cmd_data.name == "add") {
                 std::string userInput = cmd_data.options[0].name;
                 std::vector<std::string> userInputArr = split(userInput, '#');
+                bool puuidFetchSuccess = false;
 
+                try {
+                    std::string puuid = fetchPUUID(userInputArr[0], userInputArr[1], TFT_APIKEY);
+                    puuidFetchSuccess = true;
+                }
+                catch (const std::exception& e) {
+                    std::cout << e.what() << std::endl;
+                }
+
+                if (puuidFetchSuccess) {
+                    userVec.push_back(std::make_unique<Player>(puuid));
+                }
             }
         }
-    }
+    });
 
 
     bot.start(dpp::st_return);
