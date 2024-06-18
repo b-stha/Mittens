@@ -52,3 +52,5 @@ json parseJSON(cpr::Response r) {
         throw std::runtime_error(std::string("Error: ") + e.what());
     }
 }
+
+Player 

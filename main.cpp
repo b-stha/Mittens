@@ -81,6 +81,8 @@ int main() {
             dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 
             if (cmd_data.name == "add") {
+                std::string userInput = cmd_data.options[0].name;
+                std::vector<std::string> userInputArr = split(userInput, '#');
 
             }
         }

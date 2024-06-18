@@ -34,3 +34,7 @@ void setName(Player& player, const std::string apiKey) {
 	}
 }
 
+std::string fetchPUUID(const std::string& name, const std::string& tag, const std::string& apiKey) {
+	std::string url = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + name + "/tag" + tag + "?api_key=" + apiKey;
+		
+}
