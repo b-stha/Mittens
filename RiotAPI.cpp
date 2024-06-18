@@ -35,12 +35,12 @@ void setName(Player& player, const std::string apiKey) {
 }
 
 std::string fetchPUUID(const std::string& name, const std::string& tag, const std::string& apiKey) {
-	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + name + "/tag" + tag + "?api_key=" + apiKey;
+	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + name + "/" + tag + "?api_key=" + apiKey;
 	cpr::Response idR = cpr::Get(cpr::Url{ idURL });
 	json idJSON = parseJSON(idR);
 
-	if (idJSON.is_array() && !idJSON.empty()) {
-		return idJSON[0].get<std::string>();
+	if (!idJSON.empty()) {
+		return idJSON["puuid"].get<std::string>();
 	}
 	else {
 		throw std::runtime_error("Error finding player...");

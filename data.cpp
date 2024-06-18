@@ -127,7 +127,7 @@ std::unordered_map<std::string, std::string> itemData = {
 
 	//Spatula Items
 	{"TFT_Item_ForceOfNature", "<:tacticians_crown:1250590535593492520>"},
-	{"TFT11_Item_StoryweaverEmblemItem", "<:tft11_crest_storyweaver:1250716328403402753>"},
+	{"TFT11_Item_StoryweaverEmblemItem", "<:tft_set11_emblem_skyweaver:1251322233557745664>"},
 	{"TFT11_Item_PorcelainEmblemItem", "<:tft_set11_emblem_porcelain:1251322197499314257>"},
 	{"TFT11_Item_GhostlyEmblemItem", "<:tft_set11_emblem_ghostly:1251322191740666017>"},
 	{"TFT11_Item_DryadEmblemItem", "<:tft_set11_emblem_dryad:1251322169322111048>"},

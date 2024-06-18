@@ -10,7 +10,7 @@ using json = nlohmann::json;
 
 const std::string BOT_TOKEN = "MTI0ODg2NzYwMDQ0MDc1ODM2NQ.Gm3k1c.mUTjgUzPVocwDVTknVzNHDF15MUy2RaD3nwpwU";
 const std::string MY_GUILD_ID = "1249287556638445658";
-const std::string TFT_APIKEY = "RGAPI-7b485cc9-db88-486b-bae3-6a784f6fc3e6";
+const std::string TFT_APIKEY = "RGAPI-bd4517dc-cef1-4754-b49d-7c91fb93f586";
 const std::string puuid = "0mIwh5itpbxbDmP7-cON6UG1mx-n518iW2ynO3U9r2s3GGv4h99GAEgwh_f-llq595guEmcS133FTQ";
 const dpp::snowflake CHANNEL_ID = 1251792647157317673;
 
@@ -36,13 +36,11 @@ int main() {
         }
     });
 
-    bot.on_ready([&bot](const dpp::ready_t& event){
+    bot.on_ready([&bot](const dpp::ready_t& event) {
         if (dpp::run_once<struct register_bot_commands>()) {
             bot.global_command_create(dpp::slashcommand("ping", "Ping pong!", bot.me.id));
         }
-    });
 
-    bot.on_ready([&bot](const dpp::ready_t& event) {
         dpp::slashcommand add;
         add.set_name("add");
         add.set_description("Format as name#tagline.");
@@ -62,12 +60,15 @@ int main() {
             dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 
             if (cmd_data.name == "add") {
-                std::string userInput = cmd_data.options[0].name;
+                std::string userInput = std::get<std::string>(cmd_data.options[0].value);
                 std::vector<std::string> userInputArr = split(userInput, '#');
+                std::cout << userInput << std::endl;
+                std::string puuid;
+
                 bool puuidFetchSuccess = false;
 
                 try {
-                    std::string puuid = fetchPUUID(userInputArr[0], userInputArr[1], TFT_APIKEY);
+                    puuid = fetchPUUID(userInputArr[0], userInputArr[1], TFT_APIKEY);
                     puuidFetchSuccess = true;
                 }
                 catch (const std::exception& e) {
@@ -104,7 +105,7 @@ int main() {
                         dpp::embed embOutput = createResult(*user);
 
                         dpp::message msg(CHANNEL_ID, embOutput);
-                        dpp::message_create_t(msg);
+                        bot.message_create(msg);
                     }
                 }
             }

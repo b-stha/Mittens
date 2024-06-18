@@ -18,7 +18,7 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {
 		std::string unitName = unitData.at(unit.characterID)[0];
 		unitName = setStrWidth(unitName, 9);
-		std::cout << "\"" + unitName + "\"";
+
 		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
 		std::string unitItems = itemListStr(unit);
 		embedObj.add_field(
