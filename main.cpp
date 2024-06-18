@@ -4,6 +4,7 @@
 #include "bot.h"
 #include <dpp/dpp.h>
 #include <atomic>
+#include "helpers.h"
 
 using json = nlohmann::json;
 
@@ -52,20 +53,39 @@ int main() {
         dpp::command_interaction cmd_data = addUserID.command.get_command_interaction();
 
         if (addUserID.command.get_command_name() == "add") {
-            auto subcommand = cmd_data.options[0]
 
             dpp::embed output = createResult(me);
-            dpp::message msg(event.command.channel_id, output);
+            dpp::message msg(addUserID.command.channel_id, output);
 
-            event.reply(msg);
+            addUserID.reply(msg);
         }
     });
 
     bot.on_ready([&bot](const dpp::ready_t& event) {
-        if (dpp::run_once<struct register_bot_commands>()) {
-            bot.global_command_create(dpp::slashcommand("embed", "Send a test embed!", bot.me.id));
+        dpp::slashcommand add;
+        add.set_name("add");
+        add.set_description("Format as name#tagline.");
+        add.add_option(
+            dpp::command_option(dpp::co_string, "username", "name#tag", true)
+        );
+
+        bot.global_command_create(add, [&](const dpp::confirmation_callback_t& callback) {
+                if (callback.is_error()) {
+                    std::cout << callback.http_info.body << "\n";
+                }
+            });
+    });
+
+    bot.on_interaction_create([&bot](const dpp::interaction_create_t& event) {
+        if (event.command.type == dpp::it_application_command) {
+            dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
+
+            if (cmd_data.name == "add") {
+
+            }
         }
-        });
+    }
+
 
     bot.start(dpp::st_return);
 

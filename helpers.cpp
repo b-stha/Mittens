@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include <sstream>
 
 std::string operator * (std::string a, unsigned int b) {
 	std::string output = "";
@@ -34,4 +35,16 @@ std::string itemListStr(const Unit& unit) {
 		}
 	}
 	return itemListOutput;
+}
+
+std::vector<std::string> split(const std::string& s, char delim) {
+	std::vector<std::string> result;
+	std::stringstream ss(s);
+	std::string item;
+
+	while (getline(ss, item, delim)) {
+		result.push_back(item);
+	}
+
+	return result;
 }

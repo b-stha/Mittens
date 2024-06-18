@@ -141,6 +141,7 @@
     <ClCompile Include="RiotAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ids.json" />
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
