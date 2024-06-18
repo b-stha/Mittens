@@ -23,6 +23,7 @@ void stop() {
 
 int main() {
     std::vector<std::unique_ptr<Player>> userVec;
+
     //TODO: include transparent and replace newlines with transparents
 
     dpp::cluster bot(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content);
@@ -80,7 +81,6 @@ int main() {
         }
     });
 
-
     bot.start(dpp::st_return);
 
     signal(SIGINT, [](int code) {
@@ -91,20 +91,23 @@ int main() {
 
     try {
         while (running) {
+            if (!userVec.empty()) {
+                for (auto& user : userVec)
+                {
+                    std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
+                    if (user->getCurrMatch() != checkMatch) {
+                        user->setprevMatch(user->getCurrMatch());
+                        user->setCurrMatch(checkMatch);
+                        Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
 
-            std::string checkMatch = fetchMatchID(me, TFT_APIKEY);
-            if (me.getCurrMatch() != checkMatch) {
-                me.setprevMatch(me.getCurrMatch());
-                me.setCurrMatch(checkMatch);
-                Info updatedInfo = fetchInfo(me.getCurrMatch(), TFT_APIKEY);
+                        user->setMatchInfo(updatedInfo);
+                        dpp::embed embOutput = createResult(*user);
 
-                me.setMatchInfo(updatedInfo);
-                dpp::embed embOutput = createResult(me);
-
-                dpp::message msg(CHANNEL_ID, embOutput);
-                dpp::message_create_t(msg);
+                        dpp::message msg(CHANNEL_ID, embOutput);
+                        dpp::message_create_t(msg);
+                    }
+                }
             }
-
             std::this_thread::sleep_for(std::chrono::seconds(30));
         };
     }
