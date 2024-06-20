@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <sstream>
+#include <algorithm>
 
 std::string operator * (std::string a, unsigned int b) {
 	std::string output = "";
@@ -47,4 +48,11 @@ std::vector<std::string> split(const std::string& s, char delim) {
 	}
 
 	return result;
+}
+
+bool playerExists(const std::vector<std::unique_ptr<Player>>& players, const std::string& puuid) {
+	return std::none_of(players.begin(), players.end(),
+		[&puuid](const std::unique_ptr<Player>& player) {
+			return player->getPUUID() == puuid;
+		});
 }

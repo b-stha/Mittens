@@ -2,9 +2,10 @@
 #include "RiotAPI.h"
 #include "parsejson.h"
 #include "bot.h"
+#include "helpers.h"
 #include <dpp/dpp.h>
 #include <atomic>
-#include "helpers.h"
+#include <memory>
 
 using json = nlohmann::json;
 
@@ -70,8 +71,11 @@ int main() {
                     std::cout << e.what() << std::endl;
                 }
 
-                if (puuidFetchSuccess) {
+                if (puuidFetchSuccess && playerExists(userVec, puuid)) {
                     userVec.push_back(std::make_unique<Player>(puuid));
+                }
+                else {
+                    std::cout << "Player already exists." << std::endl;
                 }
             }
         }
