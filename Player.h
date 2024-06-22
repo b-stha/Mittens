@@ -5,6 +5,8 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <dpp/dpp.h>
+#include "helpers.h"
 
 struct Trait {
 	std::string name;
@@ -29,6 +31,7 @@ struct PlayerMatchInfo {
 	int level = 0;
 	int placement = 0;
 	std::string puuid;
+	int boardValue;
 };
 
 struct Info {
@@ -49,9 +52,12 @@ class Player {
 		std::string getPUUID() const;
 		std::vector<std::string> getFullName() const;
 		std::vector<int> getTime() const;
-		PlayerMatchInfo myMatchInfo;
+		void setSnowflake(dpp::snowflake inputSnowflake);
+		dpp::snowflake getSnowflake();
 
+		PlayerMatchInfo myMatchInfo;
 	private:
+		dpp::snowflake mySnowflake;
 		double gameLenMin = 0;
 		double gameLenSec = 0;
 		std::string puuid;

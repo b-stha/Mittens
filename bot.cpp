@@ -43,7 +43,8 @@ dpp::embed createResult(const Player& player) {
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"
 			"Placement: " + std::to_string(player.myMatchInfo.placement) + "\n"
-			"Gold Left: " + std::to_string(player.myMatchInfo.goldLeft)
+			"Gold Left: " + std::to_string(player.myMatchInfo.goldLeft) + "\n"
+			"Board Value: " + std::to_string(player.myMatchInfo.boardValue)
 		)
 		.add_field(
 			"Augments",

@@ -56,3 +56,29 @@ bool playerExists(const std::vector<std::unique_ptr<Player>>& players, const std
 			return player->getPUUID() == puuid;
 		});
 }
+
+int calcBoardValue(PlayerMatchInfo matchInfo) {
+	int boardValue = 0;
+	for (auto unit : matchInfo.units) {
+		int unitCount = 3 * unit.tier;
+		switch (unit.rarity)
+		{
+		case 0:
+			boardValue += 1 * unitCount;
+			break;
+		case 1:
+			boardValue += 2 * unitCount;
+			break;
+		case 2:
+			boardValue += 3 * unitCount;
+			break;
+		case 4:
+			boardValue += 4 * unitCount;
+			break;
+		case 6:
+			boardValue += 5 * unitCount;
+			break;
+		}
+	}
+	return boardValue;
+}

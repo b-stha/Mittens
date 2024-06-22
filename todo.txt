@@ -1,7 +1,11 @@
-- Include /add command !
-- Link puuid and user that send message !
-- Include trait synergy display *
-- Link correct player match history and avatar *
-- Spacing issues *
-- /matchresult command *
-- store ids in file *
+- Include /add command
+
+- Link puuid and user that send message (done kind of??)
+
+- Include trait synergy display 
+- Link correct player match history and avatar 
+- Spacing issues 
+- /matchresult command 
+- store ids in file 
+- lowercase all text to ensure capitalization error doesn't occur
+- fill in whitespace for urls

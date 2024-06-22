@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 const std::string BOT_TOKEN = "MTI0ODg2NzYwMDQ0MDc1ODM2NQ.Gm3k1c.mUTjgUzPVocwDVTknVzNHDF15MUy2RaD3nwpwU";
 const std::string MY_GUILD_ID = "1249287556638445658";
-const std::string TFT_APIKEY = "RGAPI-0d74ae74-25d9-4b1e-ad84-64f32881c6a9";
+const std::string TFT_APIKEY = "RGAPI-2e166a56-2b79-4d67-875f-e2405ad1cf44";
 const dpp::snowflake CHANNEL_ID = 1251792647157317673;
 
 std::atomic <bool> running = false;
@@ -57,6 +57,9 @@ int main() {
 
             if (cmd_data.name == "add") {
                 std::string userInput = std::get<std::string>(cmd_data.options[0].value);
+                if (!userInput.find("#")) {
+                    return;
+                }
                 std::vector<std::string> userInputArr = split(userInput, '#');
                 std::cout << userInput << std::endl;
                 std::string puuid;
@@ -66,16 +69,21 @@ int main() {
                 try {
                     puuid = fetchPUUID(userInputArr[0], userInputArr[1], TFT_APIKEY);
                     puuidFetchSuccess = true;
+                    event.reply(userInput + " successfully added");
                 }
                 catch (const std::exception& e) {
                     std::cout << e.what() << std::endl;
+                    event.reply(userInput + " not found...");
                 }
 
                 if (puuidFetchSuccess && playerExists(userVec, puuid)) {
-                    userVec.push_back(std::make_unique<Player>(puuid));
+                    std::unique_ptr pPlayer = std::make_unique<Player>(puuid);
+                    pPlayer->setSnowflake(cmd_data.id);
+
+                    userVec.push_back(pPlayer);
                 }
                 else {
-                    std::cout << "Player already exists." << std::endl;
+                    event.reply(userInput + " already exists.");
                 }
             }
         }
@@ -90,7 +98,7 @@ int main() {
     running = true;
 
     try {
-        while (running) {
+            while (running) {
             if (!userVec.empty()) {
                 for (auto& user : userVec)
                 {
@@ -99,11 +107,11 @@ int main() {
                         user->setprevMatch(user->getCurrMatch());
                         user->setCurrMatch(checkMatch);
                         Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
-
+                        user.m
                         user->setMatchInfo(updatedInfo);
                         dpp::embed embOutput = createResult(*user);
 
-                        dpp::message msg(CHANNEL_ID, embOutput);
+                        dpp::message msg(user->getSnowflake(), embOutput);
                         bot.message_create(msg);
                     }
                 }

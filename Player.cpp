@@ -8,6 +8,7 @@ void Player::setMatchInfo(const Info& info) {
 	for (const auto& player : info.playerInfoList) {
 		if (puuid == player.puuid) {
 			myMatchInfo = player;
+			myMatchInfo.boardValue = calcBoardValue(myMatchInfo);
 			double totGameLength = info.gameLength / 60.0;
 			gameLenSec = modf(totGameLength, &gameLenMin);
 			return;
@@ -51,4 +52,12 @@ std::vector<int> Player::getTime() const {
 	int sec = static_cast<int>(gameLenSec);
 	std::vector<int> timeVec{ min, sec };
 	return timeVec;
+}
+
+dpp::snowflake Player::getSnowflake() {
+	return mySnowflake;
+}
+
+void Player::setSnowflake(dpp::snowflake inputSnowflake) {
+	mySnowflake = inputSnowflake;
 }
