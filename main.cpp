@@ -107,7 +107,6 @@ int main() {
                         user->setprevMatch(user->getCurrMatch());
                         user->setCurrMatch(checkMatch);
                         Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
-                        user.m
                         user->setMatchInfo(updatedInfo);
                         dpp::embed embOutput = createResult(*user);
 
