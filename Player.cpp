@@ -34,10 +34,6 @@ void Player::setCurrMatch(std::string matchID) {
 	currMatchID = matchID;
 };
 
-std::string Player::getTTUrl() const {
-	return tacticsToolsURL;
-};
-
 std::string Player::getCurrMatch() const {
 	return currMatchID;
 };

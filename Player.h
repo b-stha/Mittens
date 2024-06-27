@@ -47,7 +47,6 @@ class Player {
 		void setNameTag(std::string inputName, std::string inputTag);
 		void setprevMatch(std::string matchID);
 		void setCurrMatch(std::string matchID);
-		std::string getTTUrl() const;
 		std::string getCurrMatch() const;
 		std::string getPUUID() const;
 		std::vector<std::string> getFullName() const;
@@ -65,7 +64,6 @@ class Player {
 		std::string currMatchID = "";
 		std::string userName = "";
 		std::string tagLine = "";
-		std::string tacticsToolsURL = "https://tactics.tools/player/na/" + userName + "/" + tagLine;
-};
+}
 
 #endif

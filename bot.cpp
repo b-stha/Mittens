@@ -31,14 +31,14 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 };
 
 dpp::embed createResult(const Player& player) {
-	std::string matchResultURL = player.getTTUrl() + "/" + player.getCurrMatch();
+	std::string matchResultURL = "https://tactics.tools/player/na/" + player.getFullName()[0] + "/" + player.getFullName()[1] + "/" + player.getCurrMatch();
 	std::string nameStr = player.getFullName()[0] + "#" + player.getFullName()[1];
 	std::string augmentList = augListStr(player);
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(dpp::colors::sti_blue)
-		.set_title("Match result")
+		.set_title(player.getFullName()[0] + "'s match result")
 		.set_url(matchResultURL)
-		.set_thumbnail("https://raw.communitydragon.org/pbe/game/assets/ux/tft/outofgame/battlepass/rewards/tactician_serenitysprite_tft_set11b.png")
+		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
 		.set_description(
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"

@@ -10,9 +10,7 @@
 using json = nlohmann::json;
 
 const std::string BOT_TOKEN = "MTI0ODg2NzYwMDQ0MDc1ODM2NQ.Gm3k1c.mUTjgUzPVocwDVTknVzNHDF15MUy2RaD3nwpwU";
-const std::string MY_GUILD_ID = "1249287556638445658";
-const std::string TFT_APIKEY = "RGAPI-2e166a56-2b79-4d67-875f-e2405ad1cf44";
-const dpp::snowflake CHANNEL_ID = 1251792647157317673;
+const std::string TFT_APIKEY = "RGAPI-bbc42dd6-11b3-45d5-b6fd-e76b7eaa9acf";
 
 std::atomic <bool> running = false;
 std::vector<std::unique_ptr<Player>> userVec;
@@ -79,7 +77,7 @@ int main() {
                 if (puuidFetchSuccess && playerExists(userVec, puuid)) {
                     std::unique_ptr pPlayer = std::make_unique<Player>(puuid);
                     pPlayer->setSnowflake(cmd_data.id);
-
+                    pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
                     userVec.push_back(pPlayer);
                 }
                 else {
