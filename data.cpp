@@ -1,6 +1,6 @@
 #include "data.h"
 
-std::unordered_map<std::string, std::vector<std::string>> unitData = {
+const std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"TFT11_Aatrox", {"Aatrox", "<:tft11_aatrox:1250562437460000769>"}},
 	{"TFT11_Ahri", {"Ahri", "<:tft11_ahri:1250562439502893186>"}},
 	{"TFT11_Alune", {"Alune", "<:tft11_alune:1250562440639545364>"}},
@@ -64,7 +64,7 @@ std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"TFT11_Zyra", {"Zyra", "<:tft11_zyra:1250691821089062922>"}},
 };
 
-std::unordered_map<std::string, std::string> itemData = {
+const std::unordered_map<std::string, std::string> itemData = {
 	//Storyweaver Items
 	{"TFT11_Storyweaver9_Ascended", "<:tft11_storyweaver_ascension:1251322061339627571>"},
 	{"TFT11_Storyweaver7_AP", "<:tft11_storyweaver_ap3:1250718863637872711>"},
@@ -246,7 +246,7 @@ std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_Zephyr", "<:zephyr:1251374441972109322>"}
 };
 
-std::unordered_map<std::string, std::vector<std::string>> augmentData = {
+const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 	{"TFT11_Augment_GoldenRemover", {"The Golden Remover","<:goldenremover_i:1251762777358336021>"}},
 	{"TFT9_Augment_ACutAbove", {"A Cut Above","<:acutaboveii:1251323389357064192>"}},
 	{"TFT11_Augment_Accomplice", {"Accomplice","<:accomplice_iii:1251323388295778334>"}},

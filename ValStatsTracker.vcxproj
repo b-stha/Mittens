@@ -145,6 +145,7 @@
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="apikeys.h" />
     <ClInclude Include="bot.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="helpers.h" />

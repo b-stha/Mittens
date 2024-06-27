@@ -40,29 +40,29 @@ struct Info {
 
 
 class Player {
-	public:
-		Player(std::string inputPuuid);
-		void setMatchInfo(const Info& info);
-		void setNameTag(std::string inputName, std::string inputTag);
-		void setprevMatch(std::string matchID);
-		void setCurrMatch(std::string matchID);
-		std::string getCurrMatch() const;
-		std::string getPUUID() const;
-		std::vector<std::string> getFullName() const;
-		std::vector<int> getTime() const;
-		void setSnowflake(dpp::snowflake inputSnowflake);
-		dpp::snowflake getSnowflake();
+public:
+	Player(std::string inputPuuid);
+	void setMatchInfo(const Info& info);
+	void setNameTag(std::string inputName, std::string inputTag);
+	void setprevMatch(std::string matchID);
+	void setCurrMatch(std::string matchID);
+	std::string getCurrMatch() const;
+	std::string getPUUID() const;
+	std::vector<std::string> getFullName() const;
+	std::vector<int> getTime() const;
+	void setSnowflake(dpp::snowflake inputSnowflake);
+	dpp::snowflake getSnowflake();
 
-		PlayerMatchInfo myMatchInfo;
-	private:
-		dpp::snowflake mySnowflake;
-		double gameLenMin = 0;
-		double gameLenSec = 0;
-		std::string puuid;
-		std::string prevMatchID = "";
-		std::string currMatchID = "";
-		std::string userName = "";
-		std::string tagLine = "";
-}
+	PlayerMatchInfo myMatchInfo;
+private:
+	dpp::snowflake mySnowflake;
+	double gameLenMin = 0;
+	double gameLenSec = 0;
+	std::string puuid;
+	std::string prevMatchID = "";
+	std::string currMatchID = "";
+	std::string userName = "";
+	std::string tagLine = "";
+};
 
 #endif

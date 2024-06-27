@@ -10,9 +10,9 @@ std::string operator * (std::string a, unsigned int b) {
 
 std::string setStrWidth(const std::string& str, int len) {
 	std::string result = str;
-	int spaces_to_add = len - str.length();
+	size_t spaces_to_add = len - str.length();
 	for (int i = 0; i < spaces_to_add; ++i) {
-		result += " "; // Regular space
+		result += " ";
 	}
 	return result;
 }

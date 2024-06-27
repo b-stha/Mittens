@@ -3,14 +3,12 @@
 #include "parsejson.h"
 #include "bot.h"
 #include "helpers.h"
+#include "apikeys.h"
 #include <dpp/dpp.h>
 #include <atomic>
 #include <memory>
 
 using json = nlohmann::json;
-
-const std::string BOT_TOKEN = "MTI0ODg2NzYwMDQ0MDc1ODM2NQ.Gm3k1c.mUTjgUzPVocwDVTknVzNHDF15MUy2RaD3nwpwU";
-const std::string TFT_APIKEY = "RGAPI-bbc42dd6-11b3-45d5-b6fd-e76b7eaa9acf";
 
 std::atomic <bool> running = false;
 std::vector<std::unique_ptr<Player>> userVec;
@@ -78,7 +76,7 @@ int main() {
                     std::unique_ptr pPlayer = std::make_unique<Player>(puuid);
                     pPlayer->setSnowflake(cmd_data.id);
                     pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
-                    userVec.push_back(pPlayer);
+                    userVec.push_back(std::move(pPlayer));
                 }
                 else {
                     event.reply(userInput + " already exists.");
@@ -108,7 +106,7 @@ int main() {
                         user->setMatchInfo(updatedInfo);
                         dpp::embed embOutput = createResult(*user);
 
-                        dpp::message msg(user->getSnowflake(), embOutput);
+                        dpp::message msg(1251374594645037202, embOutput);
                         bot.message_create(msg);
                     }
                 }
