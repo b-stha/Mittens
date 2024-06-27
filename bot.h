@@ -9,4 +9,5 @@
 std::string augListStr(const Player& player);
 void unitListStr(const Player& player, dpp::embed& embedObj);
 dpp::embed createResult(const Player& player);
+
 #endif

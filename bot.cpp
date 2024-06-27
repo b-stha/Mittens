@@ -11,8 +11,7 @@ std::string augListStr(const Player& player) {
 		augListOutput += augmentData.at(augment)[1] + " " + augmentData.at(augment)[0] + "\n";
 	}
 	return augListOutput;
-}
-
+};
 
 void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {

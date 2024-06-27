@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "helpers.h"
 
 Player::Player(std::string inputPuuid) {
 	puuid = inputPuuid;

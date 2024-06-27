@@ -6,7 +6,6 @@
 #include <iostream>
 #include <cmath>
 #include <dpp/dpp.h>
-#include "helpers.h"
 
 struct Trait {
 	std::string name;

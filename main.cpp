@@ -74,7 +74,7 @@ int main() {
                     event.reply(userInput + " not found...");
                 }
 
-                if (puuidFetchSuccess && playerExists(userVec, puuid)) {
+                if (puuidFetchSuccess && notPlayerExists(userVec, puuid)) {
                     std::unique_ptr pPlayer = std::make_unique<Player>(puuid);
                     pPlayer->setSnowflake(cmd_data.id);
                     pPlayer->setNameTag(userInputArr[0], userInputArr[1]);

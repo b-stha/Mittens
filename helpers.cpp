@@ -1,6 +1,4 @@
 #include "helpers.h"
-#include <sstream>
-#include <algorithm>
 
 std::string operator * (std::string a, unsigned int b) {
 	std::string output = "";
