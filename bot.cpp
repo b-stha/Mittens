@@ -1,5 +1,29 @@
 #include "bot.h"
 
+/*void traitListStr(const PlayerMatchInfo& match, dpp::embed& embedObj) {
+	for (const auto& trait : match.traits) {
+		std::string traitOutput = "";
+		switch (trait.style) {
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		}
+		unitName = setStrWidth(unitName, 10);
+
+		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
+		std::string unitItems = itemListStr(unit);
+		embedObj.add_field(
+			"",
+			starCount(unit.tier) + "\n" +
+			unitIconName + "\n" +
+			unitItems + "\n",
+			true);
+	};
+};*/
+
 std::string augListStr(const Player& player) {
 	std::string augListOutput = "";
 
@@ -16,7 +40,7 @@ std::string augListStr(const Player& player) {
 void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {
 		std::string unitName = unitData.at(unit.characterID)[0];
-		unitName = setStrWidth(unitName, 9);
+		unitName = setStrWidth(unitName, 10);
 
 		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
 		std::string unitItems = itemListStr(unit);
