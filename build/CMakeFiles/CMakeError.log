@@ -1,0 +1,1300 @@
+Determining if the include file sys/sdt.h exists failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-Q1s9Tx
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c1219/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c1219.dir/build.make CMakeFiles/cmTC_c1219.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-Q1s9Tx'
+Building C object CMakeFiles/cmTC_c1219.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -Wall -Wno-implicit-fallthrough  -std=c99 -o CMakeFiles/cmTC_c1219.dir/CheckIncludeFile.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-Q1s9Tx/CheckIncludeFile.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-Q1s9Tx/CheckIncludeFile.c:1:10: fatal error: sys/sdt.h: No such file or directory
+    1 | #include <sys/sdt.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c1219.dir/build.make:78: CMakeFiles/cmTC_c1219.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-Q1s9Tx'
+gmake: *** [Makefile:127: cmTC_c1219/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket; failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-vRkzHv
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_24749/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_24749.dir/build.make CMakeFiles/cmTC_24749.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-vRkzHv'
+Building C object CMakeFiles/cmTC_24749.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_24749.dir/CheckFunctionExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-vRkzHv/CheckFunctionExists.c
+Linking C executable cmTC_24749
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24749.dir/link.txt --verbose=1
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_24749.dir/CheckFunctionExists.c.o -o cmTC_24749  -lsocket 
+/usr/bin/ld: cannot find -lsocket: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_24749.dir/build.make:99: cmTC_24749] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-vRkzHv'
+gmake: *** [Makefile:127: cmTC_24749/fast] Error 2
+
+
+
+Determining if the OPENSSL_IS_BORINGSSL exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-DGTTG4
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_20083/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_20083.dir/build.make CMakeFiles/cmTC_20083.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-DGTTG4'
+Building C object CMakeFiles/cmTC_20083.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_20083.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-DGTTG4/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-DGTTG4/CheckSymbolExists.c:2:10: fatal error: openssl/base.h: No such file or directory
+    2 | #include <openssl/base.h>
+      |          ^~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_20083.dir/build.make:78: CMakeFiles/cmTC_20083.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-DGTTG4'
+gmake: *** [Makefile:127: cmTC_20083/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <openssl/base.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef OPENSSL_IS_BORINGSSL
+  return ((int*)(&OPENSSL_IS_BORINGSSL))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the OPENSSL_IS_AWSLC exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ozw61K
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d8c4a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d8c4a.dir/build.make CMakeFiles/cmTC_d8c4a.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ozw61K'
+Building C object CMakeFiles/cmTC_d8c4a.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_d8c4a.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ozw61K/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ozw61K/CheckSymbolExists.c:2:10: fatal error: openssl/base.h: No such file or directory
+    2 | #include <openssl/base.h>
+      |          ^~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_d8c4a.dir/build.make:78: CMakeFiles/cmTC_d8c4a.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ozw61K'
+gmake: *** [Makefile:127: cmTC_d8c4a/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <openssl/base.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef OPENSSL_IS_AWSLC
+  return ((int*)(&OPENSSL_IS_AWSLC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function idn2_lookup_ul exists in the idn2;OpenSSL::SSL;OpenSSL::Crypto;ZLIB::ZLIB failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-7Omt11
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f5fbc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f5fbc.dir/build.make CMakeFiles/cmTC_f5fbc.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-7Omt11'
+Building C object CMakeFiles/cmTC_f5fbc.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -isystem /usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul -o CMakeFiles/cmTC_f5fbc.dir/CheckFunctionExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-7Omt11/CheckFunctionExists.c
+Linking C executable cmTC_f5fbc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5fbc.dir/link.txt --verbose=1
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=idn2_lookup_ul CMakeFiles/cmTC_f5fbc.dir/CheckFunctionExists.c.o -o cmTC_f5fbc  -lidn2 /usr/lib/aarch64-linux-gnu/libssl.so /usr/lib/aarch64-linux-gnu/libcrypto.so /usr/lib/aarch64-linux-gnu/libz.so 
+/usr/bin/ld: cannot find -lidn2: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_f5fbc.dir/build.make:102: cmTC_f5fbc] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-7Omt11'
+gmake: *** [Makefile:127: cmTC_f5fbc/fast] Error 2
+
+
+
+Determining if files inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pGP5WF
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_55241/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_55241.dir/build.make CMakeFiles/cmTC_55241.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pGP5WF'
+Building C object CMakeFiles/cmTC_55241.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_55241.dir/HAVE_SYS_FILIO_H.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pGP5WF/HAVE_SYS_FILIO_H.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pGP5WF/HAVE_SYS_FILIO_H.c:3:10: fatal error: sys/filio.h: No such file or directory
+    3 | #include <sys/filio.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_55241.dir/build.make:78: CMakeFiles/cmTC_55241.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pGP5WF'
+gmake: *** [Makefile:127: cmTC_55241/fast] Error 2
+
+
+Source:
+/* */
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files inttypes.h;sys/wait.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pxbibE
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_33f43/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_33f43.dir/build.make CMakeFiles/cmTC_33f43.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pxbibE'
+Building C object CMakeFiles/cmTC_33f43.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_33f43.dir/HAVE_SYS_SOCKIO_H.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pxbibE/HAVE_SYS_SOCKIO_H.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pxbibE/HAVE_SYS_SOCKIO_H.c:10:10: fatal error: sys/sockio.h: No such file or directory
+   10 | #include <sys/sockio.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_33f43.dir/build.make:78: CMakeFiles/cmTC_33f43.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-pxbibE'
+gmake: *** [Makefile:127: cmTC_33f43/fast] Error 2
+
+
+Source:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files inttypes.h;sys/wait.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-o5zsDL
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ef33a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ef33a.dir/build.make CMakeFiles/cmTC_ef33a.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-o5zsDL'
+Building C object CMakeFiles/cmTC_ef33a.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_ef33a.dir/HAVE_SYS_UTIME_H.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-o5zsDL/HAVE_SYS_UTIME_H.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-o5zsDL/HAVE_SYS_UTIME_H.c:14:10: fatal error: sys/utime.h: No such file or directory
+   14 | #include <sys/utime.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_ef33a.dir/build.make:78: CMakeFiles/cmTC_ef33a.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-o5zsDL'
+gmake: *** [Makefile:127: cmTC_ef33a/fast] Error 2
+
+
+Source:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files inttypes.h;sys/wait.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/un.h;sys/xattr.h;arpa/inet.h;fcntl.h;idn2.h exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-G48h1G
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7ace9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7ace9.dir/build.make CMakeFiles/cmTC_7ace9.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-G48h1G'
+Building C object CMakeFiles/cmTC_7ace9.dir/HAVE_IDN2_H.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_7ace9.dir/HAVE_IDN2_H.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-G48h1G/HAVE_IDN2_H.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-G48h1G/HAVE_IDN2_H.c:17:10: fatal error: idn2.h: No such file or directory
+   17 | #include <idn2.h>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7ace9.dir/build.make:78: CMakeFiles/cmTC_7ace9.dir/HAVE_IDN2_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-G48h1G'
+gmake: *** [Makefile:127: cmTC_7ace9/fast] Error 2
+
+
+Source:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <idn2.h>
+
+
+int main(void){return 0;}
+
+Determining if files inttypes.h;sys/wait.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/un.h;sys/xattr.h;arpa/inet.h;fcntl.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-9eVM11
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5add2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5add2.dir/build.make CMakeFiles/cmTC_5add2.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-9eVM11'
+Building C object CMakeFiles/cmTC_5add2.dir/HAVE_IO_H.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_5add2.dir/HAVE_IO_H.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-9eVM11/HAVE_IO_H.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-9eVM11/HAVE_IO_H.c:18:10: fatal error: io.h: No such file or directory
+   18 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_5add2.dir/build.make:78: CMakeFiles/cmTC_5add2.dir/HAVE_IO_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-9eVM11'
+gmake: *** [Makefile:127: cmTC_5add2/fast] Error 2
+
+
+Source:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files inttypes.h;sys/wait.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/un.h;sys/xattr.h;arpa/inet.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;netinet/udp.h;poll.h;pwd.h;stdatomic.h;stdbool.h;stdint.h;strings.h;stropts.h exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ic95Jt
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4e6e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4e6e0.dir/build.make CMakeFiles/cmTC_4e6e0.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ic95Jt'
+Building C object CMakeFiles/cmTC_4e6e0.dir/HAVE_STROPTS_H.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_4e6e0.dir/HAVE_STROPTS_H.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ic95Jt/HAVE_STROPTS_H.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ic95Jt/HAVE_STROPTS_H.c:31:10: fatal error: stropts.h: No such file or directory
+   31 | #include <stropts.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_4e6e0.dir/build.make:78: CMakeFiles/cmTC_4e6e0.dir/HAVE_STROPTS_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-ic95Jt'
+gmake: *** [Makefile:127: cmTC_4e6e0/fast] Error 2
+
+
+Source:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <stropts.h>
+
+
+int main(void){return 0;}
+
+Determining size of __int64 failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-2DxP6y
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d524d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d524d.dir/build.make CMakeFiles/cmTC_d524d.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-2DxP6y'
+Building C object CMakeFiles/cmTC_d524d.dir/SIZEOF___INT64.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_d524d.dir/SIZEOF___INT64.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-2DxP6y/SIZEOF___INT64.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-2DxP6y/SIZEOF___INT64.c:27:22: error: ‘__int64’ undeclared here (not in a function); did you mean ‘__int64_t’?
+   27 | #define SIZE (sizeof(__int64))
+      |                      ^~~~~~~
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-2DxP6y/SIZEOF___INT64.c:29:12: note: in expansion of macro ‘SIZE’
+   29 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+gmake[1]: *** [CMakeFiles/cmTC_d524d.dir/build.make:78: CMakeFiles/cmTC_d524d.dir/SIZEOF___INT64.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-2DxP6y'
+gmake: *** [Makefile:127: cmTC_d524d/fast] Error 2
+
+
+SIZEOF___INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__int64))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_625ae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_625ae.dir/build.make CMakeFiles/cmTC_625ae.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38'
+Building C object CMakeFiles/cmTC_625ae.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_625ae.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38/CheckSymbolExists.c:41:19: error: ‘stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+   41 |   return ((int*)(&stricmp))[argc];
+      |                   ^~~~~~~
+      |                   strncmp
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38/CheckSymbolExists.c:41:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38/CheckSymbolExists.c:37:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   37 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_625ae.dir/build.make:78: CMakeFiles/cmTC_625ae.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-CpJs38'
+gmake: *** [Makefile:127: cmTC_625ae/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_994e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_994e0.dir/build.make CMakeFiles/cmTC_994e0.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU'
+Building C object CMakeFiles/cmTC_994e0.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_994e0.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU/CheckSymbolExists.c:41:19: error: ‘strcmpi’ undeclared (first use in this function); did you mean ‘strcmp’?
+   41 |   return ((int*)(&strcmpi))[argc];
+      |                   ^~~~~~~
+      |                   strcmp
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU/CheckSymbolExists.c:41:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU/CheckSymbolExists.c:37:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   37 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_994e0.dir/build.make:78: CMakeFiles/cmTC_994e0.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uEfKZU'
+gmake: *** [Makefile:127: cmTC_994e0/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memrchr exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_27380/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_27380.dir/build.make CMakeFiles/cmTC_27380.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo'
+Building C object CMakeFiles/cmTC_27380.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_27380.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo/CheckSymbolExists.c:41:19: error: ‘memrchr’ undeclared (first use in this function); did you mean ‘memchr’?
+   41 |   return ((int*)(&memrchr))[argc];
+      |                   ^~~~~~~
+      |                   memchr
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo/CheckSymbolExists.c:41:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo/CheckSymbolExists.c:37:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   37 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_27380.dir/build.make:78: CMakeFiles/cmTC_27380.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-JFtQpo'
+gmake: *** [Makefile:127: cmTC_27380/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memrchr
+  return ((int*)(&memrchr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d1152/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d1152.dir/build.make CMakeFiles/cmTC_d1152.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS'
+Building C object CMakeFiles/cmTC_d1152.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_d1152.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS/CheckSymbolExists.c:40:19: error: ‘closesocket’ undeclared (first use in this function)
+   40 |   return ((int*)(&closesocket))[argc];
+      |                   ^~~~~~~~~~~
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS/CheckSymbolExists.c:40:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS/CheckSymbolExists.c:36:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   36 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_d1152.dir/build.make:78: CMakeFiles/cmTC_d1152.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-5p2LkS'
+gmake: *** [Makefile:127: cmTC_d1152/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_049f1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_049f1.dir/build.make CMakeFiles/cmTC_049f1.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7'
+Building C object CMakeFiles/cmTC_049f1.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_049f1.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7/CheckSymbolExists.c:40:19: error: ‘getpass_r’ undeclared (first use in this function); did you mean ‘getpass’?
+   40 |   return ((int*)(&getpass_r))[argc];
+      |                   ^~~~~~~~~
+      |                   getpass
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7/CheckSymbolExists.c:40:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7/CheckSymbolExists.c:36:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   36 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_049f1.dir/build.make:78: CMakeFiles/cmTC_049f1.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-FVquj7'
+gmake: *** [Makefile:127: cmTC_049f1/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _fseeki64 exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_86051/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_86051.dir/build.make CMakeFiles/cmTC_86051.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh'
+Building C object CMakeFiles/cmTC_86051.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_86051.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh/CheckSymbolExists.c:41:19: error: ‘_fseeki64’ undeclared (first use in this function)
+   41 |   return ((int*)(&_fseeki64))[argc];
+      |                   ^~~~~~~~~
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh/CheckSymbolExists.c:41:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh/CheckSymbolExists.c:37:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   37 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_86051.dir/build.make:78: CMakeFiles/cmTC_86051.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-uXRFLh'
+gmake: *** [Makefile:127: cmTC_86051/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _fseeki64
+  return ((int*)(&_fseeki64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b7c6b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b7c6b.dir/build.make CMakeFiles/cmTC_b7c6b.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk'
+Building C object CMakeFiles/cmTC_b7c6b.dir/CheckSymbolExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_b7c6b.dir/CheckSymbolExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk/CheckSymbolExists.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk/CheckSymbolExists.c: In function ‘main’:
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk/CheckSymbolExists.c:40:19: error: ‘setmode’ undeclared (first use in this function)
+   40 |   return ((int*)(&setmode))[argc];
+      |                   ^~~~~~~
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk/CheckSymbolExists.c:40:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk/CheckSymbolExists.c:36:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+   36 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_b7c6b.dir/build.make:78: CMakeFiles/cmTC_b7c6b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-IETyvk'
+gmake: *** [Makefile:127: cmTC_b7c6b/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <inttypes.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <utime.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-XlwK1m
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9063b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9063b.dir/build.make CMakeFiles/cmTC_9063b.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-XlwK1m'
+Building C object CMakeFiles/cmTC_9063b.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=mach_absolute_time -o CMakeFiles/cmTC_9063b.dir/CheckFunctionExists.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-XlwK1m/CheckFunctionExists.c
+Linking C executable cmTC_9063b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9063b.dir/link.txt --verbose=1
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_9063b.dir/CheckFunctionExists.c.o -o cmTC_9063b 
+/usr/bin/ld: CMakeFiles/cmTC_9063b.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `mach_absolute_time'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_9063b.dir/build.make:99: cmTC_9063b] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-XlwK1m'
+gmake: *** [Makefile:127: cmTC_9063b/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f20f1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f20f1.dir/build.make CMakeFiles/cmTC_f20f1.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f20f1.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_FSETXATTR_6  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_f20f1.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:405:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  405 | main() {
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:406:3: error: too many arguments to function ‘fsetxattr’
+  406 |   fsetxattr(0, 0, 0, 0, 0, 0);
+      |   ^~~~~~~~~
+In file included from //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:403:
+/usr/include/aarch64-linux-gnu/sys/xattr.h:54:12: note: declared here
+   54 | extern int fsetxattr (int __fd, const char *__name, const void *__value,
+      |            ^~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_f20f1.dir/build.make:78: CMakeFiles/cmTC_f20f1.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f20f1/fast] Error 2
+
+
+Determining size of ADDRESS_FAMILY failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-QbCKEc
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7602b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7602b.dir/build.make CMakeFiles/cmTC_7602b.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-QbCKEc'
+Building C object CMakeFiles/cmTC_7602b.dir/SIZEOF_ADDRESS_FAMILY.c.o
+/usr/bin/cc  -I/usr/include/openssl -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable  -o CMakeFiles/cmTC_7602b.dir/SIZEOF_ADDRESS_FAMILY.c.o -c /home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-QbCKEc/SIZEOF_ADDRESS_FAMILY.c
+/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-QbCKEc/SIZEOF_ADDRESS_FAMILY.c:4:10: fatal error: ws2def.h: No such file or directory
+    4 | #include "ws2def.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7602b.dir/build.make:78: CMakeFiles/cmTC_7602b.dir/SIZEOF_ADDRESS_FAMILY.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeScratch/TryCompile-QbCKEc'
+gmake: *** [Makefile:127: cmTC_7602b/fast] Error 2
+
+
+SIZEOF_ADDRESS_FAMILY.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+#include "ws2def.h"
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(ADDRESS_FAMILY))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1e397/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1e397.dir/build.make CMakeFiles/cmTC_1e397.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1e397.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_IOCTLSOCKET  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_1e397.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:199:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  199 | main ()
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:204:24: warning: implicit declaration of function ‘ioctlsocket’ [-Wimplicit-function-declaration]
+  204 |  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+      |                        ^~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:204:24: warning: nested extern declaration of ‘ioctlsocket’ [-Wnested-externs]
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:204:44: error: ‘FIONBIO’ undeclared (first use in this function)
+  204 |  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+      |                                            ^~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:204:44: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_1e397.dir/build.make:78: CMakeFiles/cmTC_1e397.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1e397/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8cb72/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8cb72.dir/build.make CMakeFiles/cmTC_8cb72.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8cb72.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_8cb72.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:224:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  224 | main ()
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:228:13: warning: implicit declaration of function ‘IoctlSocket’ [-Wimplicit-function-declaration]
+  228 |     if(0 != IoctlSocket(0, 0, 0))
+      |             ^~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:228:13: warning: nested extern declaration of ‘IoctlSocket’ [-Wnested-externs]
+Linking C executable cmTC_8cb72
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cb72.dir/link.txt --verbose=1
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H CMakeFiles/cmTC_8cb72.dir/CurlTests.c.o -o cmTC_8cb72 
+/usr/bin/ld: CMakeFiles/cmTC_8cb72.dir/CurlTests.c.o: in function `main':
+CurlTests.c:(.text+0x14): undefined reference to `IoctlSocket'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_8cb72.dir/build.make:99: cmTC_8cb72] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_8cb72/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e8c79/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e8c79.dir/build.make CMakeFiles/cmTC_e8c79.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e8c79.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_e8c79.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:247:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  247 | main ()
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:252:17: warning: implicit declaration of function ‘IoctlSocket’ [-Wimplicit-function-declaration]
+  252 |         if(0 != IoctlSocket(0, FIONBIO, &flags))
+      |                 ^~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:252:17: warning: nested extern declaration of ‘IoctlSocket’ [-Wnested-externs]
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:252:32: error: ‘FIONBIO’ undeclared (first use in this function)
+  252 |         if(0 != IoctlSocket(0, FIONBIO, &flags))
+      |                                ^~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:252:32: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_e8c79.dir/build.make:78: CMakeFiles/cmTC_e8c79.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e8c79/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_350ff/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_350ff.dir/build.make CMakeFiles/cmTC_350ff.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_350ff.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_350ff.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:271:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  271 | main ()
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:275:17: warning: implicit declaration of function ‘ioctlsocket’ [-Wimplicit-function-declaration]
+  275 |         if(0 != ioctlsocket(0, FIONBIO, &flags))
+      |                 ^~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:275:17: warning: nested extern declaration of ‘ioctlsocket’ [-Wnested-externs]
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:275:32: error: ‘FIONBIO’ undeclared (first use in this function)
+  275 |         if(0 != ioctlsocket(0, FIONBIO, &flags))
+      |                                ^~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:275:32: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_350ff.dir/build.make:78: CMakeFiles/cmTC_350ff.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_350ff/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_710c7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_710c7.dir/build.make CMakeFiles/cmTC_710c7.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_710c7.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_710c7.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:365:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  365 | main ()
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:367:43: error: ‘SO_NONBLOCK’ undeclared (first use in this function); did you mean ‘SOCK_NONBLOCK’?
+  367 |         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+      |                                           ^~~~~~~~~~~
+      |                                           SOCK_NONBLOCK
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:367:43: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_710c7.dir/build.make:78: CMakeFiles/cmTC_710c7.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_710c7/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9d94f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9d94f.dir/build.make CMakeFiles/cmTC_9d94f.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d94f.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_O_NONBLOCK  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_9d94f.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:516: warning: ISO C forbids an empty translation unit [-Wpedantic]
+Linking C executable cmTC_9d94f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d94f.dir/link.txt --verbose=1
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_O_NONBLOCK  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H CMakeFiles/cmTC_9d94f.dir/CurlTests.c.o -o cmTC_9d94f 
+/usr/bin/ld: /usr/lib/gcc/aarch64-linux-gnu/12/../../../aarch64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x1c): undefined reference to `main'
+/usr/bin/ld: (.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_9d94f.dir/build.make:99: cmTC_9d94f] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_9d94f/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7b5cc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7b5cc.dir/build.make CMakeFiles/cmTC_7b5cc.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b5cc.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_7b5cc.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:75:19: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   75 |   char *address = "example.com";
+      |                   ^~~~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:82:23: error: storage size of ‘hdata’ isn’t known
+   82 |   struct hostent_data hdata;
+      |                       ^~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:94:8: error: too few arguments to function ‘gethostbyname_r’
+   94 |   rc = gethostbyname_r(address, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:72:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:82:23: warning: unused variable ‘hdata’ [-Wunused-variable]
+   82 |   struct hostent_data hdata;
+      |                       ^~~~~
+gmake[1]: *** [CMakeFiles/cmTC_7b5cc.dir/build.make:78: CMakeFiles/cmTC_7b5cc.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_7b5cc/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_31be4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_31be4.dir/build.make CMakeFiles/cmTC_31be4.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31be4.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_31be4.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:75:19: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   75 |   char *address = "example.com";
+      |                   ^~~~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:97:51: warning: passing argument 5 of ‘gethostbyname_r’ from incompatible pointer type [-Wincompatible-pointer-types]
+   97 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |                                                   ^~~~~~~~~
+      |                                                   |
+      |                                                   int *
+In file included from //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:72:
+/usr/include/netdb.h:180:57: note: expected ‘struct hostent ** restrict’ but argument is of type ‘int *’
+  180 |                             struct hostent **__restrict __result,
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:97:8: error: too few arguments to function ‘gethostbyname_r’
+   97 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_31be4.dir/build.make:78: CMakeFiles/cmTC_31be4.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_31be4/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_827ab/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_827ab.dir/build.make CMakeFiles/cmTC_827ab.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_827ab.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_827ab.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:75:19: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   75 |   char *address = "example.com";
+      |                   ^~~~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:82:23: error: storage size of ‘hdata’ isn’t known
+   82 |   struct hostent_data hdata;
+      |                       ^~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:94:8: error: too few arguments to function ‘gethostbyname_r’
+   94 |   rc = gethostbyname_r(address, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:72:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:82:23: warning: unused variable ‘hdata’ [-Wunused-variable]
+   82 |   struct hostent_data hdata;
+      |                       ^~~~~
+gmake[1]: *** [CMakeFiles/cmTC_827ab.dir/build.make:78: CMakeFiles/cmTC_827ab.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_827ab/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fde37/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fde37.dir/build.make CMakeFiles/cmTC_fde37.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fde37.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_fde37.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:75:19: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   75 |   char *address = "example.com";
+      |                   ^~~~~~~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:97:51: warning: passing argument 5 of ‘gethostbyname_r’ from incompatible pointer type [-Wincompatible-pointer-types]
+   97 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |                                                   ^~~~~~~~~
+      |                                                   |
+      |                                                   int *
+In file included from //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:72:
+/usr/include/netdb.h:180:57: note: expected ‘struct hostent ** restrict’ but argument is of type ‘int *’
+  180 |                             struct hostent **__restrict __result,
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:97:8: error: too few arguments to function ‘gethostbyname_r’
+   97 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_fde37.dir/build.make:78: CMakeFiles/cmTC_fde37.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_fde37/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1bafe/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1bafe.dir/build.make CMakeFiles/cmTC_1bafe.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1bafe.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_GLIBC_STRERROR_R  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_1bafe.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:377:6: warning: no previous prototype for ‘check’ [-Wmissing-prototypes]
+  377 | void check(char c) {}
+      |      ^~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘check’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:377:17: warning: unused parameter ‘c’ [-Wunused-parameter]
+  377 | void check(char c) {}
+      |            ~~~~~^
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: At top level:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:380:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  380 | main () {
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:383:51: error: subscripted value is neither array nor pointer nor vector
+  383 |   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+      |                                                   ^
+gmake[1]: *** [CMakeFiles/cmTC_1bafe.dir/build.make:78: CMakeFiles/cmTC_1bafe.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1bafe/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0ce3e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0ce3e.dir/build.make CMakeFiles/cmTC_0ce3e.dir/build
+gmake[1]: Entering directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ce3e.dir/CurlTests.c.o
+/usr/bin/cc   -W -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Warith-conversion -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -DHAVE_BUILTIN_AVAILABLE  -DHAVE_INTTYPES_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -o CMakeFiles/cmTC_0ce3e.dir/CurlTests.c.o -c //home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:429:1: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+  429 | main() {
+      | ^~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c: In function ‘main’:
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:430:6: warning: implicit declaration of function ‘__builtin_available’; did you mean ‘__builtin_scalbl’? [-Wimplicit-function-declaration]
+  430 |   if(__builtin_available(macOS 10.12, *)) {}
+      |      ^~~~~~~~~~~~~~~~~~~
+      |      __builtin_scalbl
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:430:6: warning: nested extern declaration of ‘__builtin_available’ [-Wnested-externs]
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:430:26: error: ‘macOS’ undeclared (first use in this function)
+  430 |   if(__builtin_available(macOS 10.12, *)) {}
+      |                          ^~~~~
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:430:26: note: each undeclared identifier is reported only once for each function it appears in
+//home/MK/Documents/mittens/build/_deps/curl-src/CMake/CurlTests.c:430:31: error: expected ‘)’ before numeric constant
+  430 |   if(__builtin_available(macOS 10.12, *)) {}
+      |                         ~     ^~~~~~
+      |                               )
+gmake[1]: *** [CMakeFiles/cmTC_0ce3e.dir/build.make:78: CMakeFiles/cmTC_0ce3e.dir/CurlTests.c.o] Error 1
+gmake[1]: Leaving directory '/home/MK/Documents/mittens/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0ce3e/fast] Error 2
+
+
