@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/home/MK/Documents/mittens/Mittens"
-  "/home/MK/Documents/mittens/Mittens.pdb"
   "CMakeFiles/Mittens.dir/src/Player.cpp.o"
   "CMakeFiles/Mittens.dir/src/Player.cpp.o.d"
   "CMakeFiles/Mittens.dir/src/RiotAPI.cpp.o"
@@ -15,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mittens.dir/src/main.cpp.o.d"
   "CMakeFiles/Mittens.dir/src/parsejson.cpp.o"
   "CMakeFiles/Mittens.dir/src/parsejson.cpp.o.d"
+  "Mittens"
+  "Mittens.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
