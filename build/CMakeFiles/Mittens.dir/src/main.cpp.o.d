@@ -428,4 +428,5 @@ CMakeFiles/Mittens.dir/src/main.cpp.o: \
  /home/MK/Documents/mittens/build/_deps/cpr-src/include/cpr/status_codes.h \
  /usr/include/nlohmann/json.hpp /home/MK/Documents/mittens/src/bot.h \
  /home/MK/Documents/mittens/src/data.h \
- /home/MK/Documents/mittens/src/helpers.h
+ /home/MK/Documents/mittens/src/helpers.h \
+ /home/MK/Documents/mittens/src/apikeys.h

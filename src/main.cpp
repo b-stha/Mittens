@@ -3,10 +3,10 @@
 #include "parsejson.h"
 #include "bot.h"
 #include "helpers.h"
+#include "apikeys.h"
 #include <dpp/dpp.h>
 #include <atomic>
 #include <memory>
-#include <cstdlib>
 
 using json = nlohmann::json;
 
@@ -18,19 +18,6 @@ void stop() {
 }
 
 int main() {
-    const char* BOT_TOKEN = std::getenv("BOT_TOKEN");
-    const char* TFT_APIKEY = std::getenv("TFT_APIKEY");
-
-    if (BOT_TOKEN == nullptr) {
-	std::cerr << "BOT_TOKEN environment variable not set." << std::endl;
-	return 1;
-    };
-
-    if (TFT_APIKEY == nullptr) {
-	std::cerr << "TFT_APIKEY environment variable not set." << std::endl;
-	return 1;
-    };
-
     dpp::cluster bot(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content);
 
     bot.on_log(dpp::utility::cout_logger());
@@ -60,7 +47,7 @@ int main() {
         }
     });
 
-    bot.on_slashcommand([&bot, &TFT_APIKEY](const dpp::interaction_create_t& event) {
+    bot.on_slashcommand([&bot](const dpp::interaction_create_t& event) {
         if (event.command.type == dpp::it_application_command) {
             dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 

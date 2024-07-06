@@ -2628,7 +2628,8 @@ CMakeFiles/Mittens.dir/src/main.cpp.o: /home/MK/Documents/mittens/src/main.cpp \
   /usr/include/nlohmann/json.hpp \
   /home/MK/Documents/mittens/src/bot.h \
   /home/MK/Documents/mittens/src/data.h \
-  /home/MK/Documents/mittens/src/helpers.h
+  /home/MK/Documents/mittens/src/helpers.h \
+  /home/MK/Documents/mittens/src/apikeys.h
 
 CMakeFiles/Mittens.dir/src/parsejson.cpp.o: /home/MK/Documents/mittens/src/parsejson.cpp \
   /usr/include/stdc-predef.h \
@@ -3253,6 +3254,8 @@ _deps/cpr-src/include/cpr/limit_rate.h:
 /usr/include/c++/12/limits:
 
 /usr/include/c++/12/bits/specfun.h:
+
+/home/MK/Documents/mittens/src/apikeys.h:
 
 _deps/cpr-src/include/cpr/body.h:
 
