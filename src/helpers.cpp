@@ -22,6 +22,7 @@ std::string starCount(const int& tier) {
 	return (star * tier);
 };
 
+//TODO: Add check for item existing in itemData
 std::string itemListStr(const Unit& unit) {
 	std::string itemListOutput = "";
 	std::string emptyItem = "<:transparent:1250910469330567292> ";

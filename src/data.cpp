@@ -243,7 +243,15 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_Spite", "<:spite:1251374397546168330>"},
 	{"TFT7_Item_ShimmerscaleHeartOfGold", "<:needlessy_large_gem:1251374324582187048>"},
 	{"TFT_Item_UnstableTreasureChest", "<:unstable_treasure_chest:1251374398493954203>"},
-	{"TFT_Item_Zephyr", "<:zephyr:1251374441972109322>"}
+	{"TFT_Item_Zephyr", "<:zephyr:1251374441972109322>"},
+
+    //Inkshadow Tattoos
+    {"TFT11_Item_InkshadowOx", "<:tft11_inkshadow_vitality:1259365786699698206>"},
+    {"TFT11_Item_InkshadowHorse", "<:tft11_inkshadow_force:1259365543820001352>"},
+    {"TFT11_Item_InkshadowRat", "<:tft11_inkshadow_bombardment:1259365542557651065>"},
+    {"TFT11_Item_InkshadowPig", "<:tft11_inkshadow_protection:1259365546202497044>"},
+    {"TFT11_Item_InkshadowSnake", "<:tft11_inkshadow_toxin:1259365785369972838>"},
+    {"TFT11_Item_InkshadowTiger", "<:tft11_inkshadow_fury:1259365545254588478>"}
 };
 
 const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
