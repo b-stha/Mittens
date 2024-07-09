@@ -52,12 +52,19 @@ int main() {
             dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 
             if (cmd_data.name == "add") {
-                std::string userInput = std::get<std::string>(cmd_data.options[0].value);
-                if (!userInput.find("#")) {
-                    return;
-                }
-                std::vector<std::string> userInputArr = split(userInput, '#');
+                std::string userInput = lowerStr(std::get<std::string>(cmd_data.options[0].value));
+
                 std::cout << userInput << std::endl;
+                std::vector<std::string> userInputArr;
+
+                if (userInput.find("#")) { 
+                    userInputArr = split(userInput, '#');
+                }
+                else {
+                    userInputArr[0] = userInput;
+                    userInputArr[1] = "NA1";
+                }
+
                 std::string puuid;
 
                 bool puuidFetchSuccess = false;
@@ -111,7 +118,7 @@ int main() {
                     }
                 }
             }
-            std::this_thread::sleep_for(std::chrono::seconds(20));
+            std::this_thread::sleep_for(std::chrono::seconds(5));
         };
     }
     catch (const std::exception& e) {

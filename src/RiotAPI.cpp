@@ -35,7 +35,8 @@ void setName(Player& player, const std::string apiKey) {
 }
 
 std::string fetchPUUID(const std::string& name, const std::string& tag, const std::string& apiKey) {
-	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + name + "/" + tag + "?api_key=" + apiKey;
+    std::string fixedName = fillSpaces(name);
+	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + fixedName + "/" + tag + "?api_key=" + apiKey;
 	cpr::Response idR = cpr::Get(cpr::Url{ idURL });
 	json idJSON = parseJSON(idR);
 

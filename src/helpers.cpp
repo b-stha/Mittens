@@ -88,3 +88,24 @@ int calcBoardValue(PlayerMatchInfo matchInfo) {
 	}
 	return boardValue;
 }
+
+std::string lowerStr(const std::string& input) {
+    std::string output = "";
+
+    for (char c : input) {
+        output += std::tolower(c);
+    }
+
+    return output;
+}
+
+std::string fillSpaces(std::string input) {
+    std::string fillStr = "%20";
+    for (size_t i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            input.erase(i,1);
+            input.insert(i, fillStr);
+        }
+    }
+    return input;
+}
