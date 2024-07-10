@@ -20,7 +20,6 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: gcc build active file",
             "logging": {
                 "moduleLoad": true,
                 "trace": true,

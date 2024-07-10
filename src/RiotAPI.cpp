@@ -15,6 +15,7 @@ std::string fetchMatchID(const Player& player, const std::string apiKey) {
 
 Info fetchInfo(const std::string matchID, const std::string apiKey) {
 	std::string infoURL = "https://americas.api.riotgames.com/tft/match/v1/matches/" + matchID + "?api_key=" + apiKey;
+    std::cout << infoURL << std::endl;
 	cpr::Response infoResponse = cpr::Get(cpr::Url{ infoURL });
 	json infoJson = parseJSON(infoResponse);
 

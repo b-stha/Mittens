@@ -2,26 +2,14 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc build active file",
+            "label": "build",
             "command": "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
-                "-I",
-                "/usr/include",
-                "-I",
-                "/usr/include/dpp",
-                "-I",
-                "/path/to/cpr/include",
-                "-I",
-                "/usr/include/nlohmann",
-                "-L",
-                "/usr/lib",
-                "-ldpp",
-                "-lcpr"    
+                "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"

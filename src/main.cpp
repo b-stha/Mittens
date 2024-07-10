@@ -53,16 +53,16 @@ int main() {
             dpp::snowflake currChannel = event.command.channel_id;
 
             if (cmd_data.name == "add") {
-                std::string userInput = lowerStr(std::get<std::string>(cmd_data.options[0].value));
-
+                std::string userInput = std::get<std::string>(cmd_data.options[0].value);
                 std::cout << userInput << std::endl;
+                std::string loweredUserInput = lowerStr(userInput);
                 std::vector<std::string> userInputArr;
 
                 if (userInput.find("#")) { 
-                    userInputArr = split(userInput, '#');
+                    userInputArr = split(loweredUserInput, '#');
                 }
                 else {
-                    userInputArr.emplace_back(userInput);
+                    userInputArr.emplace_back(loweredUserInput);
                     userInputArr.emplace_back("NA1");
                 }
                 
@@ -113,7 +113,6 @@ int main() {
                         Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
                         user->setMatchInfo(updatedInfo);
                         dpp::embed embOutput = createResult(*user);
-
                         dpp::message msg(user->getChannelID(), embOutput);
                         bot.message_create(msg);
                     }

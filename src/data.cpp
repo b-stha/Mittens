@@ -304,7 +304,7 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 	{"TFT6_Augment_CyberneticUplink3", {"Cybernetic Uplink III","<:cyberneticuplinkiii:1251347462325538848>"}},
 	{"TFT11_Augment_Heavenly", {"Divine Rolls","<:divinerolls_ii:1251347463541887060>"}},
 	{"TFT11_Augment_DragonSpirit", {"Dragon's Spirit","<:dragonsspirit_ii:1251347466037755904>"}},
-	{"Dragonlord Crest", {"Dragonlord Crest","<:crest_dragonlord_ii:1251325001852915762>"}},
+	{"TFT11_Augment_DragonlordCrest", {"Dragonlord Crest","<:crest_dragonlord_ii:1251325001852915762>"}},
 	{"TFT11_Augment_DragonlordCrown", {"Dragonlord Crown","<:crown_dragonlord_iii:1251336569403609088>"}},
 	{"TFT11_Augment_NeekoCarry", {"Drop Blossom!","<:dropblossom_ii:1251347467216093215>"}},
 	{"TFT11_Augment_NeekoCarryPlus", {"Drop Blossom!+","<:dropblossom_ii:1251347467216093215>"}},
