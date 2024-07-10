@@ -51,10 +51,10 @@ std::vector<int> Player::getTime() const {
 	return timeVec;
 }
 
-dpp::snowflake Player::getSnowflake() {
-	return mySnowflake;
+dpp::snowflake Player::getChannelID() {
+	return channelID;
 }
 
-void Player::setSnowflake(dpp::snowflake inputSnowflake) {
-	mySnowflake = inputSnowflake;
+void Player::setSnowflake(dpp::snowflake inputChannelID) {
+	channelID = inputChannelID;
 }

@@ -9,7 +9,19 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-I",
+                "/usr/include",
+                "-I",
+                "/usr/include/dpp",
+                "-I",
+                "/path/to/cpr/include",
+                "-I",
+                "/usr/include/nlohmann",
+                "-L",
+                "/usr/lib",
+                "-ldpp",
+                "-lcpr"    
             ],
             "options": {
                 "cwd": "${fileDirname}"

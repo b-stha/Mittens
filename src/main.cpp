@@ -50,6 +50,7 @@ int main() {
     bot.on_slashcommand([&bot](const dpp::interaction_create_t& event) {
         if (event.command.type == dpp::it_application_command) {
             dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
+            dpp::snowflake currChannel = event.command.channel_id;
 
             if (cmd_data.name == "add") {
                 std::string userInput = lowerStr(std::get<std::string>(cmd_data.options[0].value));
@@ -61,10 +62,10 @@ int main() {
                     userInputArr = split(userInput, '#');
                 }
                 else {
-                    userInputArr[0] = userInput;
-                    userInputArr[1] = "NA1";
+                    userInputArr.emplace_back(userInput);
+                    userInputArr.emplace_back("NA1");
                 }
-
+                
                 std::string puuid;
 
                 bool puuidFetchSuccess = false;
@@ -81,7 +82,7 @@ int main() {
 
                 if (puuidFetchSuccess && notPlayerExists(userVec, puuid)) {
                     std::unique_ptr pPlayer = std::make_unique<Player>(puuid);
-                    pPlayer->setSnowflake(cmd_data.id);
+                    pPlayer->setChannelID(currChannel);
                     pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
                     userVec.push_back(std::move(pPlayer));
                 }
@@ -113,7 +114,7 @@ int main() {
                         user->setMatchInfo(updatedInfo);
                         dpp::embed embOutput = createResult(*user);
 
-                        dpp::message msg(1251792647157317673, embOutput);
+                        dpp::message msg(user->getChannelID(), embOutput);
                         bot.message_create(msg);
                     }
                 }

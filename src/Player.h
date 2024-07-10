@@ -50,12 +50,12 @@ public:
 	std::string getPUUID() const;
 	std::vector<std::string> getFullName() const;
 	std::vector<int> getTime() const;
-	void setSnowflake(dpp::snowflake inputSnowflake);
-	dpp::snowflake getSnowflake();
+	void setChannelID(dpp::snowflake inputChannelID);
+	dpp::snowflake getChannelID();
 
 	PlayerMatchInfo myMatchInfo;
 private:
-	dpp::snowflake mySnowflake;
+	dpp::snowflake channelID;
 	double gameLenMin = 0;
 	double gameLenSec = 0;
 	std::string puuid;
