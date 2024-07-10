@@ -55,6 +55,6 @@ dpp::snowflake Player::getChannelID() {
 	return channelID;
 }
 
-void Player::setSnowflake(dpp::snowflake inputChannelID) {
+void Player::setChannelID(dpp::snowflake inputChannelID) {
 	channelID = inputChannelID;
 }
