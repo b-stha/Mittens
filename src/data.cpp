@@ -118,7 +118,7 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_NightHarvester", "<:behemoth:1250590470690574379>"}, //Steadfast
 	{"TFT_Item_SpectralGauntlet", "<:evenshroud:1250590487325184051>"}, //Evenshroud
 	{"TFT_Item_Leviathan", "<:nashors_tooth:1250590507567157352>"}, //Nashor's Tooth
-	{"TFT_Item_UnstableConcoction", "<:stridebreaker:1250590532397301830>"}, //Hand of Justice
+	{"TFT_Item_UnstableConcoction", "<:hand_of_justice:1251321473205927997>"}, //Hand of Justice
 	{"TFT_Item_PowerGauntlet", "<:stridebreaker:1250590532397301830>"}, //Guardbreaker
 	{"TFT_Item_RabadonsDeathcap", "<:rabadons_deathcap:1250590514617778318>"},
 	{"TFT_Item_MadredsBloodrazor", "<:giant_slayer:1251321472350158868>"}, //Giant Slayer
