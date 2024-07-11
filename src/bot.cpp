@@ -54,12 +54,12 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 };
 
 dpp::embed createResult(const Player& player) {
-	std::string matchResultURL = "https://tactics.tools/player/na/" + player.getFullName()[0] + "/" + player.getFullName()[1] + "/" + player.getCurrMatch();
-	std::string nameStr = player.getFullName()[0] + "#" + player.getFullName()[1];
+    std::string name = player.getFullName()[0];
+	std::string matchResultURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/" + player.getCurrMatch();
 	std::string augmentList = augListStr(player);
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(dpp::colors::sti_blue)
-		.set_title(player.getFullName()[0] + "'s match result")
+		.set_title(name + "'s match result")
 		.set_url(matchResultURL)
 		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
 		.set_description(
