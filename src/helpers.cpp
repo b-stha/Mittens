@@ -22,7 +22,6 @@ std::string starCount(const int& tier) {
 	return (star * tier);
 };
 
-//TODO: Add check for item existing in itemData
 std::string itemListStr(const Unit& unit) {
 	std::string itemListOutput = "";
 	std::string emptyItem = "<:transparent:1250910469330567292> ";
@@ -31,7 +30,11 @@ std::string itemListStr(const Unit& unit) {
 	}
 	else {
 		for (const auto& item : unit.items) {
-			itemListOutput += itemData.at(item) + " ";
+            if (itemData.count(item) > 0) {
+			    itemListOutput += itemData.at(item) + " "; 
+                continue;
+            }
+            itemListOutput += "<:steamhappy:1123798178030964848> ";
 		}
 	}
 	return itemListOutput;
