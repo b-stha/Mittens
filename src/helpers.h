@@ -13,6 +13,5 @@ std::string starCount(const int& tier);
 std::vector<std::string> split(const std::string& s, char delim);
 bool notPlayerExists(const std::vector<std::unique_ptr<Player>>& players, const std::string& puuid);
 int calcBoardValue(PlayerMatchInfo matchInfo);
-std::string lowerStr(const std::string& input);
 std::string fillSpaces(std::string input);
 #endif

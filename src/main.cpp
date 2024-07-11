@@ -55,14 +55,13 @@ int main() {
             if (cmd_data.name == "add") {
                 std::string userInput = std::get<std::string>(cmd_data.options[0].value);
                 std::cout << userInput << std::endl;
-                std::string loweredUserInput = lowerStr(userInput);
                 std::vector<std::string> userInputArr;
 
                 if (userInput.find("#") != std::string::npos) { 
-                    userInputArr = split(loweredUserInput, '#');
+                    userInputArr = split(userInput, '#');
                 }
                 else {
-                    userInputArr.emplace_back(loweredUserInput);
+                    userInputArr.emplace_back(userInput);
                     userInputArr.emplace_back("NA1");
                 }
                 
