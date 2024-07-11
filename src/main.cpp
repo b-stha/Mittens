@@ -58,7 +58,7 @@ int main() {
                 std::string loweredUserInput = lowerStr(userInput);
                 std::vector<std::string> userInputArr;
 
-                if (userInput.find("#")) { 
+                if (userInput.find("#") != std::string::npos) { 
                     userInputArr = split(loweredUserInput, '#');
                 }
                 else {
