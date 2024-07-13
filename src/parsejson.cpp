@@ -37,6 +37,16 @@ void from_json(const json& j, Info& i)
 
 json parseJSON(cpr::Response r) {
     try {
+        std::cout << "Response text: " << r.text << std::endl;
+        
+        if (r.text.empty()) {
+            throw std::runtime_error("Empty response text");
+        }
+
+        if (r.header["Content-Type"].find("application/json") == std::string::npos) {
+            throw std::runtime_error("Response is not JSON");
+        }
+
         return json::parse(r.text);
     }
     catch (json::parse_error& e) {
