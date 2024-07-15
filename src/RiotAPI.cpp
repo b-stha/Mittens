@@ -2,8 +2,7 @@
 
 std::string fetchMatchID(const Player& player, const std::string apiKey) {
 	std::string matchIDurl = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/" + player.getPUUID() + "/ids?count=1&api_key=" + apiKey;
-	cpr::Response matchIDr = cpr::Get(cpr::Url{ matchIDurl });
-	json matchIDjson = parseJSON(matchIDr);
+	json matchIDjson = makeReq(matchIDurl, 10, 1000);
 
 	if (matchIDjson.is_array() && !matchIDjson.empty()) {
 		return matchIDjson[0].get<std::string>();
@@ -16,16 +15,14 @@ std::string fetchMatchID(const Player& player, const std::string apiKey) {
 Info fetchInfo(const std::string matchID, const std::string apiKey) {
 	std::string infoURL = "https://americas.api.riotgames.com/tft/match/v1/matches/" + matchID + "?api_key=" + apiKey;
     std::cout << infoURL << std::endl;
-	cpr::Response infoResponse = cpr::Get(cpr::Url{ infoURL });
-	json infoJson = parseJSON(infoResponse);
+	json infoJson = makeReq(infoURL, 10, 1000);
 
 	return infoJson["info"].get<Info>();
 };
 
 void setName(Player& player, const std::string apiKey) {
 	std::string nameURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-puuid/" + player.getPUUID() + "?api_key=" + apiKey;
-	cpr::Response urlResponse = cpr::Get(cpr::Url{ nameURL });
-	json nameJson = parseJSON(urlResponse);
+	json nameJson = makeReq(nameURL, 10, 1000);
 
 	if (nameJson.is_array() && !nameJson.empty()) {
 		player.setNameTag(nameJson[0].get<std::string>(), nameJson[1].get<std::string>());
@@ -39,8 +36,7 @@ std::string fetchPUUID(const std::string& name, const std::string& tag, const st
     std::string fixedName = fillSpaces(name);
 	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + fixedName + "/" + tag + "?api_key=" + apiKey;
     std::cout << idURL << std::endl;
-	cpr::Response idR = cpr::Get(cpr::Url{ idURL });
-	json idJSON = parseJSON(idR);
+	json idJSON = makeReq(idURL, 10, 1000);
 
 	if (!idJSON.empty()) {
 		return idJSON["puuid"].get<std::string>();
