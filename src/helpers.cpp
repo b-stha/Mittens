@@ -64,7 +64,7 @@ int calcBoardValue(PlayerMatchInfo matchInfo) {
 	int unitCount;
 	for (auto unit : matchInfo.units) {
 		if (unit.tier > 1) {
-			unitCount = 3 * unit.tier;
+			unitCount = 3 * (unit.tier - 1);
 		}
 		else {
 			unitCount = 1;
