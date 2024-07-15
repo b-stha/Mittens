@@ -43,10 +43,6 @@ json parseJSON(cpr::Response r) {
             throw std::runtime_error("Empty response text");
         }
 
-        if (r.header["Content-Type"].find("application/json") == std::string::npos) {
-            throw std::runtime_error("Response is not JSON");
-        }
-
         return json::parse(r.text);
     }
     catch (json::parse_error& e) {
@@ -61,4 +57,31 @@ json parseJSON(cpr::Response r) {
     catch (std::exception& e) {
         throw std::runtime_error(std::string("Error: ") + e.what());
     }
+}
+
+json makeReq(const std::string& url, int maxTries, int delayMs) {
+    cpr:: Response r;
+    for (int attempt = 1; attempt <= maxTries; attempt++) {
+        r = cpr::Get(cpr::Url{url});
+        std::cout << "Attempt " << attempt << ": Response text: " << r.text << std::endl;
+        std::cout << "Status code: " << r.status_code << std::endl;
+        std::cout << "Response headers: " << std::endl;
+        for (const auto& header : r.header) {
+            std::cout << header.first << ": " << header.second << std::endl;
+        }
+
+        try {
+            return parseJSON(r);
+        }
+        catch (const std::runtime_error& e) {
+            std::cerr << e.what() << std::endl;
+            if (attempt < maxTries) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
+            }
+            else {
+                throw;
+            }
+        }
+    }
+    throw std::runtime_error("Failed to retrieve valid JSON");
 }
