@@ -11,7 +11,7 @@ void Player::setMatchInfo(const Info& info) {
 			myMatchInfo = player;
 			myMatchInfo.boardValue = calcBoardValue(myMatchInfo);
 			double totGameLength = info.gameLength / 60.0;
-			gameLenSec = modf(totGameLength, &gameLenMin);
+			gameLenSec = modf(totGameLength, &gameLenMin) * 60;
 			return;
 		}
 	}
@@ -45,6 +45,7 @@ std::vector<std::string> Player::getFullName() const {
 }
 
 std::vector<int> Player::getTime() const {
+    std::cout << gameLenMin << ":" << gameLenSec << std::endl;
 	int min = static_cast<int>(gameLenMin);
 	int sec = static_cast<int>(gameLenSec);
 	std::vector<int> timeVec{ min, sec };
