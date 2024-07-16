@@ -17,6 +17,12 @@ void from_json(const json& j, Unit& u)
     j.at("tier").get_to(u.tier);
 };
 
+void from_json(const json& j, Companion& c) {
+    j.at("content_ID").get_to(c.contentID);
+    j.at("item_ID").get_to(c.itemID);
+    j.at("skin_ID").get_to(c.skinID);
+    j.at("species").get_to(c.species);
+}
 void from_json(const json& j, PlayerMatchInfo& p)
 {
     j.at("augments").get_to(p.augments);
@@ -27,6 +33,7 @@ void from_json(const json& j, PlayerMatchInfo& p)
     j.at("level").get_to(p.level);
     j.at("placement").get_to(p.placement);
     j.at("puuid").get_to(p.puuid);
+    j.at("companion").get_to(p.tacticianInfo);
 };
 
 void from_json(const json& j, Info& i)
