@@ -32,7 +32,11 @@ std::string augListStr(const Player& player) {
 	}
 
 	for (const auto& augment : player.myMatchInfo.augments) {
-		augListOutput += augmentData.at(augment)[1] + " " + augmentData.at(augment)[0] + "\n";
+        if (augmentData.count(augment) > 0) {
+		    augListOutput += augmentData.at(augment)[1] + " " + augmentData.at(augment)[0] + "\n";
+                continue;
+            }
+            augListOutput += "<:steamhappy:1123798178030964848> Placeholder Augment \n";
 	}
 	return augListOutput;
 };

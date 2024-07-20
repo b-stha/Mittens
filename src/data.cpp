@@ -480,7 +480,7 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 	{"TFT9_Augment_UnleashedArcana", {"Unleashed Arcana", "<:lifelonglearner3:1251347898755580096>"}},
 	{"TFT11_Augment_Exalted", {"Venerable Piggy Bank", "<:venerablepiggybank_ii:1251377761071665256>"}},
 	{"TFT11_Augment_WanderingTrainerGold", {"Wandering Trainer I", "<:wanderingtrainerii:1251377762157989908>"}},
-	{"TFT11_Augment_WanderingTrainer", {"Wandering Trainer II", "<:wanderingtraineriii:1251377763642769468>"}},
+	{"TFT9_Augment_WanderingTrainer", {"Wandering Trainer II", "<:wanderingtraineriii:1251377763642769468>"}},
 	{"TFT11_Augment_WardenCrest", {"Warden Crest", "<:crest_warden_ii:1251325069515423914>"}},
 	{"TFT11_Augment_WardenCrown", {"Warden Crown", "<:crown_warden_iii:1251347318255652986>"}},
 	{"TFT11_Augment_Bruiser", {"Well Fed", "<:wellfed_ii:1251377765291266179>"}},

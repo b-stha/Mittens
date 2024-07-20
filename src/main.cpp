@@ -75,7 +75,7 @@ int main() {
                     event.reply(userInput + " successfully added");
                 }
                 catch (const std::exception& e) {
-                    std::cout << e.what() << std::endl;
+                    std::cout << e.what() << std::endl; 
                     event.reply(userInput + " not found...");
                 }
 
@@ -122,6 +122,7 @@ int main() {
     }
     catch (const std::exception& e) {
         std::cerr << "Fatal error: " << e.what() << std::endl;
+        
         return 1;
     }
 
