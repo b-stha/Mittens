@@ -102,4 +102,3 @@ std::string fillSpaces(std::string input) {
     }
     return input;
 }
-

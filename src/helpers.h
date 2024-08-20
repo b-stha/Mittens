@@ -16,5 +16,4 @@ bool notPlayerExists(const std::vector<std::unique_ptr<Player>>& players, const 
 int calcBoardValue(PlayerMatchInfo matchInfo);
 std::string fillSpaces(std::string input);
 
-//void writeToFile(const std::string &message);
 #endif
