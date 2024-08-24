@@ -115,6 +115,10 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_RedBuff", "<:sunfire_cape:1251321491543425116>"}, //Sunfire Cape
 
 	//Spatula Items
+    {"", ""},
+    {"", ""},
+    {"", ""},
+    {"", ""},
 
 	//Uncraftable Emblems
 
