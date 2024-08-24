@@ -10,8 +10,10 @@
 			break;
 		case 4:
 			break;
+		case 5:
+			break;
 		}
-		unitName = setStrWidth(unitName, 10);
+		traitName = setStrWidth(unitName, 10);
 
 		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
 		std::string unitItems = itemListStr(unit);

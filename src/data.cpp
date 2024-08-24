@@ -115,12 +115,30 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_RedBuff", "<:sunfire_cape:1251321491543425116>"}, //Sunfire Cape
 
 	//Spatula Items
-    {"", ""},
-    {"", ""},
-    {"", ""},
-    {"", ""},
+    {"TFT12_Item_SugarcraftEmblemItem", ""},
+    {"TFT12_Item_HoneymancyEmblemItem", ""},
+    {"TFT12_Item_FaerieEmblemItem", ""},
+    {"TFT12_Item_FrostEmblemItem", ""},
+    {"TFT12_Item_WitchcraftEmblemItem", ""},
+    {"TFT12_Item_EldritchEmblemItem", ""},
+    {"TFT12_Item_PyroEmblemItem", ""},
+    {"TFT12_Item_PortalEmblemItem", ""},
+    {"TFT_Item_ForceOfNature", ""},
 
 	//Uncraftable Emblems
+    {"TFT12_Item_BlasterEmblemItem", ""},
+    {"TFT12_Item_VanguardEmblemItem", ""},
+    {"TFT12_Item_ScholarEmblemItem", ""},
+    {"TFT12_Item_ChronoEmblemItem", ""},
+    {"TFT12_Item_PreserverEmblemItem", ""},
+    {"TFT12_Item_ArcanaEmblemItem", ""},
+    {"TFT12_Item_MageEmblemItem", ""},
+    {"TFT12_Item_BastionEmblemItem", ""},
+    {"TFT12_Item_WarriorEmblemItem", ""},
+    {"TFT12_Item_IncantorEmblemItem", ""},
+    {"TFT12_Item_MultistrikerEmblemItem", ""},
+    {"TFT12_Item_ShapeshifterEmblemItem", ""},
+    {"TFT12_Item_HunterEmblemItem", ""},
 
 	//Radiant Items
 	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1251370799835910164>"},
@@ -482,4 +500,117 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 	{"TFT9_Augment_YouHaveMySword", {"You Have My Sword", "<:youhavemyswordii:1251377794340880485>"}},
 	{"TFT9_Augment_YoungAndWildAndFree", {"Young and Wild and Free", "<:youngandwildandfreei:1251377795485925416>"}},
     {"TFT12_Augment_BlitzcrankCarry", {"Zap Attack", ""}},
+};
+
+const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData = {
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
+	{"TFT12_Arcana", {
+		{1, ""},
+		{2, ""},
+		{3, ""}
+	}},
 };
