@@ -2,20 +2,11 @@
 
 /*void traitListStr(const PlayerMatchInfo& match, dpp::embed& embedObj) {
 	for (const auto& trait : match.traits) {
-		std::string traitOutput = "";
-		switch (trait.style) {
-		case 2:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		}
-		traitName = setStrWidth(unitName, 10);
+		std::string traitName = "";
 
-		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
+		traitName = setStrWidth(traitName, 10);
+
+		std::string traitIconName;
 		std::string unitItems = itemListStr(unit);
 		embedObj.add_field(
 			"",

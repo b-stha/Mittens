@@ -6,14 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <dpp/dpp.h>
-
-struct Trait {
-	std::string name;
-	int numUnits = 0;
-	int style = 0;
-	int tierCurrent = 0;
-	int tierTotal = 0;
-};
+#include "traits.h"
 
 struct Companion {
     std::string contentID;
