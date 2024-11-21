@@ -23,7 +23,7 @@ struct Unit {
 };
 
 struct PlayerMatchInfo {
-	std::vector<std::string> augments;
+	//std::vector<std::string> augments;
 	std::vector<Trait> traits;
 	std::vector<Unit> units;
 	int goldLeft = 0;

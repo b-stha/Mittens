@@ -16,7 +16,7 @@
 			true);
 	};
 };*/
-
+/*
 std::string augListStr(const Player& player) {
 	std::string augListOutput = "";
 
@@ -32,7 +32,7 @@ std::string augListStr(const Player& player) {
             augListOutput += "<:steamhappy:1123798178030964848> Placeholder Augment \n";
 	}
 	return augListOutput;
-};
+};*/
 
 void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {
@@ -65,12 +65,12 @@ dpp::embed createResult(const Player& player) {
 			"Placement: " + std::to_string(player.myMatchInfo.placement) + "\n"
 			"Gold Left: " + std::to_string(player.myMatchInfo.goldLeft) + "\n"
 			"Board Value: " + std::to_string(player.myMatchInfo.boardValue)
-		)
+		)/*
 		.add_field(
 			"Augments",
 			augmentList,
 			false
-		)
+		)*/
 		.add_field(
 			"Units",
 			"",

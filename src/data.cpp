@@ -1,66 +1,7 @@
 #include "data.h"
 
 const std::unordered_map<std::string, std::vector<std::string>> unitData = {
-    {"TFT12_Ahri", {"Ahri", "<:tft12_ahri_square:1290165034697363486>"}},
-    {"TFT12_Akali", {"Akali", "<:tft12_akali_square:1290165035720507402>"}},
-    {"TFT12_Ashe", {"Ashe", "<:tft12_ashe_square:1290165036710625341>"}},
-    {"TFT12_Bard", {"Bard", "<:tft12_bard_square:1290165037536903212>"}},
-    {"TFT12_Blitzcrank", {"Blitzcrank", "<:tft12_blitzcrank_square:1290165039298379776>"}},
-    {"TFT12_Briar", {"Briar", "<:tft12_briar_square:1290165040455880795>"}},
-    {"TFT12_Camille", {"Camille", "<:tft12_camille_square:1290165041441804360>"}},
-    {"TFT12_Cassiopeia", {"Cassiopeia", "<:tft12_cassiopeia_square:1290165042167287840>"}},
-    {"TFT12_Diana", {"Diana", "<:tft12_diana_square:1290165070470447124>"}},
-    {"TFT12_Elise", {"Elise", "<:tft12_elise_square:1290165071611428947>"}},
-    {"TFT12_Ezreal", {"Ezreal", "<:tft12_ezreal_square:1290165072731050024>"}},
-    {"TFT12_Fiora", {"Fiora", "<:tft12_fiora_square:1290165073553260608>"}},
-    {"TFT12_Galio", {"Galio", "<:tft12_galio_square:1290165074836586587>"}},
-    {"TFT12_Gwen", {"Gwen", "<:tft12_gwen_square:1290165075914653749>"}},
-    {"TFT12_Hecarim", {"Hecarim", "<:tft12_hecarim_square:1290165077298647081>"}},
-    {"TFT12_Hwei", {"Hwei", "<:tft12_hwei_square:1290165078192033853>"}},
-    {"TFT12_Jax", {"Jax", "<:tft12_jax_square:1290165098970742855>"}},
-    {"TFT12_Jayce", {"Jayce", "<:tft12_jayce_square:1290165099578916876>"}},
-    {"TFT12_Jinx", {"Jinx", "<:tft12_jinx_square:1290165100967366696>"}},
-    {"TFT12_Kalista", {"Kalista", "<:tft12_kalista_square:1290165101856297000>"}},
-    {"TFT12_Karma", {"Karma", "<:tft12_karma_square:1290165102808535161>"}},
-    {"TFT12_Kassadin", {"Kassadin", "<:tft12_kassadin_square:1290165104436052010>"}},
-    {"TFT12_Katarina", {"Katarina", "<:tft12_katarina_square:1290165105601937428>"}},
-    {"TFT12_KogMaw", {"Kog'Maw", "<:tft12_kogmaw_square:1290165107287920712>"}},
-    {"TFT12_Lillia", {"Lillia", "<:tft12_lillia_square:1290165132290424914>"}},
-    {"TFT12_Milio", {"Milio", "<:tft12_milio_square:1290165133397725195>"}},
-    {"TFT12_Mordekaiser", {"Mordekaiser", "<:tft12_mordekaiser_square:1290165135230636032>"}},
-    {"TFT12_Morgana", {"Morgana", "<:tft12_morgana_square:1290165137063411813>"}},
-    {"TFT12_Nami", {"Nami", "<:tft12_nami_square:1290165138271371264>"}},
-    {"TFT12_Nasus", {"Nasus", "<:tft12_nasus_square:1290165139680792688>"}},
-    {"TFT12_Neeko", {"Neeko", "<:tft12_neeko_square:1290165140838289448>"}},
-    {"TFT12_Nilah", {"Nilah", "<:tft12_nilah_square:1290165141975076935>"}},
-    {"TFT12_Nomsy", {"Nomsy", "<:tft12_nomsy_square:1290165167740555297>"}},
-    {"TFT12_Norra", {"Norra & Yuumi", "<:tft12_norra_square:1290165169132933184>"}},
-    {"TFT12_Nunu", {"Nunu", "<:tft12_nunu_square:1290165170131439747>"}},
-    {"TFT12_Olaf", {"Olaf", "<:tft12_olaf_square:1290165171117101098>"}},
-    {"TFT12_Poppy", {"Poppy", "<:tft12_poppy_square:1290165172371198023>"}},
-    {"TFT12_Rakan", {"Rakan", "<:tft12_rakan_square:1290165173897920532>"}},
-    {"TFT12_Rumble", {"Rumble", "<:tft12_rumble_square:1290165174879256708>"}},
-    {"TFT12_Ryze", {"Ryze", "<:tft12_ryze_square:1290165176347394140>"}},
-    {"TFT12_Seraphine", {"Seraphine", "<:tft12_seraphine_square:1290165199906668556>"}},
-    {"TFT12_Shen", {"Shen", "<:tft12_shen_square:1290165200888135743>"}},
-    {"TFT12_Shyvana", {"Shyvana", "<:tft12_shyvana_square:1290165202062409738>"}},
-    {"TFT12_Smolder", {"Smolder", "<:tft12_smolder_square:1290165203128025149>"}},
-    {"TFT12_Soraka", {"Soraka", "<:tft12_soraka_square:1290165204033998879>"}},
-    {"TFT12_Swain", {"Swain", "<:tft12_swain_square:1290165205049020530>"}},
-    {"TFT12_Syndra", {"Syndra", "<:tft12_syndra_square:1290165206860693544>"}},
-    {"TFT12_TahmKench", {"Tahm Kench", "<:tft12_tahmkench_square:1290165207921983531>"}},
-    {"TFT12_Taric", {"Taric", "<:tft12_taric_square:1290165232823570523>"}},
-    {"TFT12_Tristana", {"Tristana", "<:tft12_tristana_square:1290165234014748784>"}},
-    {"TFT12_Twitch", {"Twitch", "<:tft12_twitch_square:1290165309810147330>"}},
-    {"TFT12_Varus", {"Varus", "<:tft12_varus_square:1290165311177359422>"}},
-    {"TFT12_Veigar", {"Veigar", "<:tft12_veigar_square:1290165312154501120>"}},
-    {"TFT12_Vex", {"Vex", "<:tft12_vex_square:1290165313215926352>"}},
-    {"TFT12_Warwick", {"Warwick", "<:tft12_warwick_square:1290165314352451604>"}},
-    {"TFT12_Wukong", {"Wukong", "<:tft12_wukong_square:1290165315917058089>"}},
-    {"TFT12_Xerath", {"Xerath", "<:tft12_xerath_square:1290165316944658442>"}},
-    {"TFT12_Ziggs", {"Ziggs", "<:tft12_ziggs_square:1290165318223663105>"}},
-    {"TFT12_Zilean", {"Zilean", "<:tft12_zilean_square:1290165347772530709>"}},
-    {"TFT12_Zoe", {"Zoe", "<:tft12_zoe_square:1290165349131616367>"}},
+
 };
 
 const std::unordered_map<std::string, std::string> itemData = {
@@ -114,30 +55,8 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_RedBuff", "<:sunfire_cape:1251321491543425116>"}, //Sunfire Cape
 
 	//Spatula Items
-    {"TFT12_Item_SugarcraftEmblemItem", ""},
-    {"TFT12_Item_HoneymancyEmblemItem", ""},
-    {"TFT12_Item_FaerieEmblemItem", ""},
-    {"TFT12_Item_FrostEmblemItem", ""},
-    {"TFT12_Item_WitchcraftEmblemItem", ""},
-    {"TFT12_Item_EldritchEmblemItem", ""},
-    {"TFT12_Item_PyroEmblemItem", ""},
-    {"TFT12_Item_PortalEmblemItem", ""},
-    {"TFT_Item_ForceOfNature", ""},
 
 	//Pan Items
-    {"TFT12_Item_BlasterEmblemItem", ""},
-    {"TFT12_Item_VanguardEmblemItem", ""},
-    {"TFT12_Item_ScholarEmblemItem", ""},
-    {"TFT12_Item_ChronoEmblemItem", ""},
-    {"TFT12_Item_PreserverEmblemItem", ""},
-    {"TFT12_Item_ArcanaEmblemItem", ""},
-    {"TFT12_Item_MageEmblemItem", ""},
-    {"TFT12_Item_BastionEmblemItem", ""},
-    {"TFT12_Item_WarriorEmblemItem", ""},
-    {"TFT12_Item_IncantorEmblemItem", ""},
-    {"TFT12_Item_MultistrikerEmblemItem", ""},
-    {"TFT12_Item_ShapeshifterEmblemItem", ""},
-    {"TFT12_Item_HunterEmblemItem", ""},
 
 	//Radiant Items
 	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1251370799835910164>"},
@@ -232,12 +151,6 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT7_Item_ShimmerscaleHeartOfGold", "<:needlessy_large_gem:1251374324582187048>"},
 	{"TFT_Item_UnstableTreasureChest", "<:unstable_treasure_chest:1251374398493954203>"},
 	{"TFT_Item_Zephyr", "<:zephyr:1251374441972109322>"},
-
-    //Faerie Items
-    {"TFT12_Item_Faerie_QueensCrownRadiant", ""},
-    {"TFT12_Item_Faerie_QueensCrown", ""},
-    {"TFT12_Item_Faerie_ArmorRadiant",""}, 
-    {"TFT12_Item_Faerie_Armor",""}, 
 };
 
 const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
@@ -507,129 +420,4 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
     {"TFT12_Augment_BlitzcrankCarry", {"Zap Attack", ""}},
 };
 
-const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData = {
-	{"TFT12_Arcana", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Chrono", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Dragon", {
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Druid", {
-		{5, ""}
-	}},
-	{"TFT12_Eldritch", {
-		{1, ""},
-		{2, ""},
-		{3, ""},
-		{4, ""}
-	}},
-	{"TFT12_Faerie", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Frost", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Honeymancy", {
-		{1, ""},
-		{3, ""}
-	}},
-	{"TFT12_Portal", {
-		{1, ""},
-		{2, ""},
-		{3, ""},
-		{4, ""}
-	}},
-	{"TFT12_Pyro", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Ravenous", {
-		{5, ""}
-	}},
-	{"TFT12_Sugarcraft", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Witchcraft", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Ascendant", {
-		{5, ""}
-	}},
-	{"TFT12_Bastion", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_BatQueen", {
-		{5, ""}
-	}},
-	{"TFT12_Blaster", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Explorer", {
-		{5, ""}
-	}},
-	{"TFT12_Hunter", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Incantor", {
-		{1, ""},
-		{3, ""}
-	}},
-	{"TFT12_Mage", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Multistriker", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Preserver", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Scholar", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Shapeshifter", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Vanguard", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-	{"TFT12_Warrior", {
-		{1, ""},
-		{2, ""},
-		{3, ""}
-	}},
-};
+const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData;
