@@ -1,5 +1,5 @@
 #include "parsejson.h"
-
+/*
 void from_json(const json& j, Trait& t)
 {
     j.at("name").get_to(t.name);
@@ -7,7 +7,7 @@ void from_json(const json& j, Trait& t)
     j.at("style").get_to(t.style);
     j.at("tier_current").get_to(t.tierCurrent);
     j.at("tier_total").get_to(t.tierTotal);
-};
+};*/
 
 void from_json(const json& j, Unit& u)
 {
@@ -26,7 +26,7 @@ void from_json(const json& j, Companion& c) {
 void from_json(const json& j, PlayerMatchInfo& p)
 {
     //j.at("augments").get_to(p.augments);
-    j.at("traits").get_to(p.traits);
+    //j.at("traits").get_to(p.traits);
     j.at("units").get_to(p.units);
     std::reverse(p.units.begin(), p.units.end());
     j.at("gold_left").get_to(p.goldLeft);
