@@ -53,7 +53,7 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 dpp::embed createResult(const Player& player) {
     std::string name = player.getFullName()[0];
 	std::string matchResultURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/" + player.getCurrMatch();
-	std::string augmentList = augListStr(player);
+	//std::string augmentList = augListStr(player);
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(dpp::colors::sti_blue)
 		.set_title(name + "'s match result")
