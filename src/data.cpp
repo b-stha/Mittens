@@ -144,8 +144,36 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT13_Crime_OmegaPrismatic","<:dimensional_heirloom:1309840867363782766>"},
 
 	// Spatula Items
+	{"TFT13_Item_AutomataEmblemItem",""},
+	{"TFT13_Item_CabalEmblemItem",""},
+	{"TFT13_Item_ExperimentEmblemItem",""},
+	{"TFT13_Item_FamilyEmblemItem",""},
+	{"TFT13_Item_HoverboardEmblemItem",""},
+	{"TFT13_Item_RebelEmblemItem",""},
+	{"TFT13_Item_SquadEmblemItem",""},
+	{"TFT13_Item_WarbandEmblemItem",""},
+	{"TFT_Item_ForceOfNature",""},
 
 	// Pan Items
+	{"TFT13_Item_BruiserEmblemItem",""},
+	{"TFT13_Item_AmbusherEmblemItem",""},
+	{"TFT13_Item_ChallengerEmblemItem",""},
+	{"TFT13_Item_DemolitionistEmblemItem",""},
+	{"TFT13_Item_InvokerEmblemItem",""},
+	{"TFT13_Item_PitFighterEmblemItem",""},
+	{"TFT13_Item_SorcererEmblemItem",""},
+	{"TFT13_Item_TitanEmblemItem",""},
+	{"TFT_Item_TacticiansRing",""},
+
+	{"TFT_Item_TacticiansScepter", ""},
+
+	// Uncraftable Emblems
+	{"TFT13_Item_AcademyEmblemItem", ""},
+	{"TFT13_Item_CrimeEmblemItem", ""},
+	{"TFT13_Item_ChallengerEmblemItem", ""},
+	{"TFT13_Item_ScrapEmblemItem", ""},
+	{"TFT13_Item_SniperEmblemItem", ""},
+	{"TFT13_Item_WatcherEmblemItem", ""},
 
 	// Radiant Items
 	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1251370799835910164>"},
