@@ -113,11 +113,41 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_FrozenHeart", "<:winters_approach:1251321613098553415>"}, //Protector's Vow
 	{"TFT_Item_RedBuff", "<:sunfire_cape:1251321491543425116>"}, //Sunfire Cape
 
-	//Spatula Items
+	// Chembaron Items
+	{"TFT13_Crime_Silver_DestabilizedChemtank",""},
+	{"TFT13_Crime_Gold_DestabilizedChemtank",""},
+	{"TFT13_Crime_Prismatic_DestabilizedChemtank",""},
+	{"TFT13_Crime_Silver_ExecutionersVorpalblade",""},
+	{"TFT13_Crime_Gold_ExecutionersVorpalblade",""},
+	{"TFT13_Crime_Prismatic_ExecutionersVorpalblade",""},
+	{"TFT13_Crime_Silver_FleshRipper",""},
+	{"TFT13_Crime_Gold_FleshRipper",""},
+	{"TFT13_Crime_Prismatic_FleshRipper",""},
+	{"TFT13_Crime_Silver_PiltovenHexplating",""},
+	{"TFT13_Crime_Gold_PiltovenHexplating",""},
+	{"TFT13_Crime_Prismatic_PiltovenHexplating",""},
+	{"TFT13_Crime_Silver_ShimmerBloom",""},
+	{"TFT13_Crime_Gold_ShimmerBloom",""},
+	{"TFT13_Crime_Prismatic_ShimmerBloom",""},
+	{"TFT13_Crime_Silver_UnleashedToxins",""},
+	{"TFT13_Crime_Gold_UnleashedToxins",""},
+	{"TFT13_Crime_Prismatic_UnleashedToxins",""},
+	{"TFT13_Crime_Silver_VirulentVirus",""},
+	{"TFT13_Crime_Gold_VirulentVirus",""},
+	{"TFT13_Crime_Prismatic_VirulentVirus",""},
+	{"TFT13_Crime_Silver_VoltaicSaber",""},
+	{"TFT13_Crime_Gold_VoltaicSaber",""},
+	{"TFT13_Crime_Prismatic_VoltaicSaber",""},
+	{"TFT13_Crime_Bronze_ChemGrips",""},
+	{"TFT13_Crime_Bronze_MageGuard",""},
+	{"TFT13_Crime_Bronze_MiningGauntlet",""},
+	{"TFT13_Crime_OmegaPrismatic",""},
 
-	//Pan Items
+	// Spatula Items
 
-	//Radiant Items
+	// Pan Items
+
+	// Radiant Items
 	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1251370799835910164>"},
 	{"TFT5_Item_DragonsClawRadiant", "<:dragons_claw_radiant:1251322462763876434>"},
 	{"TFT5_Item_IonicSparkRadiant", "<:ionic_spark_radiant:1251322632859553913>"},
