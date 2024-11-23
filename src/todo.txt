@@ -1,4 +1,6 @@
 - Include /add command
+- lowercase all text to ensure capitalization error doesn't occur
+- fill in whitespace for urls
 
 - Link puuid and user that send message (done kind of??)
 
@@ -6,6 +8,6 @@
 - Link correct player match history and avatar 
 - Spacing issues 
 - /matchresult command 
-- store ids in file 
-- lowercase all text to ensure capitalization error doesn't occur
-- fill in whitespace for urls
+- store ids in mySQL 
+- fix adding players too quick (queue?)
+- add promo messag

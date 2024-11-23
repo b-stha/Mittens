@@ -61,7 +61,8 @@ const std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"TFT13_Ziggs", {"Ziggs", "<:tft13_ziggs_square:1309788701202845777>"}},
 	{"TFT13_Zoe", {"Zoe", "<:tft13_zoe_square:1309788702209478756>"}},
 	{"TFT13_Zyra", {"Zyra", "<:tft13_zyra_square:1309788703404851240>"}},
-	{"TFT13_JayceSummon", {"Hextech Forge", "<:tft13_jaycesummon_square:1309857780256997497>"}}
+	{"TFT13_JayceSummon", {"Hextech Forge", "<:tft13_jaycesummon_square:1309857780256997497>"}},
+	{"TFT13_Sion", {"Sion", "<:tft13_sion_square_new:1309866652086571028>"}}
 };
 
 const std::unordered_map<std::string, std::string> itemData = {
