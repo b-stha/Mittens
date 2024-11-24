@@ -36,10 +36,17 @@ std::string augListStr(const Player& player) {
 
 void unitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& unit : player.myMatchInfo.units) {
-		std::string unitName = unitData.at(unit.characterID)[0];
+		std::string apiName = unit.characterID;
+
+		std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
+          [](unsigned char c){ return std::tolower(c); });
+
+		std::cout << apiName << std::endl;
+
+		std::string unitName = unitData.at(apiName)[0];
 		unitName = setStrWidth(unitName, 10);
 
-		std::string unitIconName = unitData.at(unit.characterID)[1] + " " + unitName;
+		std::string unitIconName = unitData.at(apiName)[1] + " " + unitName;
 		std::string unitItems = itemListStr(unit);
 		embedObj.add_field(
 			"", 
