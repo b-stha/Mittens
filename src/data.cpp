@@ -540,3 +540,16 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 };
 
 const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData;
+
+const std::unordered_map<std::string, std::string> rankData = {
+	{"IRON",""},
+	{"BRONZE",""},
+	{"SILVER",""},
+	{"GOLD",""},
+	{"PLATINUM",""},
+	{"EMERALD",""},
+	{"DIAMOND",""},
+	{"MASTER",""},
+	{"GRANDMASTER",""},
+	{"CHALLENGER",""}
+};
