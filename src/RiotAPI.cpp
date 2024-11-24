@@ -46,3 +46,16 @@ std::string fetchPUUID(const std::string& name, const std::string& tag, const st
 	}
 
 }
+
+std::string fetchSummonerID(const std::string& puuid, const std::string& apiKey) {
+	std::string summonerURL = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/" + puuid + "?api_key=" + apiKey;
+
+	json summonerJSON = makeReq(summonerURL, 10, 1000);
+
+	if (!summonerJSON.empty()) {
+		return summonerJSON["id"].get<std::string>();
+	}
+	else {
+		throw std::runtime_error("Error finding summoner ID...");
+	}
+}
