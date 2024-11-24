@@ -13,7 +13,7 @@ const std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"TFT13_DrMundo", {"Dr. Mundo", "<:tft13_drmundo_square:1309470416959574137>"}},
 	{"TFT13_Draven", {"Draven", "<:tft13_draven_square:1309470415969718274>"}},
 	{"TFT13_Ekko", {"Ekko", "<:tft13_ekko_square:1309470418217992263>"}},
-	{"TFT13_Elise", {"Elise", "<:tft13_elise_square:1309470419325292604>"}},
+	{"tft13_elise", {"Elise", "<:tft13_elise_square:1309470419325292604>"}},
 	{"TFT13_Ezreal", {"Ezreal", "<:tft13_ezreal_square:1309470420411613205>"}},
 	{"TFT13_Gangplank", {"Gangplank", "<:tft13_gangplank_square:1309470449079423058>"}},
 	{"TFT13_Garen", {"Garen", "<:tft13_garen_square:1309470450908139622>"}},
