@@ -59,6 +59,8 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 
 dpp::embed createResult(const Player& player) {
     std::string name = player.getFullName()[0];
+	int playerLP = player.getPlayerLP();
+	std::cout << playerLP << std::endl;
 	std::string matchResultURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/" + player.getCurrMatch();
 	//std::string augmentList = augListStr(player);
 	dpp::embed outEmbed = dpp::embed()
@@ -69,7 +71,7 @@ dpp::embed createResult(const Player& player) {
 		.set_description(
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"
-			"Placement: " + std::to_string(player.myMatchInfo.placement) + "\n"
+			"Placement: " + std::to_string(player.myMatchInfo.placement) + " (" + std::to_string(playerLP) + " LP)\n"
 			"Gold Left: " + std::to_string(player.myMatchInfo.goldLeft) + "\n"
 			"Board Value: " + std::to_string(player.myMatchInfo.boardValue)
 		)/*
