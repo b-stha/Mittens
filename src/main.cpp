@@ -83,6 +83,9 @@ int main() {
                     std::unique_ptr pPlayer = std::make_unique<Player>(puuid);
                     pPlayer->setChannelID(currChannel);
                     pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
+
+                    std::string summonerID = fetchSummonerID(puuid, TFT_APIKEY);
+                    pPlayer->setSummonerID(summonerID);
                     userVec.push_back(std::move(pPlayer));
                 }
                 else {
@@ -106,6 +109,10 @@ int main() {
                 for (auto& user : userVec)
                 {
                     std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
+                    League playerLeague = fetchLeague(*user, TFT_APIKEY);
+
+                    user->setPlayerRank(playerLeague);
+
                     if (user->getCurrMatch() != checkMatch) {
                         user->setprevMatch(user->getCurrMatch());
                         user->setCurrMatch(checkMatch);
