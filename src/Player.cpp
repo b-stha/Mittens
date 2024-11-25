@@ -59,3 +59,23 @@ dpp::snowflake Player::getChannelID() {
 void Player::setChannelID(dpp::snowflake inputChannelID) {
 	channelID = inputChannelID;
 }
+
+void Player::setSummonerID(std::string input) {
+	summonerID = input;
+}
+
+std::string Player::getSummonerID() {
+	return summonerID;
+}
+
+void Player::setPlayerRank(League inLeague) {
+	playerRank = inLeague;
+}
+
+std::pair<std::string, std::string> Player::getPlayerRank() {
+	return std::make_pair(playerRank.tier, playerRank.rank);
+}
+
+int Player::getPlayerLP() const {
+	return playerRank.leaguePoints;
+}

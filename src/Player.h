@@ -39,6 +39,11 @@ struct Info {
 	std::vector<PlayerMatchInfo> playerInfoList;
 };
 
+struct League {
+	std::string tier;
+	std::string rank;
+	int leaguePoints = 0;
+};
 
 class Player {
 public:
@@ -53,6 +58,11 @@ public:
 	std::vector<int> getTime() const;
 	void setChannelID(dpp::snowflake inputChannelID);
 	dpp::snowflake getChannelID();
+	void setSummonerID(std::string summonerID);
+	std::string getSummonerID();
+	std::pair<std::string, std::string> getPlayerRank();
+	int getPlayerLP() const;
+	void setPlayerRank(League inLeague);
 
 	PlayerMatchInfo myMatchInfo;
 private:
@@ -64,6 +74,8 @@ private:
 	std::string currMatchID = "";
 	std::string userName = "";
 	std::string tagLine = "";
+	std::string summonerID;
+	League playerRank;
 };
 
 #endif
