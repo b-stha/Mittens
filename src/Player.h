@@ -42,7 +42,8 @@ struct Info {
 struct League {
 	std::string tier;
 	std::string rank;
-	int leaguePoints = 0;
+	int prevLP = 0;
+	int currLP = 0;
 };
 
 class Player {
@@ -61,9 +62,9 @@ public:
 	void setSummonerID(std::string summonerID);
 	std::string getSummonerID();
 	std::pair<std::string, std::string> getPlayerRank();
-	int getPlayerLP() const;
+	std::pair<int, int> getPlayerLP() const;
 	void setPlayerRank(League inLeague);
-
+	void updateLP();
 	PlayerMatchInfo myMatchInfo;
 private:
 	dpp::snowflake channelID;

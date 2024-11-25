@@ -72,10 +72,14 @@ void Player::setPlayerRank(League inLeague) {
 	playerRank = inLeague;
 }
 
+void Player::updateLP() {
+	playerRank.prevLP = playerRank.currLP;
+}
+
 std::pair<std::string, std::string> Player::getPlayerRank() {
 	return std::make_pair(playerRank.tier, playerRank.rank);
 }
 
-int Player::getPlayerLP() const {
-	return playerRank.leaguePoints;
+std::pair<int,int> Player::getPlayerLP() const {
+	return std::make_pair(playerRank.prevLP, playerRank.currLP);
 }
