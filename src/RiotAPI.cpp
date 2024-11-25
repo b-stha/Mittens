@@ -41,10 +41,8 @@ std::string fetchPUUID(const std::string& name, const std::string& tag, const st
 	if (!idJSON.empty()) {
 		return idJSON["puuid"].get<std::string>();
 	}
-	else {
-		throw std::runtime_error("Error finding player...");
-	}
 
+	throw std::runtime_error("Error finding player...");
 }
 
 std::string fetchSummonerID(const std::string& puuid, const std::string& apiKey) {
@@ -55,7 +53,18 @@ std::string fetchSummonerID(const std::string& puuid, const std::string& apiKey)
 	if (!summonerJSON.empty()) {
 		return summonerJSON["id"].get<std::string>();
 	}
-	else {
-		throw std::runtime_error("Error finding summoner ID...");
+
+	throw std::runtime_error("Error finding summoner ID...");
+}
+
+League fetchLeague(Player& player, const std::string& apiKey) {
+	std::string leagueURL = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/" + player.getSummonerID() + "?api_key=" + apiKey;
+
+	json leagueJSON = makeReq(leagueURL, 10, 1000);
+
+	if (!leagueJSON.empty()) {
+		return leagueJSON[0].get<League>();
 	}
+
+	throw std::runtime_error("No ranked information...");
 }
