@@ -109,6 +109,9 @@ int main() {
                 for (auto& user : userVec)
                 {
                     std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
+                    std::cout << "Old: " << user->getPlayerLP().first << "   New: " << user->getPlayerLP().second << std::endl;
+                    user->updateLP();
+                    std::cout << "Old: " << user->getPlayerLP().first << "   New: " << user->getPlayerLP().second << std::endl;
                     League playerLeague = fetchLeague(*user, TFT_APIKEY);
 
                     user->setPlayerRank(playerLeague);

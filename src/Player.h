@@ -42,7 +42,6 @@ struct Info {
 struct League {
 	std::string tier;
 	std::string rank;
-	int prevLP = 0;
 	int currLP = 0;
 };
 
@@ -77,6 +76,7 @@ private:
 	std::string tagLine = "";
 	std::string summonerID;
 	League playerRank;
+	int prevLP = 0;
 };
 
 #endif

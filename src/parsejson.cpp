@@ -76,13 +76,14 @@ json makeReq(const std::string& url, int maxTries, int delayMs) {
     cpr:: Response r;
     for (int attempt = 1; attempt <= maxTries; attempt++) {
         r = cpr::Get(cpr::Url{url});
+        /*
         std::cout << "Attempt " << attempt << ": Response text: " << r.text << std::endl;
         std::cout << "Status code: " << r.status_code << std::endl;
         std::cout << "Response headers: " << std::endl;
         for (const auto& header : r.header) {
             std::cout << header.first << ": " << header.second << std::endl;
         }
-
+        */
         try {
             return parseJSON(r);
         }
