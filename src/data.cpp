@@ -553,3 +553,14 @@ const std::unordered_map<std::string, std::string> rankData = {
 	{"GRANDMASTER",""},
 	{"CHALLENGER",""}
 };
+
+const std::unordered_map<int, std::string> placementData = {
+	{1,"First"},
+	{2,"Second"},
+	{3,"Third"},
+	{4,"Fourth"},
+	{5,"Fifth"},
+	{6,"Sixth"},
+	{7,"Seventh"},
+	{8,"Eighth"}
+};
