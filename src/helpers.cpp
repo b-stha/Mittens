@@ -102,3 +102,11 @@ std::string fillSpaces(std::string input) {
     }
     return input;
 }
+
+int subtractLP(const Player& player) {
+	if (player.getPlayerLP().first == 0) {
+		return (player.getPlayerLP().second - 100);
+	}
+
+	return (player.getPlayerLP().second - player.getPlayerLP().first);
+}
