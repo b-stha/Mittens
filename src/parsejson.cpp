@@ -45,7 +45,7 @@ void from_json(const json& j, Info& i)
 void from_json(const json&j, League& l) {
     j.at("tier").get_to(l.tier);
     j.at("rank").get_to(l.rank);
-    j.at("leaguePoints").get_to(l.leaguePoints);
+    j.at("leaguePoints").get_to(l.currLP);
 }
 
 json parseJSON(cpr::Response r) {
