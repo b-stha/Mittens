@@ -18,6 +18,8 @@ void from_json(const json& j, PlayerMatchInfo& p);
 
 void from_json(const json& j, Info& i);
 
+void from_json(const json&j, League& l);
+
 json parseJSON(cpr::Response r);
 
 json makeReq(const std::string& url, int maxTries, int delayMs);

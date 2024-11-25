@@ -42,6 +42,12 @@ void from_json(const json& j, Info& i)
     j.at("game_length").get_to(i.gameLength);
 };
 
+void from_json(const json&j, League& l) {
+    j.at("tier").get_to(l.tier);
+    j.at("rank").get_to(l.rank);
+    j.at("leaguePoints").get_to(l.leaguePoints);
+}
+
 json parseJSON(cpr::Response r) {
     try {
         std::cout << "Response text: " << r.text << std::endl;
