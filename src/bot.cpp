@@ -65,12 +65,12 @@ dpp::embed createResult(const Player& player) {
 	int currLP = player.getPlayerLP().second;
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(dpp::colors::sti_blue)
-		.set_title(placementData.at(player.myMatchInfo.placement) + " Place")
+		.set_title(placementData.at(player.myMatchInfo.placement) + " PLACE")
 		.set_url(matchResultURL)
 		.set_author(name + "'s match result", profileURL, "")
 		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
 		.add_field(
-			std::to_string(currLP) + " LP (" + std::to_string(subtractLP(player)) + ")",
+			player.getPlayerRank().first + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
 			"\n"
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"
