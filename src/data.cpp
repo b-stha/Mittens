@@ -183,7 +183,7 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT5_Item_IonicSparkRadiant", "<:ionic_spark_radiant:1251322632859553913>"},
 	{"TFT5_Item_QuicksilverRadiant", "<:quicksilver_radiant:1251322759473139752>"},
 	{"TFT5_Item_HextechGunbladeRadiant", "<:hextech_gunblade_radiant:1251322509849006100>"},
-	{"TFT5_Item_StatikkShivRadian", "<:statikk_shiv_radiant:1251322800115941426>"},
+	{"TFT5_Item_StatikkShivRadiant", "<:statikk_shiv_radiant:1251322800115941426>"},
 	{"TFT5_Item_FrozenHeartRadiant", "<:fimbulwinter_radiant:1251322466098352188>"}, //Radiant Protector's Vow
 	{"TFT5_Item_BlueBuffRadiant", "<:blue_buff_radiant:1251322432867012669>"},
 	{"TFT5_Item_ArchangelsStaffRadiant", "<:archangel_staff_radiant:1251322429125558353>"},
@@ -555,12 +555,12 @@ const std::unordered_map<std::string, std::string> rankData = {
 };
 
 const std::unordered_map<int, std::string> placementData = {
-	{1,"First"},
-	{2,"Second"},
-	{3,"Third"},
-	{4,"Fourth"},
-	{5,"Fifth"},
-	{6,"Sixth"},
-	{7,"Seventh"},
-	{8,"Eighth"}
+	{1,"FIRST"},
+	{2,"SECOND"},
+	{3,"THIRD"},
+	{4,"FOURTH"},
+	{5,"FIFTH"},
+	{6,"SIXTH"},
+	{7,"SEVENTH"},
+	{8,"EIGHTH"}
 };
