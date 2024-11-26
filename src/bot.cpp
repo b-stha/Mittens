@@ -64,7 +64,7 @@ dpp::embed createResult(const Player& player) {
 	//std::string augmentList = augListStr(player);
 	std::string playerTier = player.getPlayerRank().first;
 	dpp::embed outEmbed = dpp::embed()
-		.set_color(dpp::colors::sti_blue)
+		.set_color(rankColor.at(playerTier))
 		.set_title(placementData.at(player.myMatchInfo.placement) + " PLACE")
 		.set_url(matchResultURL)
 		.set_author(name + "'s match result", profileURL, "")
@@ -91,4 +91,20 @@ dpp::embed createResult(const Player& player) {
 	unitListStr(player, outEmbed);
 
 	return outEmbed;
+};
+
+dpp::embed createPromoMsg(const Player& player) {
+	std::string playerTier = player.getPlayerRank().first;
+	std::string name = player.getFullName()[0];
+	dpp::embed promoEmbed = dpp::embed()
+		.set_color(rankColor.at(playerTier))
+		.set_title("PROMOTION")
+		.set_thumbnail(rankData.at(playerTier)[0])
+		.add_field(
+			name + " has promoted to " + playerTier,
+			"",
+			false
+		);
+
+	return promoEmbed;
 };
