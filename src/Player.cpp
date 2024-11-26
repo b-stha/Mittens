@@ -64,7 +64,7 @@ void Player::setSummonerID(std::string input) {
 	summonerID = input;
 }
 
-std::string Player::getSummonerID() {
+std::string Player::getSummonerID() const {
 	return summonerID;
 }
 
@@ -76,7 +76,7 @@ void Player::updateLP() {
 	prevLP = playerRank.currLP;
 }
 
-std::pair<std::string, std::string> Player::getPlayerRank() {
+std::pair<std::string, std::string> Player::getPlayerRank() const {
 	return std::make_pair(playerRank.tier, playerRank.rank);
 }
 
