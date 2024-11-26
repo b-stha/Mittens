@@ -9,6 +9,6 @@ extern const std::unordered_map<std::string, std::vector<std::string>> unitData;
 extern const std::unordered_map<std::string, std::string> itemData;
 extern const std::unordered_map<std::string, std::vector<std::string>> augmentData;
 extern const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData;
-extern const std::unordered_map<std::string, std::string> rankData;
+extern const std::unordered_map<std::string, std::vector<std::string>> rankData;
 extern const std::unordered_map<int, std::string> placementData;
 #endif

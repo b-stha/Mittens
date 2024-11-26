@@ -86,6 +86,7 @@ int main() {
 
                     std::string summonerID = fetchSummonerID(puuid, TFT_APIKEY);
                     pPlayer->setSummonerID(summonerID);
+                    League initLeague = fetchLeague(*pPlayer, TFT_APIKEY);
                     userVec.push_back(std::move(pPlayer));
                 }
                 else {
@@ -108,6 +109,7 @@ int main() {
             if (!userVec.empty()) {
                 for (auto& user : userVec)
                 {
+                    user->setPrevTier(user->getPlayerRank().first);
                     std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
                     user->updateLP();
                     League playerLeague = fetchLeague(*user, TFT_APIKEY);
@@ -123,6 +125,10 @@ int main() {
                         dpp::message msg(user->getChannelID(), embOutput);
                         bot.message_create(msg);
                     }
+
+                    /*if (user->getPlayerRank().first != user->getPrevTier()) {
+                        dpp::embed promoMsg = createPromoMsg(*user);
+                    }*/
                 }
             }
             std::this_thread::sleep_for(std::chrono::seconds(10));

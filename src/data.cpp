@@ -541,17 +541,18 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 
 const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData;
 
-const std::unordered_map<std::string, std::string> rankData = {
-	{"IRON",""},
-	{"BRONZE",""},
-	{"SILVER",""},
-	{"GOLD",""},
-	{"PLATINUM",""},
-	{"EMERALD",""},
-	{"DIAMOND",""},
-	{"MASTER",""},
-	{"GRANDMASTER",""},
-	{"CHALLENGER",""}
+const std::unordered_map<std::string, std::vector<std::string>> rankData = {
+	{"IRON", {"", "<:iron_tft:1310873413807771668>"}},
+	{"BRONZE", {"", "<:bronze_tft:1310873405888794654>"}},
+	{"SILVER", {"", "<:silver_tft:1310873462780329994>"}},
+	{"GOLD", {"", "<:gold_tft:1310873410804514826>"}},
+	{"PLATINUM", {"", "<:platinum_tft:1310873418182168617>"}},
+	{"EMERALD", {"", "<:emerald_tft:1310873409093369877>"}},
+	{"DIAMOND", {"", "<:diamond_tft:1310873408094998600>"}},
+	{"MASTER", {"", "<:master_tft:1310873416504442880>"}},
+	{"GRANDMASTER", {"", "<:grandmaster_tft:1310873411756626001>"}},
+	{"CHALLENGER", {"", "<:challenger_tft:1310873407067521096>"}},
+	{"UNRANKED", {"", "<:unranked_tft:1310873421617303612>"}}
 };
 
 const std::unordered_map<int, std::string> placementData = {

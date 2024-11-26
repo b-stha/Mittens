@@ -62,7 +62,7 @@ dpp::embed createResult(const Player& player) {
 	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
 	std::string matchResultURL = profileURL + player.getCurrMatch();
 	//std::string augmentList = augListStr(player);
-	int currLP = player.getPlayerLP().second;
+	std::string playerTier = player.getPlayerRank().first;
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(dpp::colors::sti_blue)
 		.set_title(placementData.at(player.myMatchInfo.placement) + " PLACE")
@@ -70,7 +70,7 @@ dpp::embed createResult(const Player& player) {
 		.set_author(name + "'s match result", profileURL, "")
 		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
 		.add_field(
-			player.getPlayerRank().first + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
+			rankData.at(playerTier)[1] + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
 			"\n"
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"

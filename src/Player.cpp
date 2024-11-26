@@ -74,7 +74,6 @@ void Player::setPlayerRank(League inLeague) {
 
 void Player::updateLP() {
 	prevLP = playerRank.currLP;
-	return
 }
 
 std::pair<std::string, std::string> Player::getPlayerRank() const {
