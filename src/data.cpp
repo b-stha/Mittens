@@ -542,17 +542,31 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
 const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData;
 
 const std::unordered_map<std::string, std::vector<std::string>> rankData = {
-	{"IRON", {"", "<:iron_tft:1310873413807771668>"}},
-	{"BRONZE", {"", "<:bronze_tft:1310873405888794654>"}},
-	{"SILVER", {"", "<:silver_tft:1310873462780329994>"}},
-	{"GOLD", {"", "<:gold_tft:1310873410804514826>"}},
-	{"PLATINUM", {"", "<:platinum_tft:1310873418182168617>"}},
-	{"EMERALD", {"", "<:emerald_tft:1310873409093369877>"}},
-	{"DIAMOND", {"", "<:diamond_tft:1310873408094998600>"}},
-	{"MASTER", {"", "<:master_tft:1310873416504442880>"}},
-	{"GRANDMASTER", {"", "<:grandmaster_tft:1310873411756626001>"}},
-	{"CHALLENGER", {"", "<:challenger_tft:1310873407067521096>"}},
+	{"IRON", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_iron.png", "<:iron_tft:1310873413807771668>"}},
+	{"BRONZE", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_bronze.png", "<:bronze_tft:1310873405888794654>"}},
+	{"SILVER", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_silver.png", "<:silver_tft:1310873462780329994>"}},
+	{"GOLD", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_gold.png", "<:gold_tft:1310873410804514826>"}},
+	{"PLATINUM", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_platinum.png", "<:platinum_tft:1310873418182168617>"}},
+	{"EMERALD", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_emerald.png", "<:emerald_tft:1310873409093369877>"}},
+	{"DIAMOND", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_diamond.png", "<:diamond_tft:1310873408094998600>"}},
+	{"MASTER", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_master.png", "<:master_tft:1310873416504442880>"}},
+	{"GRANDMASTER", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_grandmaster.png", "<:grandmaster_tft:1310873411756626001>"}},
+	{"CHALLENGER", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_challenger.png", "<:challenger_tft:1310873407067521096>"}},
 	{"UNRANKED", {"", "<:unranked_tft:1310873421617303612>"}}
+};
+
+const std::unordered_map<std::string, uint32_t> rankColor {
+	{"IRON", dpp::colors::gray_brown},	
+	{"BRONZE", dpp::colors::bronze},	
+	{"SILVER", dpp::colors::silver},	
+	{"GOLD", dpp::colors::gold},
+	{"PLATINUM", dpp::colors::deep_sky_blue},	
+	{"EMERALD", dpp::colors::emerald},	
+	{"DIAMOND", dpp::colors::light_purple_blue},	
+	{"MASTER", dpp::colors::vivid_violet},	
+	{"GRANDMASTER", dpp::colors::scarlet_red},	
+	{"CHALLENGER", dpp::colors::azure},	
+	{"UNRANKED", dpp::colors::gray}	
 };
 
 const std::unordered_map<int, std::string> placementData = {
