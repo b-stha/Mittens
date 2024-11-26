@@ -64,6 +64,8 @@ public:
 	std::pair<int, int> getPlayerLP() const;
 	void setPlayerRank(League inLeague);
 	void updateLP();
+	std::string getPrevTier() const;
+	void setPrevTier(std::string tier);
 	PlayerMatchInfo myMatchInfo;
 private:
 	dpp::snowflake channelID;
@@ -77,6 +79,7 @@ private:
 	std::string summonerID;
 	League playerRank;
 	int prevLP = 0;
+	std::string prevTier;
 };
 
 #endif
