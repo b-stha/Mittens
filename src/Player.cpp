@@ -91,3 +91,7 @@ std::string Player::getPrevTier() const {
 void Player::setPrevTier(std::string tier) {
 	prevTier = tier;
 }
+
+void Player::addTrait(const Trait& trait) {
+	myMatchInfo.traits.push_back(trait);
+}

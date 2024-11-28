@@ -17,5 +17,4 @@ int calcBoardValue(PlayerMatchInfo matchInfo);
 std::string fillSpaces(std::string input);
 int subtractLP(const Player& player);
 
-
 #endif

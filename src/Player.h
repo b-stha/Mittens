@@ -22,6 +22,26 @@ struct Unit {
 	int tier = 0;
 };
 
+struct TraitTemplate {
+	const std::string name;
+	const std::vector<int> breakpoints;
+	const std::unordered_map<int, std::string> styles;
+
+	TraitTemplate(const std::string& traitName, 
+                  const std::vector<int>& bPoints,
+                  const std::unordered_map<int, std::string>& sIcons)
+        : name(traitName), breakpoints(bPoints), styles(sIcons) {}
+};
+
+struct Trait {
+	const TraitTemplate& traitTemplate;
+	int level;
+	int style;
+
+	Trait(const TraitTemplate& tTemplate, int tLevel, int tStyle)
+        : traitTemplate(tTemplate), level(tLevel), style(tStyle) {}
+};
+
 struct PlayerMatchInfo {
 	//std::vector<std::string> augments;
 	std::vector<Trait> traits;
@@ -66,6 +86,7 @@ public:
 	void updateLP();
 	std::string getPrevTier() const;
 	void setPrevTier(std::string tier);
+	void addTrait(const Trait& trait);	
 	PlayerMatchInfo myMatchInfo;
 private:
 	dpp::snowflake channelID;
