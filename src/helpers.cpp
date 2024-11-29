@@ -110,3 +110,7 @@ int subtractLP(const Player& player) {
 
 	return (player.getPlayerLP().second - player.getPlayerLP().first);
 }
+
+bool sortByStyle(const Trait& t1, const Trait& t2) {
+	return t1.style > t2.style;
+}
