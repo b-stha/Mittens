@@ -18,8 +18,10 @@ void from_json(const json& j, Unit& u)
 };
 
 void from_json(const json& j, Trait& t) {
+    j.at("name").get_to(t.apiName);
     j.at("style").get_to(t.style);
     j.at("tier_current").get_to(t.level);
+    j.at("num_units").get_to(t.numUnits);
 }
 
 void from_json(const json& j, Companion& c) {
