@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <fstream>
+#include "helpers.h"
 
 using json = nlohmann::json;
 
