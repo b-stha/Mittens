@@ -48,6 +48,11 @@ void from_json(const json&j, League& l) {
     j.at("leaguePoints").get_to(l.currLP);
 }
 
+void from_json(const json& j, Trait& t) {
+    j.at("tier_current").get_to(t.level);
+    j.at("style").get_to(t.style);
+}
+
 json parseJSON(cpr::Response r) {
     try {
         std::cout << "Response text: " << r.text << std::endl;

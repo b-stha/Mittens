@@ -20,6 +20,8 @@ void from_json(const json& j, Info& i);
 
 void from_json(const json&j, League& l);
 
+void from_json(const json& j, Trait& t);
+
 json parseJSON(cpr::Response r);
 
 json makeReq(const std::string& url, int maxTries, int delayMs);
