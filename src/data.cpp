@@ -539,8 +539,6 @@ const std::unordered_map<std::string, std::vector<std::string>> augmentData = {
     {"TFT12_Augment_BlitzcrankCarry", {"Zap Attack", ""}},
 };
 
-const std::unordered_map<std::string, std::unordered_map<int, std::string>> traitData;
-
 const std::unordered_map<std::string, std::vector<std::string>> rankData = {
 	{"IRON", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_iron.png", "<:iron_tft:1310873413807771668>"}},
 	{"BRONZE", {"https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_bronze.png", "<:bronze_tft:1310873405888794654>"}},
