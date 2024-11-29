@@ -1,21 +1,6 @@
 #include "bot.h"
 
-/*void traitListStr(const PlayerMatchInfo& match, dpp::embed& embedObj) {
-	for (const auto& trait : match.traits) {
-		std::string traitName = "";
 
-		traitName = setStrWidth(traitName, 10);
-
-		std::string traitIconName;
-		std::string unitItems = itemListStr(unit);
-		embedObj.add_field(
-			"",
-			starCount(unit.tier) + "\n" +
-			unitIconName + "\n" +
-			unitItems + "\n",
-			true);
-	};
-};*/
 /*
 std::string augListStr(const Player& player) {
 	std::string augListOutput = "";
@@ -41,8 +26,6 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 		std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
           [](unsigned char c){ return std::tolower(c); });
 
-		std::cout << apiName << std::endl;
-
 		std::string unitName = unitData.at(apiName)[0];
 		unitName = setStrWidth(unitName, 10);
 
@@ -53,6 +36,27 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 			starCount(unit.tier) + "\n" + 
 			unitIconName + "\n" +
 			unitItems + "\n",
+			true);
+	};
+};
+
+void traitListStr(const Player& player, dpp::embed& embedObj) {
+	for (const auto& trait : player.myMatchInfo.traits) {
+		std::string apiName = trait.apiName;
+
+		std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
+          [](unsigned char c){ return std::tolower(c); });
+
+		const TraitTemplate& traitRef = traitData.at(apiName);
+
+		std::string traitName = traitRef.name;
+		int currBreakpoint = traitRef.breakpoints[trait.level-1];
+
+		traitName = setStrWidth(traitName, 10);
+		// std::string unitIconName = unitData.at(apiName)[1] + " " + unitName;
+		embedObj.add_field(
+			"", 
+			std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
 			true);
 	};
 };
@@ -83,6 +87,13 @@ dpp::embed createResult(const Player& player) {
 			augmentList,
 			false
 		)*/
+		.add_field(
+			"Traits",
+			"",
+			false
+		);
+	traitListStr(player, outEmbed);
+	outEmbed
 		.add_field(
 			"Units",
 			"",
