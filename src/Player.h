@@ -34,8 +34,10 @@ struct TraitTemplate {
 };
 
 struct Trait {
+	std::string apiName;
 	int level;
 	int style;
+	int numUnits;
 };
 
 struct PlayerMatchInfo {
