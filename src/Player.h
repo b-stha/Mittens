@@ -34,12 +34,8 @@ struct TraitTemplate {
 };
 
 struct Trait {
-	const TraitTemplate& traitTemplate;
 	int level;
 	int style;
-
-	Trait(const TraitTemplate& tTemplate, int tLevel, int tStyle)
-        : traitTemplate(tTemplate), level(tLevel), style(tStyle) {}
 };
 
 struct PlayerMatchInfo {

@@ -18,6 +18,7 @@ Info fetchInfo(const std::string matchID, const std::string apiKey) {
 	json infoJson = makeReq(infoURL, 10, 1000);
 
 	return infoJson["info"].get<Info>();
+	
 };
 
 void setName(Player& player, const std::string apiKey) {
