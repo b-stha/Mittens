@@ -6,7 +6,6 @@
 #include <iostream>
 #include <cmath>
 #include <dpp/dpp.h>
-#include "traits.h"
 
 struct Companion {
     std::string contentID;
