@@ -42,22 +42,24 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 
 void traitListStr(const Player& player, dpp::embed& embedObj) {
 	for (const auto& trait : player.myMatchInfo.traits) {
-		std::string apiName = trait.apiName;
+		if (trait.style != 0) {
+			std::string apiName = trait.apiName;
 
-		std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
-          [](unsigned char c){ return std::tolower(c); });
+			std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
+			[](unsigned char c){ return std::tolower(c); });
 
-		const TraitTemplate& traitRef = traitData.at(apiName);
+			const TraitTemplate& traitRef = traitData.at(apiName);
 
-		std::string traitName = traitRef.name;
-		int currBreakpoint = traitRef.breakpoints[trait.level-1];
+			std::string traitName = traitRef.name;
+			int currBreakpoint = traitRef.breakpoints[trait.level-1];
 
-		traitName = setStrWidth(traitName, 10);
-		// std::string unitIconName = unitData.at(apiName)[1] + " " + unitName;
-		embedObj.add_field(
-			"", 
-			std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
-			true);
+			traitName = setStrWidth(traitName, 10);
+			// std::string unitIconName = unitData.at(apiName)[1] + " " + unitName;
+			embedObj.add_field(
+				"", 
+				std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
+				true);
+		}
 	};
 };
 
