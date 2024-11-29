@@ -672,7 +672,7 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 			  {2, 4, 6},
 			  {{}})},
 	{"tft13_junkerking", TraitTemplate("Junker King",
-			  {2},
+			  {1},
 			  {{}})},	
 	{"tft13_cabal", TraitTemplate("Black Rose",
 			  {3, 4, 5, 7},
