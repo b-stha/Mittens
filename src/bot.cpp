@@ -54,10 +54,10 @@ void traitListStr(const Player& player, dpp::embed& embedObj) {
 			int currBreakpoint = traitRef.breakpoints[trait.level-1];
 
 			traitName = setStrWidth(traitName, 10);
-			// std::string unitIconName = unitData.at(apiName)[1] + " " + unitName;
+			std::string traitIcon = traitRef.styles.at(trait.style);
 			embedObj.add_field(
 				"", 
-				std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
+				traitIcon + " " + std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
 				true);
 		}
 	};
