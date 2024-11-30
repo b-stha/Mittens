@@ -1,13 +1,12 @@
 - Include /add command
 - lowercase all text to ensure capitalization error doesn't occur
 - fill in whitespace for urls
-
 - Link puuid and user that send message (done kind of??)
-
 - Include trait synergy display 
+- add promo messag
+
 - Link correct player match history and avatar 
 - Spacing issues 
 - /matchresult command 
 - store ids in mySQL 
 - fix adding players too quick (queue?)
-- add promo messag
