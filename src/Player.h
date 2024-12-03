@@ -7,13 +7,6 @@
 #include <cmath>
 #include <dpp/dpp.h>
 
-struct Companion {
-    std::string contentID;
-    int itemID;
-    int skinID;
-    std::string species;
-};
-
 struct Unit {
 	std::string characterID;
 	std::vector<std::string> items;
@@ -48,7 +41,7 @@ struct PlayerMatchInfo {
 	int placement = 0;
 	std::string puuid;
 	int boardValue;
-    Companion tacticianInfo;
+	int companionID;
 };
 
 struct Info {

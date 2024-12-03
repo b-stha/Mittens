@@ -15,12 +15,6 @@ void from_json(const json& j, Trait& t) {
     j.at("num_units").get_to(t.numUnits);
 }
 
-void from_json(const json& j, Companion& c) {
-    j.at("content_ID").get_to(c.contentID);
-    j.at("item_ID").get_to(c.itemID);
-    j.at("skin_ID").get_to(c.skinID);
-    j.at("species").get_to(c.species);
-}
 void from_json(const json& j, PlayerMatchInfo& p)
 {
     //j.at("augments").get_to(p.augments);
@@ -30,7 +24,6 @@ void from_json(const json& j, PlayerMatchInfo& p)
     j.at("level").get_to(p.level);
     j.at("placement").get_to(p.placement);
     j.at("puuid").get_to(p.puuid);
-    j.at("companion").get_to(p.tacticianInfo);
     j.at("traits").get_to(p.traits);
     std::sort(p.traits.begin(), p.traits.end(), sortByStyle);
 };
