@@ -25,6 +25,7 @@ void from_json(const json& j, PlayerMatchInfo& p)
     j.at("placement").get_to(p.placement);
     j.at("puuid").get_to(p.puuid);
     j.at("traits").get_to(p.traits);
+    j.at("companion").at("item_ID").get_to(p.companionID);
     std::sort(p.traits.begin(), p.traits.end(), sortByStyle);
 };
 
