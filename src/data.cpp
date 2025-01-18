@@ -62,7 +62,10 @@ const std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"tft13_zoe", {"Zoe", "<:tft13_zoe_square:1309788702209478756>"}},
 	{"tft13_zyra", {"Zyra", "<:tft13_zyra_square:1309788703404851240>"}},
 	{"tft13_jaycesummon", {"Hextech Forge", "<:tft13_jaycesummon_square:1309857780256997497>"}},
-	{"tft13_sion", {"Sion", "<:tft13_sion_square_new:1309866652086571028>"}}
+	{"tft13_sion", {"Sion", "<:tft13_sion_square_new:1309866652086571028>"}},
+	{"tft13_viktor", {"Viktor", ""}},
+	{"tft13_missmage", {"Mel", ""}},
+	{"tft13_warwick", {"Warwick", ""}},
 };
 
 const std::unordered_map<std::string, std::string> itemData = {
@@ -685,5 +688,14 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 			  {{3, "<:uniquebg_overlay_teamup_trait_ge:1312532090520342611>"}})},
 	{"tft13_watcher", TraitTemplate("Watcher",
 			  {2, 4, 6},
-			  {{1, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}, {2, "<:silverbg_overlay_trait_icon_13_w:1312532086661447721>"}, {4, "<:goldbg_overlay_trait_icon_13_wat:1312531680988368916>"}})}
+			  {{1, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}, {2, "<:silverbg_overlay_trait_icon_13_w:1312532086661447721>"}, {4, "<:goldbg_overlay_trait_icon_13_wat:1312531680988368916>"}})},  
+	{"tft13_machineherald", TraitTemplate("Machine Herald",
+			  {1},
+			  {{3, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}})},
+	{"tft13_missmagetrait", TraitTemplate("Banished Mage",
+			  {1},
+			  {{3, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}})},
+	{"tft13_bloodhunter", TraitTemplate("Blood Hunter",
+			  {1},
+			  {{3, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}})}
 };
