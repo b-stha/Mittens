@@ -63,9 +63,9 @@ const std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"tft13_zyra", {"Zyra", "<:tft13_zyra_square:1309788703404851240>"}},
 	{"tft13_jaycesummon", {"Hextech Forge", "<:tft13_jaycesummon_square:1309857780256997497>"}},
 	{"tft13_sion", {"Sion", "<:tft13_sion_square_new:1309866652086571028>"}},
-	{"tft13_viktor", {"Viktor", ""}},
-	{"tft13_missmage", {"Mel", ""}},
-	{"tft13_warwick", {"Warwick", ""}},
+	{"tft13_viktor", {"Viktor", "<:tft13_viktor_square:1330092658831659038>"}},
+	{"tft13_missmage", {"Mel", "<:tft13_missmage_square:1330092657590013985>"}},
+	{"tft13_warwick", {"Warwick", "<:tft13_warwick_square:1330092659993477172>"}}
 };
 
 const std::unordered_map<std::string, std::string> itemData = {
@@ -691,11 +691,11 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 			  {{1, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}, {2, "<:silverbg_overlay_trait_icon_13_w:1312532086661447721>"}, {4, "<:goldbg_overlay_trait_icon_13_wat:1312531680988368916>"}})},  
 	{"tft13_machineherald", TraitTemplate("Machine Herald",
 			  {1},
-			  {{3, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}})},
+			  {{3, "<:uniquebg_overlay_trait_icon_13_m:1330092602078269471>"}})},
 	{"tft13_missmagetrait", TraitTemplate("Banished Mage",
 			  {1},
-			  {{3, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}})},
+			  {{3, "<:uniquebg_overlay_trait_icon_13_b:1330092599603626096>"}})},
 	{"tft13_bloodhunter", TraitTemplate("Blood Hunter",
 			  {1},
-			  {{3, "<:bronzebg_overlay_trait_icon_13_w:1312531497215066112>"}})}
+			  {{3, "<:uniquebg_overlay_trait_icon_13_b:1330092601063247902>"}})}
 };
