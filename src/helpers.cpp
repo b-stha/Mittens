@@ -87,6 +87,9 @@ int calcBoardValue(PlayerMatchInfo matchInfo) {
 		case 6:
 			boardValue += 5 * unitCount;
 			break;
+		case 8:
+			boardValue += 6 * unitCount;
+			break;
 		}
 	}
 	return boardValue;
