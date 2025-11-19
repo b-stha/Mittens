@@ -1,72 +1,6 @@
 #include "data.h"
 
-const std::unordered_map<std::string, std::vector<std::string>> unitData = {
-	{"tft15_aatrox", {"Aatrox", ""}},
-	{"tft15_akali", {"Akali", ""}},
-	{"tft15_ashe ", {"Ashe", ""}},
-	{"tft15_braum", {"Braum", ""}},
-	{"tft15_caitlyn", {"Caitlyn", ""}},
-	{"tft15_darius", {"Darius", ""}},
-	{"tft15_ezreal", {"Ezreal", ""}},
-	{"tft15_garen", {"Garen", ""}},
-	{"tft15_gwen", {"Gwen", ""}},
-	{"tft15_janna", {"Janna", ""}},
-	{"tft15_jarvaniv", {"Jarvis IV", ""}},
-	{"tft15_jayce", {"Jayce", ""}},
-	{"tft15_jhin", {"Jhin", ""}},
-	{"tft15_jinx", {"Jinx", ""}},
-	{"tft15_ksante", {"K'Sante", ""}},
-	{"tft15_kaisa", {"Kaisa", ""}},
-	{"tft15_kalista", {"Kalista", ""}},
-	{"tft15_katarina", {"Katarina", ""}},
-	{"tft15_kayle", {"Kayle", ""}},
-	{"tft15_kennen", {"Kennen", ""}},
-	{"tft15_kobuko", {"Kobuko", ""}},
-	{"tft15_leesin", {"Lee Sin", ""}},
-	{"tft15_leona", {"Leona", ""}},
-	{"tft15_lulu", {" Lulu", ""}},
-	{"tft15_lux", {"Lux", ""}},
-	{"tft15_malphite", {"Malphite", ""}},
-	{"tft15_malzahar", {"Malzahar", ""}},
-	{"tft15_naafiri", {"Naafiri", ""}},
-	{"tft15_poppy", {"Poppy", ""}},
-	{"tft15_rakan", {"Rakan", ""}},
-	{"tft15_rell", {"Rell", ""}},
-	{"tft15_ryze", {"Ryze", ""}},
-	{"tft15_samira", {"Samira", ""}},
-	{"tft15_seraphine", {"Seraphine", ""}},
-	{"tft15_sett", {"Sett", ""}},
-	{"tft15_swain", {"Swain", ""}},
-	{"tft15_syndra", {"Syndra", ""}},
-	{"tft15_udyr", {"Udyr", ""}},
-	{"tft15_varus", {"Varus", ""}},
-	{"tft15_viego", {"Viego", ""}},
-	{"tft15_xayah", {"Xayah", ""}},
-	{"tft15_xinzhao", {"Xin Zhao", ""}},
-	{"tft15_yasuo", {"Yasuo", ""}},
-	{"tft15_yone", {"Yone", ""}},
-	{"tft15_yuumi", {"Yuumi", ""}},
-	{"tft15_zac", {"Zac", ""}},
-	{"tft15_ziggs", {"Ziggs", ""}},
-	{"tft15_volibear", {"Volibear", ""}},
-	{"tft15_kogmaw", {"Kog'Maw", ""}},
-	{"tft15_smolder", {"Smolder", ""}},
-	{"tft15_senna", {"Senna", ""}},
-	{"tft15_lucian", {"Lucian", ""}},
-	{"tft15_gangplank", {"Gangplank", ""}},
-	{"tft15_drmundo", {"Dr. Mundo", ""}},
-	{"tft15_gnar", {"Gnar", ""}},
-	{"tft15_karma", {"Karma", ""}},
-	{"tft15_vi", {"Vi", ""}},
-	{"tft15_galio", {"Mighty Mech", ""}},
-	{"tft15_sivir", {"Sivir", ""}},
-	{"tft15_twistedfate", {"Twisted Fate", ""}},
-	{"tft15_shen", {"Shen", ""}},
-	{"tft15_rammus", {"Rammus", ""}},
-	{"tft15_zyra", {"Zyra", ""}},
-	{"tft15_neeko", {"Neeko", ""}},
-	{"tft15_ekko", {"Ekko", ""}}
-};
+const std::unordered_map<std::string, std::vector<std::string>> unitData;
 
 const std::unordered_map<std::string, std::string> itemData = {
 	//Item Components
@@ -577,11 +511,11 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 
 	{"tft15_starguardian", TraitTemplate("Star Guardian",
 			  {2, 3, 4, 5, 6, 7, 8, 9, 10},
-			  {{1, ""}, {3, ""}, {3, ""}, {3, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_heavyweight", TraitTemplate("Heavyweight",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_thecrew", TraitTemplate("The Crew",
 			  {2},
@@ -593,7 +527,7 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 
 	{"tft15_soulfighter", TraitTemplate("Soul Fighter",
 			  {2, 4, 6, 8},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_eltigre", TraitTemplate("The Champ",
 			  {1},
@@ -601,7 +535,7 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 
 	{"tft15_spellslinger", TraitTemplate("Sorcerer",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_monstertrainer", TraitTemplate("Monster Trainer",
 			  {1},
@@ -609,7 +543,7 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 
 	{"tft15_juggernaut", TraitTemplate("Juggernaut",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_rosemother", TraitTemplate("Rosemother",
 			  {1},
@@ -621,41 +555,41 @@ const std::unordered_map<std::string, TraitTemplate> traitData = {
 
 	{"tft15_oldmentor", TraitTemplate("Mentor",
 			  {1, 4},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}})},
 
 	{"tft15_duelist", TraitTemplate("Duelist",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_strategist", TraitTemplate("Strategist",
 			  {2, 3, 4, 5},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_bastion", TraitTemplate("Bastion",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_empyrean", TraitTemplate("Wraith",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_prodigy", TraitTemplate("Prodigy",
 			  {2, 3, 4, 5},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_protector", TraitTemplate("Protector",
 			  {2, 4, 6},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_battleacademia", TraitTemplate("Battle Academia",
 			  {3, 5, 7},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}, {3, ""}})},
 
 	{"tft15_luchador", TraitTemplate("Luchador",
 			  {2, 4},
-			  {{1, ""}})},
+			  {{1, ""}, {3, ""}})},
 
 	{"tft15_sentairanger", TraitTemplate("Mighty Mech",
 			  {3, 5, 7},
-			  {{1, ""}})}
+			  {{1, ""}, {3, ""}, {3, ""}})}
 };
