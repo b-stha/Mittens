@@ -36,13 +36,6 @@ add_executable(${PROJECT_NAME}
         src/main.cpp
 )
 
-add_executable(data_writer
-        src/data_writer.cpp
-        src/parsejson.cpp
-        src/data.cpp
-)
-
-
 set_target_properties(${PROJECT_NAME} PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
@@ -59,6 +52,29 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         dpp::dpp
 	OpenSSL::SSL
 	OpenSSL::Crypto
+        nlohmann_json::nlohmann_json
+        cpr::cpr
+)
+
+add_executable(data_writer
+        src/data_writer.cpp
+        src/parsejson.cpp
+        src/data.cpp
+)
+
+set_target_properties(data_writer PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED ON
+)
+
+target_include_directories(data_writer PRIVATE
+        ${OPENSSL_INCLUDE_DIR}
+        ${cpr_SOURCE_DIR}/include
+        ${nlohmann_json_INCLUDE_DIRS}
+)
+
+#Linking
+target_link_libraries(data_writer PRIVATE
         nlohmann_json::nlohmann_json
         cpr::cpr
 )
