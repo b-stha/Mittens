@@ -79,4 +79,7 @@ target_include_directories(data_writer PRIVATE
 target_link_libraries(data_writer PRIVATE
         nlohmann_json::nlohmann_json
         cpr::cpr
+        dpp::dpp
+	OpenSSL::SSL
+	OpenSSL::Crypto
 )
