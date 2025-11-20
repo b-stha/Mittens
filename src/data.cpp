@@ -1,6 +1,8 @@
 #include "data.h"
 
-const std::unordered_map<std::string, std::vector<std::string>> unitData;
+const std::unordered_map<std::string, std::vector<std::string>> unitData = {
+	{"", {"",""}}
+};
 
 const std::unordered_map<std::string, std::string> itemData = {
 	//Item Components
