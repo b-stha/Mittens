@@ -36,6 +36,13 @@ add_executable(${PROJECT_NAME}
         src/main.cpp
 )
 
+add_executable(data_writer
+        src/data_writer.cpp
+        src/parsejson.cpp
+        src/data.cpp
+)
+
+
 set_target_properties(${PROJECT_NAME} PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
