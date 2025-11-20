@@ -60,6 +60,8 @@ add_executable(data_writer
         src/data_writer.cpp
         src/parsejson.cpp
         src/data.cpp
+        src/Player.cpp
+        src/helpers.cpp
 )
 
 set_target_properties(data_writer PROPERTIES
