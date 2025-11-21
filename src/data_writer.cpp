@@ -11,6 +11,8 @@ int main() {
 
     std::string unitAPIName, unitDispName;
 
+    std::string traitAPIName, traitDispName;
+
     json outJson;
 
     std::cout << "Enter link to data: ";
@@ -25,6 +27,24 @@ int main() {
         unitDispName = unit["name"];
 
         outJson["unitData"][unitAPIName] = { unitDispName, "" };
+    }
+
+    for (auto& trait : raw["sets"][set]["traits"]) {
+        traitAPIName = trait["apiName"];
+        traitDispName = trait["name"];
+
+        std::vector<int> traitLevels;
+        std::unordered_map<int, std::string> traitStyles;
+
+        for (auto& level : trait["effects"]) {
+            traitLevels.push_back(level["minUnits"]);
+            traitStyles[level["style"]] = "";
+
+        }
+
+        outJson["traitData"][traitAPIName]["name"] = traitDispName;
+        outJson["traitData"][traitAPIName]["breakpoints"] = traitLevels;
+        outJson["traitData"][traitAPIName]["styles"] = traitStyles;
     }
 
     std::ofstream out("setdata.json");
