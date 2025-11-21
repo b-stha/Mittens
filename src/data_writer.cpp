@@ -7,8 +7,7 @@
 using json = nlohmann::json;
 
 int main() {
-    std::string url;
-    int set;
+    std::string url, set;
 
     std::string unitAPIName, unitDispName;
 
@@ -17,7 +16,7 @@ int main() {
     std::cout << "Enter link to data: ";
     std::getline(std::cin, url);
     std::cout << "Current set: ";
-    std::cin >> set;
+    std::getline(std::cin, set);
 
     json raw = makeReq(url, 10, 1000);
 
