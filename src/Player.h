@@ -17,9 +17,9 @@ struct Unit {
 };
 
 struct TraitTemplate {
-	const std::string name;
-	const std::vector<int> breakpoints;
-	const std::unordered_map<int, std::string> styles;
+	std::string name;
+	std::vector<int> breakpoints;
+	std::unordered_map<int, std::string> styles;
 
 	TraitTemplate(const std::string& traitName, 
                   const std::vector<int>& bPoints,

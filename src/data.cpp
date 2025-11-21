@@ -1,6 +1,6 @@
 #include "data.h"
 
-const std::unordered_map<std::string, std::vector<std::string>> unitData = {
+std::unordered_map<std::string, std::vector<std::string>> unitData = {
 	{"", {"",""}}
 };
 
@@ -491,7 +491,7 @@ const std::unordered_map<int, std::string> placementData = {
 	5: Prismatic
 */
 
-const std::unordered_map<std::string, TraitTemplate> traitData = {
+std::unordered_map<std::string, TraitTemplate> traitData = {
 	{"tft15_destroyer", TraitTemplate("Executioner",
 			  {2, 3, 4, 5},
 			  {{1, ""}, {2, ""}, {4, ""}})},
