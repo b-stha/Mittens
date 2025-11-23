@@ -102,12 +102,24 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT5_Item_TrapClawRadiant", "<:stridebreakerradiant:1251322807690989598>"}, //Radiant Guardbreaker
 
 	//Ornn Artifacts
+	{"TFT_Item_Artifact_AegisOfDawn", "" }, // Aegis of Dawn 
+	{"TFT_Item_Artifact_AegisOfDusk", ""}, // Aegis of Dusk
+	{"TFT_Item_Artifact_CappaJuice", ""}, // Cappa Juice
+	{"TFT_Item_Artifact_EternalPact", ""}, // Eternal Pact
+	{"TFT_Item_Artifact_HellfireHatchet", ""}, // Hellfire Hatchet
+	{"TFT_Item_Artifact_LudensTempest", ""}, // Luden's Tempest
+	{"TFT_Item_Artifact_ShadowPuppet", ""}, // Shadow Puppet
+	{"TFT16_TheDarkinAegis", ""}, // The Darkin Aegis
+	{"TFT16_TheDarkinBow", ""}, // The Darkin Bow
+	{"TFT16_TheDarkinScythe", ""}, // The Darkin Scythe
+	{"TFT16_TheDarkinStaff", ""}, // The Darkin Staff
+	{"TFT_Item_Artifact_VoidGauntlet", ""}, // Void Gauntlet
 	{"TFT_Item_Artifact_Dawncore", ""}, // Dawncore
 	{"TFT_Item_Artifact_StatikkShiv", ""}, // Statikk Shiv
 	{"TFT_Item_Artifact_TheIndomitable", ""}, // The Indomitable
 	{"TFT_Item_Artifact_TitanicHydra", ""}, // Titanic Hydra
 	{"TFT_Item_Artifact_NavoriFlickerblades", ""}, // Flickerblades
-	{"TFT7_Item_ShimmerscaleMogulsMail", ""}, '' // Mogul's Mail
+	{"TFT7_Item_ShimmerscaleMogulsMail", ""}, // Mogul's Mail
 	{"TFT4_Item_OrnnMuramana", "<:tft4_ornnitem_marksman_t3_murama:1251323059248431176>"},  // Manazane
 	{"TFT9_Item_OrnnTrickstersGlass", "<:tft9_ornnitem_trickstersglass:1251323219580031057>"}, // Trickster's Glass
 	{"TFT4_Item_OrnnInfinityForce", "<:tft4_ornnitem_fighter_t4_trinity:1251323027875041410>"}, // Infinity Force
