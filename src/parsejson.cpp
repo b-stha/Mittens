@@ -44,7 +44,9 @@ void from_json(const json& j, League& l) {
 void from_json(const json& j, TraitTemplate& t) {
     j.at("name").get_to(t.name);
     j.at("breakpoints").get_to(t.breakpoints);
-    j.at("styles").get_to(t.styles);
+    for(auto& style : j.at("styles")) {
+        t.styles.insert({style[0].get<int>(), style[1].get<std::string>()});
+    }
 }
 
 json parseJSON(cpr::Response r) {
