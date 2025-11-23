@@ -21,10 +21,12 @@ struct TraitTemplate {
 	std::vector<int> breakpoints;
 	std::unordered_map<int, std::string> styles;
 
+	/*
 	TraitTemplate(const std::string& traitName, 
                   const std::vector<int>& bPoints,
                   const std::unordered_map<int, std::string>& sIcons)
-        : name(traitName), breakpoints(bPoints), styles(sIcons) {}
+        : name(traitName), breakpoints(bPoints), styles(sIcons) {} 
+	*/
 };
 
 struct Trait {
