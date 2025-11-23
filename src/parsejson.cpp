@@ -35,10 +35,16 @@ void from_json(const json& j, Info& i)
     j.at("game_length").get_to(i.gameLength);
 };
 
-void from_json(const json&j, League& l) {
+void from_json(const json& j, League& l) {
     j.at("tier").get_to(l.tier);
     j.at("rank").get_to(l.rank);
     j.at("leaguePoints").get_to(l.currLP);
+}
+
+void from_json(const json& j, TraitTemplate& t) {
+    j.at("name").get_to(t.name);
+    j.at("breakpoints").get_to(t.breakpoints);
+    j.at("styles").get_to(t.styles);
 }
 
 json parseJSON(cpr::Response r) {

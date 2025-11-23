@@ -19,7 +19,9 @@ void from_json(const json& j, PlayerMatchInfo& p);
 
 void from_json(const json& j, Info& i);
 
-void from_json(const json&j, League& l);
+void from_json(const json& j, League& l);
+
+void from_json(const json& j, TraitTemplate& t);
 
 json parseJSON(cpr::Response r);
 
