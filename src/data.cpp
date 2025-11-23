@@ -1,8 +1,5 @@
 #include "data.h"
 
-std::unordered_map<std::string, std::vector<std::string>> unitData = {
-	{"", {"",""}}
-};
 
 const std::unordered_map<std::string, std::string> itemData = {
 	//Item Components
@@ -518,7 +515,3 @@ const std::unordered_map<int, std::string> placementData = {
 	4: Gold
 	5: Prismatic
 */
-
-std::unordered_map<std::string, TraitTemplate> traitData = {
-
-};
