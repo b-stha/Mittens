@@ -6,6 +6,7 @@
 #include <sstream>
 #include <algorithm>
 #include <fstream>
+#include "parsejson.h"
 
 std::string setStrWidth(const std::string& str, int len);
 std::string operator * (std::string a, unsigned int b);
