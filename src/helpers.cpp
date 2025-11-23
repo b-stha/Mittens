@@ -117,3 +117,19 @@ int subtractLP(const Player& player) {
 bool sortByStyle(const Trait& t1, const Trait& t2) {
 	return t1.style > t2.style;
 }
+
+void loadJson(const std::string& filePath) {
+	std::ifstream file(filePath);
+	if (!file.is_open()) {
+		throw std::runtime_error("Could not open file: " + filePath);
+	}
+
+	nlohmann::json j;
+	file >> j;
+	file.close();
+
+	unitData = j.at("unitData").get<std::unordered_map<std::string, std::vector<std::string>>>();
+	traitData = j.at("traitData").get<std::unordered_map<std::string, TraitTemplate>>();
+
+	std::cout << "Loaded JSON data from " << filePath << std::endl;
+}
