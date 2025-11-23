@@ -54,14 +54,52 @@ const std::unordered_map<std::string, std::string> itemData = {
 	{"TFT_Item_StatikkShiv", ""}, // Void Staff
 	{"TFT_Item_Redemption", ""}, // Redemption
 
-	// Spatula Items
+	// Emblems
+	{"TFT16_Item_BrawlerEmblemItem", ""},
+	{"TFT16_Item_RapidfireEmblemItem", ""},
+	{"TFT16_Item_MagusEmblemItem", ""},
+	{"TFT16_Item_JuggernautEmblemItem", ""},
+	{"TFT16_Item_VanquisherEmblemItem", ""},
+	{"TFT16_Item_WardenEmblemItem", ""},
+	{"TFT16_Item_SlayerEmblemItem", ""},
+	{"TFT16_Item_GunslingerEmblemItem", ""},
+	{"TFT16_Item_NoxusEmblemItem", ""},
+	{"TFT16_Item_InvokerEmblemItem", ""},
+	{"TFT16_Item_DefenderEmblemItem", ""},
+	{"TFT16_Item_FreljordEmblemItem", ""},
+	{"TFT16_Item_ZaunEmblemItem", ""},
+	{"TFT16_Item_LongshotEmblemItem", ""},
+	{"TFT16_Item_IoniaEmblemItem", ""},
+	{"TFT16_Item_BilgewaterEmblemItem", ""},
+	{"TFT16_Item_SorcererEmblemItem", ""},
+	{"TFT16_Item_YordleEmblemItem", ""},
+	{"TFT16_Item_PiltoverEmblemItem", ""},
+	{"TFT16_Item_VoidEmblemItem", ""},
+	{"TFT16_Item_DemaciaEmblemItem", ""},
+	{"TFT16_Item_IxtalEmblemItem", ""},
 
-	// Pan Items
+	// Trait Items
+
+	{"TFT16_Item_Piltover_ElectricalOverload", ""},
+	{"TFT16_Item_Piltover_OverclockedCapacitors", ""},
+	{"TFT16_Item_Bilgewater_PileOCitrus", ""},
+	{"TFT16_Item_Bilgewater_FreebootersFrock", ""},
+	{"TFT16_Item_Bilgewater_FirstMatesFlintlock", ""},
+	{"TFT16_Item_Bilgewater_BilgeratCutlass", ""},
+	{"TFT16_Item_Bilgewater_DeadmansDagger", ""},
+	{"TFT16_Item_Bilgewater_BlackmarketExplosives", ""},
+	{"TFT16_Item_Bilgewater_CaptainsBrew", ""},
+	{"TFT16_Item_Bilgewater_LuckyEyepatch", ""},
+	{"TFT16_Item_Piltover_AccelerationGate", ""},
+	{"TFT16_Item_Piltover_BlastShield", ""},
+	{"TFT16_Item_Piltover_90CaliberNets", ""},
+	{"TFT16_Item_Piltover_MicroRockets", ""},
+	{"TFT16_Item_Piltover_EMP", ""},
+	{"TFT16_Item_Piltover_ContinuumCogs", ""},
+	{"TFT16_Item_Piltover_TunedOscillator", ""},
 
 	{"TFT_Item_TacticiansRing", "<:tacticians_ring:1290166860674760726>"},
 	{"TFT_Item_TacticiansScepter", "<:tacticians_scepter:1290166861954154536>"},
-
-	// Uncraftables
 
 	// Radiant Items
 	{"TFT5_Item_WarmogsArmorRadiant", "<:warmogs_armor_radiant:1251370799835910164>"},
