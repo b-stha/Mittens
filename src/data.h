@@ -12,9 +12,19 @@ extern const std::unordered_map<std::string, std::vector<std::string>> augmentDa
 extern const std::unordered_map<std::string, std::vector<std::string>> rankData;
 extern const std::unordered_map<std::string, uint32_t> rankColor;
 extern const std::unordered_map<int, std::string> placementData;
-struct RuntimeData{
-    std::unordered_map<std::string, std::unordered_map<int, std::string>> traitStyles;
-    std::unordered_map<std::string, std::string> unitData;
+
+struct TraitInfo {
+	std::string name;
+	std::vector<int> breakpoints;
+};
+struct UnitInfo {
+	std::string name;
+	int rarity;
+};
+
+struct CDragonData{
+    std::unordered_map<std::string, TraitInfo> traitData;
+    std::unordered_map<std::string, UnitInfo> unitData;
 };
 
 #endif
