@@ -24,17 +24,17 @@ std::string starCount(const int& tier) {
 
 std::string itemListStr(const Unit& unit) {
 	std::string itemListOutput = "";
-	std::string emptyItem = "<:transparent:1250910469330567292> ";
+	std::string emptyItem = "<:transparent:1250910469330567292>";
 	if (unit.items.empty()) {
 		itemListOutput += (emptyItem * 3);
 	}
 	else {
 		for (const auto& item : unit.items) {
-            if (itemData.count(item) > 0) {
-			    itemListOutput += itemData.at(item) + " "; 
+            if (itemEmotes.count(item) > 0) {
+			    itemListOutput += itemEmotes.at(item) + " "; 
                 continue;
             }
-            itemListOutput += "<:steamhappy:1123798178030964848> ";
+            itemListOutput += "<:steamhappy:1123798178030964848>";
 		}
 	}
 	return itemListOutput;
@@ -118,18 +118,62 @@ bool sortByStyle(const Trait& t1, const Trait& t2) {
 	return t1.style > t2.style;
 }
 
-void loadJson(const std::string& filePath) {
+
+
+std::unique_ptr<CDragonData> loadJson() {
+	const std::string filePath = "/home/MK/Documents/mittens/setdata.json"; // for emote IDs
 	std::ifstream file(filePath);
 	if (!file.is_open()) {
 		throw std::runtime_error("Could not open file: " + filePath);
 	}
-
-	nlohmann::json j;
-	file >> j;
+	nlohmann::json emoteJson;
+	file >> emoteJson;
 	file.close();
-
-	unitData = j.at("unitData").get<std::unordered_map<std::string, std::vector<std::string>>>();
-	traitData = j.at("traitData").get<std::unordered_map<std::string, TraitTemplate>>();
-
 	std::cout << "Loaded JSON data from " << filePath << std::endl;
+
+	try {
+		emoteJson["unitEmotes"].get_to(unitEmotes);
+		emoteJson["itemEmotes"].get_to(itemEmotes);
+		emoteJson["augmentEmotes"].get_to(augmentEmotes);
+		emoteJson["rankEmotes"].get_to(rankEmotes);
+		emoteJson["rankEmotes"].get_to(traitEmotes);
+		emoteJson["placementEmotes"].get_to(placementEmotes);
+	} catch (const nlohmann::json::exception& e) {
+		throw std::runtime_error(std::string("JSON error while loading emote data: ") + e.what());
+	}
+
+	const std::string urlPath = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json"; // for unit and traits
+	nlohmann::json dataJson = makeReq(urlPath, 10, 1000);
+	std::cout << "Fetched JSON data from " << urlPath << std::endl;
+	
+	std::unique_ptr<CDragonData> cdragonRT = std::make_unique<CDragonData>();
+	std::string unitAPIName, unitDispName, traitAPIName, traitDispName;
+	int latestSet = dataJson["sets"].size() - 1;
+	for (auto& unit : dataJson["sets"][latestSet]["champions"]) {
+        unitAPIName = unit["apiName"];
+        unitDispName = unit["name"];
+
+		UnitInfo unitInfo;
+		unitInfo.name = unitDispName;
+		unitInfo.rarity = unit["cost"] - 1;
+		cdragonRT->unitData[unitAPIName] = unitInfo;
+    }
+
+	for (auto& trait : dataJson["sets"][latestSet]["traits"]) {
+		traitAPIName = trait["apiName"];
+		traitDispName = trait["name"];
+
+		std::vector<int> traitLevels;
+
+		for (auto& level : trait["effects"]) {
+			traitLevels.push_back(level["minUnits"]);
+		}
+
+		TraitInfo traitInfo;
+		traitInfo.name = traitDispName;
+		traitInfo.breakpoints = traitLevels;
+		cdragonRT->traitData[traitAPIName] = traitInfo;
+    }
+
+	return cdragonRT;
 }
