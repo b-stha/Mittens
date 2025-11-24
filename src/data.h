@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 #include <dpp/dpp.h>
-#include "Player.h"
 
 extern const std::unordered_map<std::string, std::string> itemData;
 extern const std::unordered_map<std::string, std::vector<std::string>> augmentData;
