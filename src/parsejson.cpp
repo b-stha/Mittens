@@ -13,7 +13,7 @@ void from_json(const json& j, Trait& t) {
     j.at("style").get_to(t.style);
     j.at("tier_current").get_to(t.level);
     j.at("num_units").get_to(t.numUnits);
-}
+};
 
 void from_json(const json& j, PlayerMatchInfo& p)
 {
@@ -39,15 +39,7 @@ void from_json(const json& j, League& l) {
     j.at("tier").get_to(l.tier);
     j.at("rank").get_to(l.rank);
     j.at("leaguePoints").get_to(l.currLP);
-}
-
-void from_json(const json& j, TraitTemplate& t) {
-    j.at("name").get_to(t.name);
-    j.at("breakpoints").get_to(t.breakpoints);
-    for(auto& style : j.at("styles")) {
-        t.styles.insert({style[0].get<int>(), style[1].get<std::string>()});
-    }
-}
+};
 
 json parseJSON(cpr::Response r) {
     try {
