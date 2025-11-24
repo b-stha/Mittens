@@ -16,19 +16,6 @@ struct Unit {
 	int tier = 0;
 };
 
-struct TraitTemplate {
-	std::string name;
-	std::vector<int> breakpoints;
-	std::unordered_map<int, std::string> styles;
-
-	/*
-	TraitTemplate(const std::string& traitName, 
-                  const std::vector<int>& bPoints,
-                  const std::unordered_map<int, std::string>& sIcons)
-        : name(traitName), breakpoints(bPoints), styles(sIcons) {} 
-	*/
-};
-
 struct Trait {
 	std::string apiName;
 	int level;
@@ -51,6 +38,16 @@ struct PlayerMatchInfo {
 struct Info {
 	double gameLength;
 	std::vector<PlayerMatchInfo> playerInfoList;
+};
+
+struct TraitInfo {
+	std::string name;
+	std::vector<int> breakpoints;
+};
+
+struct UnitInfo {
+	std::string name;
+	int rarity;
 };
 
 struct League {
