@@ -40,16 +40,6 @@ struct Info {
 	std::vector<PlayerMatchInfo> playerInfoList;
 };
 
-struct TraitInfo {
-	std::string name;
-	std::vector<int> breakpoints;
-};
-
-struct UnitInfo {
-	std::string name;
-	int rarity;
-};
-
 struct League {
 	std::string tier;
 	std::string rank;
