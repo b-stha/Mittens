@@ -17,19 +17,18 @@ int main() {
 
     std::cout << "Enter link to data: ";
     std::getline(std::cin, url);
-    std::cout << "Current set: ";
-    std::getline(std::cin, set);
 
     json raw = makeReq(url, 10, 1000);
+    int latestSet = raw["sets"].size() - 1;
 
-    for (auto& unit : raw["sets"][set]["champions"]) {
+    for (auto& unit : raw["sets"][latestSet]["champions"]) {
         unitAPIName = unit["apiName"];
         unitDispName = unit["name"];
 
         outJson["unitData"][unitAPIName] = { unitDispName, "" };
     }
 
-    for (auto& trait : raw["sets"][set]["traits"]) {
+    for (auto& trait : raw["sets"][latestSet]["traits"]) {
         traitAPIName = trait["apiName"];
         traitDispName = trait["name"];
 
