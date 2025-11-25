@@ -118,7 +118,22 @@ bool sortByStyle(const Trait& t1, const Trait& t2) {
 	return t1.style > t2.style;
 }
 
+template <typename KeyType>
+void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<KeyType, std::string>& toMap) {
+	if (!emoteJson.contains(dataName) || !emoteJson[dataName].is_object()) {
+		std::cout << dataName << " not found; using placeholders..." << std::endl;
+		return;
+	}
 
+	for (auto& [key, value] : emoteJson[dataName].items()) {
+		if constexpr(std::is_same_v<KeyType, int>) {
+			int keyToInt = std::stoi(key);
+			toMap[keyToInt] = value.get<std::string>();
+		} else {
+			toMap[key] = value.get<std::string>();
+		}
+	}
+}
 
 std::unique_ptr<CDragonData> loadJson() {
 	const std::string filePath = "/home/MK/Documents/mittens/setdata.json"; // for emote IDs
@@ -128,9 +143,9 @@ std::unique_ptr<CDragonData> loadJson() {
 	}
 	nlohmann::json emoteJson;
 	try {
-	file >> emoteJson;
-	file.close();
-	std::cout << "Loaded JSON data from " << filePath << std::endl;
+		file >> emoteJson;
+		file.close();
+		std::cout << "Loaded JSON data from " << filePath << std::endl;
 	} catch (const std::exception& e) {
 		std::cout << "Failed to read JSON; using placeholder emotes.";
 	}
