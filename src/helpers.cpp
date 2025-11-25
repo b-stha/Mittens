@@ -124,12 +124,16 @@ std::unique_ptr<CDragonData> loadJson() {
 	const std::string filePath = "/home/MK/Documents/mittens/setdata.json"; // for emote IDs
 	std::ifstream file(filePath);
 	if (!file.is_open()) {
-		throw std::runtime_error("Could not open file: " + filePath);
+		std::cout << "Failed to open setdata.json; using placeholder emotes.";
 	}
 	nlohmann::json emoteJson;
+	try {
 	file >> emoteJson;
 	file.close();
 	std::cout << "Loaded JSON data from " << filePath << std::endl;
+	} catch (const std::exception& e) {
+		std::cout << "Failed to read JSON; using placeholder emotes.";
+	}
 
 	try {
 		emoteJson["unitEmotes"].get_to(unitEmotes);
