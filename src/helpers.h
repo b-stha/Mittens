@@ -18,7 +18,8 @@ int calcBoardValue(PlayerMatchInfo matchInfo);
 std::string fillSpaces(std::string input);
 int subtractLP(const Player& player);
 bool sortByStyle(const Trait& t1, const Trait& t2);
-void loadEmoteData();
+template <typename KeyType>
+void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<KeyType, std::string>& toMap);
 void loadCDragonData();
 std::unique_ptr<CDragonData> loadJson();
 
