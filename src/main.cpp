@@ -123,7 +123,7 @@ int main() {
                         user->setCurrMatch(checkMatch);
                         Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
                         user->setMatchInfo(updatedInfo);
-                        dpp::embed embOutput = createResult(*user);
+                        dpp::embed embOutput = createResult(*user, *loadedData);
                         dpp::message msg(user->getChannelID(), embOutput);
                         bot.message_create(msg);
                     }
