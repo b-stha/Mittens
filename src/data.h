@@ -9,11 +9,13 @@
 std::unordered_map<std::string, std::string> unitEmotes;
 std::unordered_map<std::string, std::string> itemEmotes;
 std::unordered_map<std::string, std::vector<std::string>> augmentEmotes;
-std::unordered_map<std::string, std::vector<std::string>> rankEmotes;
-std::unordered_map<std::string, uint32_t> rankEmotes;
-std::unordered_map<int, std::string> placementEmotes;
-std::unordered_map<std::string, std::string> traitEmotes;
+std::unordered_map<std::string, std::unordered_map<int, std::string>> traitEmotes;
+
 std::string defaultEmote = "<:steamhappy:1123798178030964848>";
+
+std::unordered_map<std::string, std::vector<std::string>> rankData;
+std::unordered_map<std::string, uint32_t> rankColor;
+std::unordered_map<int, std::string> placementData;
 struct TraitInfo {
 	std::string name;
 	std::vector<int> breakpoints;
