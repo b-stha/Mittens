@@ -118,21 +118,60 @@ bool sortByStyle(const Trait& t1, const Trait& t2) {
 	return t1.style > t2.style;
 }
 
-template <typename KeyType>
-void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<KeyType, std::string>& toMap) {
+template <typename ValueType>
+void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<std::string, ValueType>& toMap) {
 	if (!emoteJson.contains(dataName) || !emoteJson[dataName].is_object()) {
 		std::cout << dataName << " not found; using placeholders..." << std::endl;
 		return;
 	}
 
-	for (auto& [key, value] : emoteJson[dataName].items()) {
-		if constexpr(std::is_same_v<KeyType, int>) {
-			int keyToInt = std::stoi(key);
-			toMap[keyToInt] = value.get<std::string>();
-		} else {
+	if constexpr (std::is_same_v<ValueType, std::unordered_map<int, std::string>>) {
+		for (auto& [key, value] : emoteJson[dataName].items()) {
+			std::unordered_map<int, std::string> innerMap;
+			for (auto& [innerKey, innerValue] : value.items()) {
+				innerMap[std::stoi(innerKey)] = innerValue.get<std::string>();
+			}
+			toMap[key] = innerMap;
+		}
+	} else {
+		for (auto& [key, value] : emoteJson[dataName].items()) {
 			toMap[key] = value.get<std::string>();
 		}
 	}
+}
+
+void loadCDragonData(CDragonData& dragon) {
+	const std::string urlPath = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json"; // for unit and traits
+	nlohmann::json dataJson = makeReq(urlPath, 10, 1000);
+	std::cout << "Fetched JSON data from " << urlPath << std::endl;
+	
+	std::string unitAPIName, unitDispName, traitAPIName, traitDispName;
+	int latestSet = dataJson["sets"].size() - 1;
+	for (auto& unit : dataJson["sets"][latestSet]["champions"]) {
+        unitAPIName = unit["apiName"];
+        unitDispName = unit["name"];
+
+		UnitInfo unitInfo;
+		unitInfo.name = unitDispName;
+		unitInfo.rarity = unit["cost"] - 1;
+		dragon.unitData[unitAPIName] = unitInfo;
+    }
+
+	for (auto& trait : dataJson["sets"][latestSet]["traits"]) {
+		traitAPIName = trait["apiName"];
+		traitDispName = trait["name"];
+
+		std::vector<int> traitLevels;
+
+		for (auto& level : trait["effects"]) {
+			traitLevels.push_back(level["minUnits"]);
+		}
+
+		TraitInfo traitInfo;
+		traitInfo.name = traitDispName;
+		traitInfo.breakpoints = traitLevels;
+		dragon.traitData[traitAPIName] = traitInfo;
+    }
 }
 
 std::unique_ptr<CDragonData> loadJson() {
@@ -150,49 +189,13 @@ std::unique_ptr<CDragonData> loadJson() {
 		std::cout << "Failed to read JSON; using placeholder emotes.";
 	}
 
-	try {
-		emoteJson["unitEmotes"].get_to(unitEmotes);
-		emoteJson["itemEmotes"].get_to(itemEmotes);
-		emoteJson["augmentEmotes"].get_to(augmentEmotes);
-		emoteJson["rankEmotes"].get_to(rankEmotes);
-		emoteJson["rankEmotes"].get_to(traitEmotes);
-		emoteJson["placementEmotes"].get_to(placementEmotes);
-	} catch (const nlohmann::json::exception& e) {
-		throw std::runtime_error(std::string("JSON error while loading emote data: ") + e.what());
-	}
+	loadEmoteJson(emoteJson, "unitEmotes", unitEmotes);
+	loadEmoteJson(emoteJson, "itemEmotes", itemEmotes);
+	loadEmoteJson(emoteJson, "traitEmotes", traitEmotes);
 
-	const std::string urlPath = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json"; // for unit and traits
-	nlohmann::json dataJson = makeReq(urlPath, 10, 1000);
-	std::cout << "Fetched JSON data from " << urlPath << std::endl;
-	
+
 	std::unique_ptr<CDragonData> cdragonRT = std::make_unique<CDragonData>();
-	std::string unitAPIName, unitDispName, traitAPIName, traitDispName;
-	int latestSet = dataJson["sets"].size() - 1;
-	for (auto& unit : dataJson["sets"][latestSet]["champions"]) {
-        unitAPIName = unit["apiName"];
-        unitDispName = unit["name"];
-
-		UnitInfo unitInfo;
-		unitInfo.name = unitDispName;
-		unitInfo.rarity = unit["cost"] - 1;
-		cdragonRT->unitData[unitAPIName] = unitInfo;
-    }
-
-	for (auto& trait : dataJson["sets"][latestSet]["traits"]) {
-		traitAPIName = trait["apiName"];
-		traitDispName = trait["name"];
-
-		std::vector<int> traitLevels;
-
-		for (auto& level : trait["effects"]) {
-			traitLevels.push_back(level["minUnits"]);
-		}
-
-		TraitInfo traitInfo;
-		traitInfo.name = traitDispName;
-		traitInfo.breakpoints = traitLevels;
-		cdragonRT->traitData[traitAPIName] = traitInfo;
-    }
+	loadCDragonData(*cdragonRT);	
 
 	return cdragonRT;
 }

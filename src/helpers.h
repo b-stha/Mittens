@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <fstream>
 #include "parsejson.h"
+#Include <type_traits>
 
 std::string setStrWidth(const std::string& str, int len);
 std::string operator * (std::string a, unsigned int b);
@@ -18,9 +19,9 @@ int calcBoardValue(PlayerMatchInfo matchInfo);
 std::string fillSpaces(std::string input);
 int subtractLP(const Player& player);
 bool sortByStyle(const Trait& t1, const Trait& t2);
-template <typename KeyType>
-void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<KeyType, std::string>& toMap);
-void loadCDragonData();
+template <typename valueType>
+void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<std::string, valueType>& toMap);
+void loadCDragonData(CDragonData& dragon);
 std::unique_ptr<CDragonData> loadJson();
 
 #endif
