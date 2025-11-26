@@ -6,8 +6,8 @@
 #include <vector>
 #include <dpp/dpp.h>
 
+std::unordered_map<std::string, std::string> itemEmotes;
 std::unordered_map<std::string, std::vector<std::string>> augmentEmotes;
-std::unordered_map<std::string, std::unordered_map<int, std::string>> traitEmotes;
 
 std::string defaultEmote = "<:steamhappy:1123798178030964848>";
 
