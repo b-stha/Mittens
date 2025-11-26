@@ -6,8 +6,6 @@
 #include <vector>
 #include <dpp/dpp.h>
 
-std::unordered_map<std::string, std::string> unitEmotes;
-std::unordered_map<std::string, std::string> itemEmotes;
 std::unordered_map<std::string, std::vector<std::string>> augmentEmotes;
 std::unordered_map<std::string, std::unordered_map<int, std::string>> traitEmotes;
 
@@ -19,10 +17,12 @@ std::unordered_map<int, std::string> placementData;
 struct TraitInfo {
 	std::string name;
 	std::vector<int> breakpoints;
+	std::unordered_map<int, std::string> styles;
 };
 struct UnitInfo {
 	std::string name;
 	int rarity;
+	std::string emote;
 };
 
 struct CDragonData{
