@@ -18,7 +18,7 @@ void stop() {
 }
 
 int main() {
-    loadJson();
+    auto loadedData = loadJson();
     dpp::cluster bot(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content);
 
     bot.on_log(dpp::utility::cout_logger());
