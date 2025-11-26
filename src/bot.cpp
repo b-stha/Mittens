@@ -19,17 +19,19 @@ std::string augListStr(const Player& player) {
 	return augListOutput;
 };*/
 
-void unitListStr(const Player& player, dpp::embed& embedObj) {
+void unitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& dragon) {
 	for (const auto& unit : player.myMatchInfo.units) {
-		std::string apiName = unit.characterID;
+		std::string apiName = unit.characterID, unitName, unitIconName;
+		const auto it = dragon.unitData.find(apiName);
+		if (it != dragon.unitData.end()) {
+			unitName = it->second.name;
+			unitIconName = it->second.emote + " " + unitName;
+		} else {
+			unitName = "null";
+			unitIconName = defaultEmote + " " + unitName;
+		}
 
-		std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
-          [](unsigned char c){ return std::tolower(c); });
-
-		std::string unitName = unitData.at(apiName)[0];
 		unitName = setStrWidth(unitName, 10);
-
-		std::string unitIconName = unitData.at(apiName)[1] + " " + unitName;
 		std::string unitItems = itemListStr(unit);
 		embedObj.add_field(
 			"", 
@@ -37,24 +39,37 @@ void unitListStr(const Player& player, dpp::embed& embedObj) {
 			unitIconName + "\n" +
 			unitItems + "\n",
 			true);
-	};
+	}
 };
 
-void traitListStr(const Player& player, dpp::embed& embedObj) {
+void traitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& dragon) {
 	for (const auto& trait : player.myMatchInfo.traits) {
 		if (trait.style != 0) {
-			std::string apiName = trait.apiName;
-
-			std::transform(apiName.begin(), apiName.end(), apiName.begin(), 
-			[](unsigned char c){ return std::tolower(c); });
-
-			const TraitTemplate& traitRef = traitData.at(apiName);
-
-			std::string traitName = traitRef.name;
-			int currBreakpoint = traitRef.breakpoints[trait.level-1];
+			std::string traitName, traitIcon;
+			int currBreakpoint;
+			const auto it = dragon.traitData.find(trait.apiName);
+			if (it != dragon.traitData.end()) {
+				traitName = it->second.name;
+				const auto innerIt = it->second.styles.find(trait.style);
+				if (innerIt != it->second.styles.end()) {
+					traitIcon = innerIt->second;
+				} else {
+					traitIcon = defaultEmote;
+				}
+				int traitIdx = trait.level - 1;
+				if (traitIdx >= 0 && traitIdx < it->second.breakpoints.size()) {
+					currBreakpoint = it->second.breakpoints[trait.level - 1];
+				}
+				else {
+					currBreakpoint = 0;
+				}
+			} else {
+				traitName = "null";
+				traitIcon = defaultEmote;
+				currBreakpoint = 0;
+			}
 
 			traitName = setStrWidth(traitName, 10);
-			std::string traitIcon = traitRef.styles.at(trait.style);
 			embedObj.add_field(
 				"", 
 				traitIcon + " " + std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
@@ -63,7 +78,7 @@ void traitListStr(const Player& player, dpp::embed& embedObj) {
 	};
 };
 
-dpp::embed createResult(const Player& player) {
+dpp::embed createResult(const Player& player, const CDragonData& dragon) {
     std::string name = player.getFullName()[0];
 	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
 	std::string matchResultURL = profileURL + player.getCurrMatch();
@@ -94,14 +109,14 @@ dpp::embed createResult(const Player& player) {
 			"",
 			false
 		);
-	traitListStr(player, outEmbed);
+	traitListStr(player, outEmbed, dragon);
 	outEmbed
 		.add_field(
 			"Units",
 			"",
 			false
 		);
-	unitListStr(player, outEmbed);
+	unitListStr(player, outEmbed, dragon);
 
 	return outEmbed;
 };

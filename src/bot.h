@@ -8,7 +8,7 @@
 #include <algorithm>
 
 std::string augListStr(const Player& player);
-void unitListStr(const Player& player, dpp::embed& embedObj);
-dpp::embed createResult(const Player& player);
+void unitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& dragon);
+dpp::embed createResult(const Player& player, const CDragonData& dragon);
 dpp::embed createPromoMsg(const Player& player);
 #endif
