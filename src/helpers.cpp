@@ -167,10 +167,13 @@ std::unique_ptr<CDragonData> loadJson() {
 		std::cout << "Failed to read JSON; using placeholder emotes.";
 	}
 
-	loadEmoteJson(emoteJson, "unitEmotes", unitEmotes);
-	loadEmoteJson(emoteJson, "itemEmotes", itemEmotes);
-	loadEmoteJson(emoteJson, "traitEmotes", traitEmotes);
-
+	if (!emoteJson.contains("itemEmotes") || !emoteJson["itemEmotes"].is_object()) {
+		std::cout << "itemEmotes not found; using placeholders..." << std::endl;
+		return;
+	}
+	for (auto& [key, value] : emoteJson["itemEmotes"].items()) {
+		itemEmotes[key] = value.get<std::string>();
+	}
 
 	std::unique_ptr<CDragonData> cdragonRT = std::make_unique<CDragonData>();
 	loadCDragonData(*cdragonRT);	
