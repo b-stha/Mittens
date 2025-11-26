@@ -132,6 +132,7 @@ void loadCDragonData(CDragonData& dragon, nlohmann::json& emoteJson) {
 		UnitInfo unitInfo;
 		unitInfo.name = unitDispName;
 		unitInfo.rarity = unit["cost"] - 1;
+		unitInfo.emote = emoteJson["unitData"].count(unitAPIName) > 0 ? emoteJson["unitData"]["unitAPiName"].get<std::string>() : defaultEmote;
 		dragon.unitData[unitAPIName] = unitInfo;
     }
 
@@ -148,6 +149,11 @@ void loadCDragonData(CDragonData& dragon, nlohmann::json& emoteJson) {
 		TraitInfo traitInfo;
 		traitInfo.name = traitDispName;
 		traitInfo.breakpoints = traitLevels;
+		if (emoteJson["traitData"].count(traitAPIName) > 0) {
+			for (auto& [innerKey, innerValue] : emoteJson["traitData"][traitAPIName].items()) {
+				traitInfo.styles[std::stoi(innerKey)] = innerValue.get<std::string>();
+			}
+		}
 		dragon.traitData[traitAPIName] = traitInfo;
     }
 }
@@ -166,7 +172,7 @@ std::unique_ptr<CDragonData> loadJson() {
 	} catch (const std::exception& e) {
 		std::cout << "Failed to read JSON; using placeholder emotes.";
 	}
-
+	
 	if (!emoteJson.contains("itemEmotes") || !emoteJson["itemEmotes"].is_object()) {
 		std::cout << "itemEmotes not found; using placeholders..." << std::endl;
 		return;
@@ -176,7 +182,7 @@ std::unique_ptr<CDragonData> loadJson() {
 	}
 
 	std::unique_ptr<CDragonData> cdragonRT = std::make_unique<CDragonData>();
-	loadCDragonData(*cdragonRT);	
+	loadCDragonData(*cdragonRT, emoteJson);	
 
 	return cdragonRT;
 }
