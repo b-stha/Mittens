@@ -118,29 +118,7 @@ bool sortByStyle(const Trait& t1, const Trait& t2) {
 	return t1.style > t2.style;
 }
 
-template <typename ValueType>
-void loadEmoteJson(const nlohmann::json& emoteJson, const std::string& dataName, std::unordered_map<std::string, ValueType>& toMap) {
-	if (!emoteJson.contains(dataName) || !emoteJson[dataName].is_object()) {
-		std::cout << dataName << " not found; using placeholders..." << std::endl;
-		return;
-	}
-
-	if constexpr (std::is_same_v<ValueType, std::unordered_map<int, std::string>>) {
-		for (auto& [key, value] : emoteJson[dataName].items()) {
-			std::unordered_map<int, std::string> innerMap;
-			for (auto& [innerKey, innerValue] : value.items()) {
-				innerMap[std::stoi(innerKey)] = innerValue.get<std::string>();
-			}
-			toMap[key] = innerMap;
-		}
-	} else {
-		for (auto& [key, value] : emoteJson[dataName].items()) {
-			toMap[key] = value.get<std::string>();
-		}
-	}
-}
-
-void loadCDragonData(CDragonData& dragon) {
+void loadCDragonData(CDragonData& dragon, nlohmann::json& emoteJson) {
 	const std::string urlPath = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json"; // for unit and traits
 	nlohmann::json dataJson = makeReq(urlPath, 10, 1000);
 	std::cout << "Fetched JSON data from " << urlPath << std::endl;
