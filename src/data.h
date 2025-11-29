@@ -566,9 +566,20 @@ private:
 	std::string emote;
 };
 
-struct CDragonData{
-    std::unordered_map<std::string, TraitInfo> traitData;
-    std::unordered_map<std::string, UnitInfo> unitData;
+class CDragonData{
+public:
+	using TraitDataMap = std::unordered_map<std::string, TraitInfo>;
+	using UnitDataMap =  std::unordered_map<std::string, UnitInfo>;
+
+	const TraitDataMap& getTraitData() const { return traitData; }
+	const UnitDataMap& getUnitData() const { return unitData; }
+	CDragonData(const TraitDataMap& traitDataInit,
+				const UnitDataMap& unitDataInit)
+		: traitData(traitDataInit), unitData(unitDataInit) {}
+	CDragonData() = default;
+private:
+    TraitDataMap traitData;
+    UnitDataMap unitData;
 };
 
 #endif
