@@ -7,8 +7,24 @@
 #include "helpers.h"
 #include <algorithm>
 
-std::string augListStr(const Player& player);
-void unitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& dragon);
-dpp::embed createResult(const Player& player, const CDragonData& dragon);
-dpp::embed createPromoMsg(const Player& player);
+class Bot {
+public:
+    void unitListStr(const Player& player, dpp::embed& embedObj, const Data& data);
+    void traitListStr(const Player& player, dpp::embed& embedObj, const Data& data);
+    std::string itemListStr(const Unit& unit, const Data& data);
+    std::string augListStr(const Player& player, const Data& data);
+    dpp::embed createResult(const Player& player, const Data& data);
+    dpp::embed createPromoMsg(const Player& player, const Data& data);
+    void setRunning(bool state) { running.store(state); }
+    std::atomic<bool> isRunning() const { return running.load(); }
+    void run();
+    Bot();
+private:
+    void registerCommands();
+    void readyHandler();
+    dpp::cluster botCluster;
+    std::vector<std::unique_ptr<Player>> userVec;
+    std::atomic <bool> running = false;
+};
+
 #endif
