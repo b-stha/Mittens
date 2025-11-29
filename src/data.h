@@ -532,11 +532,19 @@ private:
 	{8,"EIGHTH"}
 };
 std::string defaultEmote = "<:steamhappy:1123798178030964848>";
+};
 
-std::unordered_map<std::string, std::vector<std::string>> rankData;
-std::unordered_map<std::string, uint32_t> rankColor;
-std::unordered_map<int, std::string> placementData;
-struct TraitInfo {
+class TraitInfo {
+public:
+	const std::string& getName() const { return name; };
+	const std::vector<int>& getBreakpoints() const { return breakpoints; };
+	const std::unordered_map<int, std::string>& getStyles() const { return styles;};
+	TraitInfo(const std::string& name,
+			  const std::vector<int>& breakpoints,
+			  const std::unordered_map<int, std::string>& styles)
+		: name(name), breakpoints(breakpoints), styles(styles) {}
+	TraitInfo() = default;
+private:
 	std::string name;
 	std::vector<int> breakpoints;
 	std::unordered_map<int, std::string> styles;
