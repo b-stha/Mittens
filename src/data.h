@@ -549,7 +549,18 @@ private:
 	std::vector<int> breakpoints;
 	std::unordered_map<int, std::string> styles;
 };
-struct UnitInfo {
+
+class UnitInfo {
+public:
+	const std::string& getName() const { return name; };
+	int getRarity() const { return rarity; };
+	const std::string& getEmote() const { return emote; };
+	UnitInfo(const std::string& name,
+			 int rarity,
+			 const std::string& emote)
+		: name(name), rarity(rarity), emote(emote) {}
+	UnitInfo() = default;
+private:
 	std::string name;
 	int rarity;
 	std::string emote;
