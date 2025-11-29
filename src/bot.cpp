@@ -100,20 +100,21 @@ std::string augListStr(const Player& player) {
 	return augListOutput;
 };*/
 
-void unitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& dragon) {
+void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& data) {
 	for (const auto& unit : player.myMatchInfo.units) {
 		std::string apiName = unit.characterID, unitName, unitIconName;
-		const auto it = dragon.unitData.find(apiName);
-		if (it != dragon.unitData.end()) {
-			unitName = it->second.name;
-			unitIconName = it->second.emote + " " + unitName;
+		std::unordered_map<std::string, UnitInfo> unitData = data.getCDragonData().getUnitData();
+		const auto it = unitData.find(apiName);
+		if (it != unitData.end()) {
+			unitName = it->second.getName();
+			unitIconName = it->second.getEmote() + " " + unitName;
 		} else {
 			unitName = "null";
-			unitIconName = defaultEmote + " " + unitName;
+			unitIconName = data.getDefaultEmote() + " " + unitName;
 		}
 
 		unitName = setStrWidth(unitName, 10);
-		std::string unitItems = itemListStr(unit);
+		std::string unitItems = itemListStr(unit, data);
 		embedObj.add_field(
 			"", 
 			starCount(unit.tier) + "\n" + 
@@ -123,30 +124,33 @@ void unitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& 
 	}
 };
 
-void traitListStr(const Player& player, dpp::embed& embedObj, const CDragonData& dragon) {
+void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& data) {
 	for (const auto& trait : player.myMatchInfo.traits) {
 		if (trait.style != 0) {
 			std::string traitName, traitIcon;
 			int currBreakpoint;
-			const auto it = dragon.traitData.find(trait.apiName);
-			if (it != dragon.traitData.end()) {
-				traitName = it->second.name;
-				const auto innerIt = it->second.styles.find(trait.style);
-				if (innerIt != it->second.styles.end()) {
+			const auto& traitData = data.getCDragonData().getTraitData();
+			const auto it = traitData.find(trait.apiName);
+			if (it != traitData.end()) {
+				traitName = it->second.getName();
+				const auto& styles = it->second.getStyles();
+				const auto innerIt = styles.find(trait.style);
+				if (innerIt != styles.end()) {
 					traitIcon = innerIt->second;
 				} else {
-					traitIcon = defaultEmote;
+					traitIcon = data.getDefaultEmote();
 				}
 				int traitIdx = trait.level - 1;
-				if (traitIdx >= 0 && traitIdx < it->second.breakpoints.size()) {
-					currBreakpoint = it->second.breakpoints[trait.level - 1];
+				const auto& breakpoints = it->second.getBreakpoints();
+				if (traitIdx >= 0 && traitIdx < breakpoints.size()) {
+					currBreakpoint = breakpoints[trait.level - 1];
 				}
 				else {
 					currBreakpoint = 0;
 				}
 			} else {
 				traitName = "null";
-				traitIcon = defaultEmote;
+				traitIcon = data.getDefaultEmote();
 				currBreakpoint = 0;
 			}
 
@@ -159,20 +163,39 @@ void traitListStr(const Player& player, dpp::embed& embedObj, const CDragonData&
 	};
 };
 
-dpp::embed createResult(const Player& player, const CDragonData& dragon) {
+std::string Bot::itemListStr(const Unit& unit, const Data& data) {
+	std::string itemListOutput = "";
+	std::string emptyItem = "<:transparent:1250910469330567292>";
+	if (unit.items.empty()) {
+		itemListOutput += (emptyItem * 3);
+	}
+	else {
+		const auto& itemEmotes = data.getItemEmotes();
+		for (const auto& item : unit.items) {
+            if (itemEmotes.count(item) > 0) {
+			    itemListOutput += itemEmotes.at(item) + " "; 
+                continue;
+            }
+            itemListOutput += "<:steamhappy:1123798178030964848>";
+		}
+	}
+	return itemListOutput;
+}
+
+dpp::embed Bot::createResult(const Player& player, const Data& data) {
     std::string name = player.getFullName()[0];
 	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
 	std::string matchResultURL = profileURL + player.getCurrMatch();
 	//std::string augmentList = augListStr(player);
 	std::string playerTier = player.getPlayerRank().first;
 	dpp::embed outEmbed = dpp::embed()
-		.set_color(rankColor.at(playerTier))
-		.set_title(placementData.at(player.myMatchInfo.placement) + " PLACE")
+		.set_color(data.getRankColor().at(playerTier))
+		.set_title(data.getPlacementData().at(player.myMatchInfo.placement) + " PLACE")
 		.set_url(matchResultURL)
 		.set_author(name + "'s match result", profileURL, "")
 		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
 		.add_field(
-			rankData.at(playerTier)[1] + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
+			data.getRankData().at(playerTier)[1] + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
 			"\n"
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"
@@ -190,25 +213,25 @@ dpp::embed createResult(const Player& player, const CDragonData& dragon) {
 			"",
 			false
 		);
-	traitListStr(player, outEmbed, dragon);
+	traitListStr(player, outEmbed, data);
 	outEmbed
 		.add_field(
 			"Units",
 			"",
 			false
 		);
-	unitListStr(player, outEmbed, dragon);
+	unitListStr(player, outEmbed, data);
 
 	return outEmbed;
 };
 
-dpp::embed createPromoMsg(const Player& player) {
+dpp::embed Bot::createPromoMsg(const Player& player, const Data& data) {
 	std::string playerTier = player.getPlayerRank().first;
 	std::string name = player.getFullName()[0];
 	dpp::embed promoEmbed = dpp::embed()
-		.set_color(rankColor.at(playerTier))
+		.set_color(data.getRankColor().at(playerTier))
 		.set_title("PROMOTION")
-		.set_thumbnail(rankData.at(playerTier)[0])
+		.set_thumbnail(data.getRankData().at(playerTier)[0])
 		.add_field(
 			name + " has promoted to " + playerTier,
 			"",
