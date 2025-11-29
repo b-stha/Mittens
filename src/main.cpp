@@ -18,17 +18,19 @@ int main() {
         return 1;
     }
     
+    Bot mittens;
 
     signal(SIGINT, [](int code) {
         stop();
         });
 
     running = true;
-
+    auto playerList = mittens.getUserVec();
+    auto &bot = mittens.getBotCluster();
     try {
             while (running) {
-            if (!userVec.empty()) {
-                for (auto& user : userVec)
+            if (!playerList.empty()) {
+                for (auto& user : playerList)
                 {
                     user->setPrevTier(user->getPlayerRank().first);
                     std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
@@ -42,13 +44,13 @@ int main() {
                         user->setCurrMatch(checkMatch);
                         Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
                         user->setMatchInfo(updatedInfo);
-                        dpp::embed embOutput = createResult(*user, *loadedData);
+                        dpp::embed embOutput = mittens.createResult(*user, *loadedData);
                         dpp::message msg(user->getChannelID(), embOutput);
                         bot.message_create(msg);
                     }
 
                     if (user->getPlayerRank().first != user->getPrevTier()) {
-                        dpp::embed promoMsg = createPromoMsg(*user);
+                        dpp::embed promoMsg = mittens.createPromoMsg(*user, *loadedData);
                         dpp::message msg(user->getChannelID(), promoMsg);
                         bot.message_create(msg);
                     }
