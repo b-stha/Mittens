@@ -15,7 +15,6 @@ std::string operator * (std::string a, unsigned int b);
 std::string starCount(const int& tier);
 std::vector<std::string> split(const std::string& s, char delim);
 bool notPlayerExists(const std::vector<std::unique_ptr<Player>>& players, const std::string& puuid);
-int calcBoardValue(PlayerMatchInfo matchInfo);
 std::string fillSpaces(std::string input);
 int subtractLP(const Player& player);
 bool sortByStyle(const Trait& t1, const Trait& t2);
