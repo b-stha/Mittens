@@ -18,7 +18,5 @@ bool notPlayerExists(const std::vector<std::unique_ptr<Player>>& players, const 
 std::string fillSpaces(std::string input);
 int subtractLP(const Player& player);
 bool sortByStyle(const Trait& t1, const Trait& t2);
-void loadCDragonData(CDragonData& dragon, nlohmann::json& emoteJson);
-std::unique_ptr<CDragonData> loadJson();
 
 #endif
