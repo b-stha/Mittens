@@ -41,27 +41,15 @@ void from_json(const json& j, League& l) {
     j.at("leaguePoints").get_to(l.currLP);
 };
 
-json parseJSON(cpr::Response r) {
-    try {
-        std::cout << "Response text: " << r.text << std::endl;
-        
-        if (r.text.empty()) {
-            throw std::runtime_error("Empty response text");
-        }
+json parseJSON(const cpr::Response& response) {
+    if (response.text.empty()) {
+        throw std::runtime_error("parseJSON: empty response text");
+    }
 
-        return json::parse(r.text);
-    }
-    catch (json::parse_error& e) {
-        throw std::runtime_error(std::string("JSON parse error: ") + e.what());
-    }
-    catch (json::type_error& e) {
-        throw std::runtime_error(std::string("JSON type error: ") + e.what());
-    }
-    catch (json::exception& e) {
-        throw std::runtime_error(std::string("JSON error: ") + e.what());
-    }
-    catch (std::exception& e) {
-        throw std::runtime_error(std::string("Error: ") + e.what());
+    try {
+        return json::parse(response.text);
+    } catch (const json::exception& e) {
+        throw std::runtime_error(std::string("parseJSON: ") + e.what());
     }
 }
 
