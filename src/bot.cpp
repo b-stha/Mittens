@@ -1,5 +1,86 @@
 #include "bot.h"
+#include "RiotAPI.h"
+#include "apikeys.h"
 
+Bot::Bot()
+		: botCluster(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content) {
+	botCluster.on_log(dpp::utility::cout_logger());
+	readyHandler();
+	registerCommands();
+}	
+
+void Bot::run() {
+	botCluster.start(dpp::st_return);
+}
+
+void Bot::registerCommands() {
+    botCluster.on_slashcommand([this](const dpp::slashcommand_t& event) {
+		const auto commandName = event.command.get_command_name();
+        if (commandName == "ping") {
+            event.reply("Pong!");
+			return;
+        }
+		if (commandName == "add") {
+			dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
+			dpp::snowflake currChannel = event.command.channel_id;
+			std::string userInput = std::get<std::string>(cmd_data.options[0].value);
+			std::cout << userInput << std::endl;
+			std::vector<std::string> userInputArr;
+
+			if (userInput.find("#") != std::string::npos) { 
+				userInputArr = split(userInput, '#');
+			}
+			else {
+				userInputArr.emplace_back(userInput);
+				userInputArr.emplace_back("NA1");
+			}
+			
+			try {
+				std::string puuid = fetchPUUID(userInputArr[0], userInputArr[1], TFT_APIKEY);
+				if (notPlayerExists(this->userVec, puuid)) {
+					auto pPlayer = std::make_unique<Player>(puuid);
+					pPlayer->setChannelID(currChannel);
+					pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
+
+					std::string summonerID = fetchSummonerID(puuid, TFT_APIKEY);
+					pPlayer->setSummonerID(summonerID);
+					League initLeague = fetchLeague(*pPlayer, TFT_APIKEY);
+					pPlayer->setPlayerRank(initLeague);
+					this->userVec.push_back(std::move(pPlayer));
+					event.reply(userInput + " successfully added");
+				}
+				else {
+					event.reply(userInput + " already exists.");
+				}
+			}
+			catch (const std::exception& e) {
+				std::cout << e.what() << std::endl; 
+				event.reply(userInput + " not found...");
+			}
+		}
+    });
+}
+
+void Bot::readyHandler() {
+    botCluster.on_ready([this](const dpp::ready_t& event) {
+        if (dpp::run_once<struct register_bot_commands>()) {
+            botCluster.global_command_create(dpp::slashcommand("ping", "Ping pong!", botCluster.me.id));
+
+            dpp::slashcommand add;
+            add.set_name("add");
+            add.set_description("Format as name#tagline.");
+            add.add_option(
+                dpp::command_option(dpp::co_string, "username", "name#tag", true)
+            );
+
+            botCluster.global_command_create(add, [this](const dpp::confirmation_callback_t& callback) {
+                if (callback.is_error()) {
+                    std::cout << callback.http_info.body << "\n";
+                }
+                });
+        }
+    });
+}
 
 /*
 std::string augListStr(const Player& player) {
