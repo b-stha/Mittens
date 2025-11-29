@@ -531,7 +531,7 @@ private:
 	{7,"SEVENTH"},
 	{8,"EIGHTH"}
 };
-std::string defaultEmote = "<:steamhappy:1123798178030964848>";
+	std::string defaultEmote = "<:steamhappy:1123798178030964848>";
 };
 
 class TraitInfo {
