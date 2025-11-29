@@ -22,24 +22,6 @@ std::string starCount(const int& tier) {
 	return (star * tier);
 };
 
-std::string itemListStr(const Unit& unit) {
-	std::string itemListOutput = "";
-	std::string emptyItem = "<:transparent:1250910469330567292>";
-	if (unit.items.empty()) {
-		itemListOutput += (emptyItem * 3);
-	}
-	else {
-		for (const auto& item : unit.items) {
-            if (itemEmotes.count(item) > 0) {
-			    itemListOutput += itemEmotes.at(item) + " "; 
-                continue;
-            }
-            itemListOutput += "<:steamhappy:1123798178030964848>";
-		}
-	}
-	return itemListOutput;
-}
-
 std::vector<std::string> split(const std::string& s, char delim) {
 	std::vector<std::string> result;
 	std::stringstream ss(s);
