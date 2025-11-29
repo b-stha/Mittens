@@ -3,11 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <iostream>
-#include <fstream>
-#include <cmath>
 #include <dpp/dpp.h>
-#include <nlohmann/json.hpp>
 
 struct Unit {
 	std::string characterID;
@@ -33,6 +29,7 @@ struct PlayerMatchInfo {
 	std::string puuid;
 	int boardValue;
 	int companionID;
+	int calcBoardValue();
 };
 
 struct Info {

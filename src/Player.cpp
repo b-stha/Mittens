@@ -1,5 +1,8 @@
 #include "Player.h"
 #include "helpers.h"
+#include <iostream>
+#include <fstream>
+#include <cmath>
 
 Player::Player(std::string inputPuuid) {
 	puuid = inputPuuid;
@@ -9,7 +12,7 @@ void Player::setMatchInfo(const Info& info) {
 	for (const auto& player : info.playerInfoList) {
 		if (puuid == player.puuid) {
 			myMatchInfo = player;
-			myMatchInfo.boardValue = calcBoardValue(myMatchInfo);
+			myMatchInfo.boardValue = myMatchInfo.calcBoardValue();
 			double totGameLength = info.gameLength / 60.0;
 			gameLenSec = modf(totGameLength, &gameLenMin) * 60;
 			return;
@@ -94,4 +97,41 @@ void Player::setPrevTier(std::string tier) {
 
 void Player::addTrait(const Trait& trait) {
 	myMatchInfo.traits.push_back(trait);
+}
+
+
+int PlayerMatchInfo::calcBoardValue() {
+	int boardValue = 0;
+	int unitCount;
+	for (auto unit : units) {
+		if (unit.tier > 1) {
+			unitCount = 3 * (unit.tier - 1);
+		}
+		else {
+			unitCount = 1;
+		}
+
+		switch (unit.rarity)
+		{
+		case 0:
+			boardValue += 1 * unitCount;
+			break;
+		case 1:
+			boardValue += 2 * unitCount;
+			break;
+		case 2:
+			boardValue += 3 * unitCount;
+			break;
+		case 4:
+			boardValue += 4 * unitCount;
+			break;
+		case 6:
+			boardValue += 5 * unitCount;
+			break;
+		case 8:
+			boardValue += 6 * unitCount;
+			break;
+		}
+	}
+	return boardValue;
 }
