@@ -4,8 +4,6 @@
 #include <dpp/dpp.h>
 #include "Player.h"
 #include "data.h"
-#include "helpers.h"
-#include <algorithm>
 
 class Bot {
 public:

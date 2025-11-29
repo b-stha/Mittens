@@ -1,4 +1,8 @@
 #include "parsejson.h"
+#include <stdexcept>
+#include <algorithm>
+#include <cpr/cpr.h>
+#include "helpers.h"
 
 void from_json(const json& j, Unit& u)
 {

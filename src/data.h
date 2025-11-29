@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 #include <dpp/dpp.h>
-#include "parsejson.h"
 #include <optional>
+#include <nlohmann/json.hpp>
 
 class Data {
 public:

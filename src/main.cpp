@@ -2,7 +2,6 @@
 #include "RiotAPI.h"
 #include "parsejson.h"
 #include "bot.h"
-#include "helpers.h"
 #include "apikeys.h"
 #include <dpp/dpp.h>
 #include <atomic>

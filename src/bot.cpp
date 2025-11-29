@@ -1,4 +1,5 @@
 #include "bot.h"
+#include "helpers.h"
 #include "RiotAPI.h"
 #include "apikeys.h"
 

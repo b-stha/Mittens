@@ -1,4 +1,6 @@
 #include "data.h"
+#include "parsejson.h"
+#include <fstream>
 
 const nlohmann::json* Data::getObj(const nlohmann::json& j, const std::string& key) const {
 	if (j.contains(key) && j[key].is_object()) {

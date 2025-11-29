@@ -2,12 +2,7 @@
 #define PARSEJSON_H
 
 #include "Player.h"
-#include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
-#include <stdexcept>
-#include <algorithm>
-#include <fstream>
-#include "helpers.h"
 
 using json = nlohmann::json;
 

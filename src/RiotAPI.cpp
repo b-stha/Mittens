@@ -1,5 +1,6 @@
 #include "RiotAPI.h"
 #include "parsejson.h"
+#include "helpers.h"
 
 std::string fetchMatchID(const Player& player, const std::string apiKey) {
 	std::string matchIDurl = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/" + player.getPUUID() + "/ids?count=1&api_key=" + apiKey;

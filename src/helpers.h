@@ -3,12 +3,7 @@
 
 #include "Player.h"
 #include "data.h"
-#include <sstream>
-#include <algorithm>
-#include <fstream>
-#include "parsejson.h"
-#include <type_traits>
-#include <optional>
+#include <string>
 
 std::string setStrWidth(const std::string& str, int len);
 std::string operator * (std::string a, unsigned int b);
