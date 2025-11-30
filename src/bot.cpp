@@ -2,6 +2,7 @@
 #include "helpers.h"
 #include "RiotAPI.h"
 #include "apikeys.h"
+#include "data.h"
 
 Bot::Bot()
 		: botCluster(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content) {
