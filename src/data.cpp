@@ -55,12 +55,12 @@ void Data::loadJson() {
 	file.close();
 	std::cout << "Loaded JSON data from " << filePath << std::endl;
 	
-	auto itemEmotesObj = getObj(emoteJson, "itemEmotes");
-	if (!itemEmotesObj) {
+	auto itemEmotesJson = getObj(emoteJson, "itemEmotes");
+	if (!itemEmotesJson) {
 		throw std::runtime_error("itemEmotes object not found in setdata.json");
 	} else {
-		for (auto& [key, value] : itemEmotesObj->items()) {
-			auto emoteID = getJsonStr(*itemEmotesObj, key);
+		for (auto& [key, value] : itemEmotesJson->items()) {
+			auto emoteID = getJsonStr(*itemEmotesJson, key);
 			itemEmotes[key] = emoteID.value_or(defaultEmote);
 		}
 		std::cout << "Loaded item emotes." << std::endl;
