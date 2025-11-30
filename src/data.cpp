@@ -69,7 +69,7 @@ void Data::loadJson() {
 	std::cout << "Loaded data successfully." << std::endl;
 }
 
-std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, int set) {
+std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, const std::string& set) {
 	std::unordered_map<std::string, UnitInfo> infoList;
 	for (auto& unit : dataJson["sets"][set]["champions"]) {
         std::string apiName = unit["apiName"].get<std::string>();
@@ -88,7 +88,7 @@ std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::jso
 	return infoList;
 }
 
-std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, int set) {
+std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, const std::string& set) {
 	std::unordered_map<std::string, TraitInfo> infoList;
 	for (auto& trait : dataJson["sets"][set]["traits"]) {
 		std::string apiName = trait["apiName"];
