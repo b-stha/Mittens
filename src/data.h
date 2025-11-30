@@ -8,6 +8,54 @@
 #include <optional>
 #include <nlohmann/json.hpp>
 
+class TraitInfo {
+public:
+	const std::string& getName() const { return name; };
+	const std::vector<int>& getBreakpoints() const { return breakpoints; };
+	const std::unordered_map<int, std::string>& getStyles() const { return styles;};
+	TraitInfo(const std::string& name,
+			  const std::vector<int>& breakpoints,
+			  const std::unordered_map<int, std::string>& styles)
+		: name(name), breakpoints(breakpoints), styles(styles) {}
+	TraitInfo() = default;
+private:
+	std::string name;
+	std::vector<int> breakpoints;
+	std::unordered_map<int, std::string> styles;
+};
+
+class UnitInfo {
+public:
+	const std::string& getName() const { return name; };
+	int getRarity() const { return rarity; };
+	const std::string& getEmote() const { return emote; };
+	UnitInfo(const std::string& name,
+			 int rarity,
+			 const std::string& emote)
+		: name(name), rarity(rarity), emote(emote) {}
+	UnitInfo() = default;
+private:
+	std::string name;
+	int rarity;
+	std::string emote;
+};
+
+class CDragonData{
+public:
+	using TraitDataMap = std::unordered_map<std::string, TraitInfo>;
+	using UnitDataMap =  std::unordered_map<std::string, UnitInfo>;
+
+	const TraitDataMap& getTraitData() const { return traitData; }
+	const UnitDataMap& getUnitData() const { return unitData; }
+	CDragonData(const TraitDataMap& traitDataInit,
+				const UnitDataMap& unitDataInit)
+		: traitData(traitDataInit), unitData(unitDataInit) {}
+	CDragonData() = default;
+private:
+    TraitDataMap traitData;
+    UnitDataMap unitData;
+};
+
 class Data {
 public:
 	Data() {
@@ -532,54 +580,6 @@ private:
 	{8,"EIGHTH"}
 };
 	std::string defaultEmote = "<:steamhappy:1123798178030964848>";
-};
-
-class TraitInfo {
-public:
-	const std::string& getName() const { return name; };
-	const std::vector<int>& getBreakpoints() const { return breakpoints; };
-	const std::unordered_map<int, std::string>& getStyles() const { return styles;};
-	TraitInfo(const std::string& name,
-			  const std::vector<int>& breakpoints,
-			  const std::unordered_map<int, std::string>& styles)
-		: name(name), breakpoints(breakpoints), styles(styles) {}
-	TraitInfo() = default;
-private:
-	std::string name;
-	std::vector<int> breakpoints;
-	std::unordered_map<int, std::string> styles;
-};
-
-class UnitInfo {
-public:
-	const std::string& getName() const { return name; };
-	int getRarity() const { return rarity; };
-	const std::string& getEmote() const { return emote; };
-	UnitInfo(const std::string& name,
-			 int rarity,
-			 const std::string& emote)
-		: name(name), rarity(rarity), emote(emote) {}
-	UnitInfo() = default;
-private:
-	std::string name;
-	int rarity;
-	std::string emote;
-};
-
-class CDragonData{
-public:
-	using TraitDataMap = std::unordered_map<std::string, TraitInfo>;
-	using UnitDataMap =  std::unordered_map<std::string, UnitInfo>;
-
-	const TraitDataMap& getTraitData() const { return traitData; }
-	const UnitDataMap& getUnitData() const { return unitData; }
-	CDragonData(const TraitDataMap& traitDataInit,
-				const UnitDataMap& unitDataInit)
-		: traitData(traitDataInit), unitData(unitDataInit) {}
-	CDragonData() = default;
-private:
-    TraitDataMap traitData;
-    UnitDataMap unitData;
 };
 
 #endif
