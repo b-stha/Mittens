@@ -33,7 +33,9 @@ CDragonData Data::loadCDragonData(const nlohmann::json& emoteJson) {
 		throw std::runtime_error(std::string("Error fetching data from Community Dragon: ") + e.what());
 	}
 
-	int latestSet = dataJson["sets"].size() - 1;
+	std::cout << "Enter set number to load (e.g., \"11\", \"12\"): ";
+	std::string latestSet;
+	std::getline(std::cin, latestSet);
 	std::unordered_map<std::string, UnitInfo> unitData = loadUnitData(emoteJson, dataJson, latestSet);
 	std::unordered_map<std::string, TraitInfo> traitData = loadTraitData(emoteJson, dataJson, latestSet);
 
