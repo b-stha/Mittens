@@ -39,6 +39,7 @@ CDragonData Data::loadCDragonData(const nlohmann::json& emoteJson) {
 	std::unordered_map<std::string, UnitInfo> unitData = loadUnitData(emoteJson, dataJson, latestSet);
 	std::unordered_map<std::string, TraitInfo> traitData = loadTraitData(emoteJson, dataJson, latestSet);
 
+	std::cout << "Loaded CDragon data." << std::endl;
 	return CDragonData(traitData, unitData);
 }
 
@@ -62,8 +63,10 @@ void Data::loadJson() {
 			auto emoteID = getJsonStr(*itemEmotesObj, key);
 			itemEmotes[key] = emoteID.value_or(defaultEmote);
 		}
+		std::cout << "Loaded item emotes." << std::endl;
 	}
 	dragon = loadCDragonData(emoteJson);
+	std::cout << "Loaded data successfully." << std::endl;
 }
 
 std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, int set) {
