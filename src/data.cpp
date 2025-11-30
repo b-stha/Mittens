@@ -44,7 +44,7 @@ CDragonData Data::loadCDragonData(const nlohmann::json& emoteJson) {
 }
 
 void Data::loadJson() {
-	const std::string filePath = "/home/MK/Documents/mittens/setdata.json"; // for emote IDs
+	const std::string filePath = "/home/MK/Documents/mittens/build/setdata.json"; // for emote IDs
 	std::ifstream file(filePath);
 	if (!file.is_open()) {
 		throw std::runtime_error("Error opening setdata.json");
