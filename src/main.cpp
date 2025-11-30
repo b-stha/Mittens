@@ -24,7 +24,7 @@ int main() {
     }
     
     Bot mittens;
-
+    mittens.run();
     signal(SIGINT, [](int code) {
         running = false;
         });
