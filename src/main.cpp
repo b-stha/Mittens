@@ -30,12 +30,11 @@ int main() {
         });
 
     running = true;
-    auto playerList = mittens.getUserVec();
     auto &bot = mittens.getBotCluster();
     try {
             while (running) {
-            if (!playerList.empty()) {
-                for (auto& user : playerList)
+            if (!mittens.getUserVec().empty()) {
+                for (auto& user : mittens.getUserVec())
                 {
                     user->setPrevTier(user->getPlayerRank().first);
                     std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
