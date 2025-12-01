@@ -12,32 +12,28 @@ class TraitInfo {
 public:
 	const std::string& getName() const { return name; };
 	const std::vector<int>& getBreakpoints() const { return breakpoints; };
-	const std::unordered_map<int, std::string>& getStyles() const { return styles;};
 	TraitInfo(const std::string& name,
 			  const std::vector<int>& breakpoints,
 			  const std::unordered_map<int, std::string>& styles)
-		: name(name), breakpoints(breakpoints), styles(styles) {}
+		: name(name), breakpoints(breakpoints) {}
 	TraitInfo() = default;
 private:
 	std::string name;
 	std::vector<int> breakpoints;
-	std::unordered_map<int, std::string> styles;
 };
 
 class UnitInfo {
 public:
 	const std::string& getName() const { return name; };
 	int getRarity() const { return rarity; };
-	const std::string& getEmote() const { return emote; };
 	UnitInfo(const std::string& name,
 			 int rarity,
 			 const std::string& emote)
-		: name(name), rarity(rarity), emote(emote) {}
+		: name(name), rarity(rarity) {}
 	UnitInfo() = default;
 private:
 	std::string name;
 	int rarity;
-	std::string emote;
 };
 
 class CDragonData{
