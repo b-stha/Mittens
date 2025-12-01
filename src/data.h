@@ -70,6 +70,7 @@ private:
 	std::optional<std::string> getJsonStr(const nlohmann::json& j, const std::string& key) const;
 	std::optional<int> getJsonInt(const nlohmann::json& j, const std::string& key) const;
 	CDragonData dragon;
+	std::unordered_map<std::string, std::string> emoteMap;
 	std::unordered_map<std::string, std::string> rankRegalia = {
 	{"IRON", "https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_iron.png"},
 	{"BRONZE", "https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_bronze.png"},
