@@ -68,21 +68,13 @@ void Data::loadJson() {
 	std::cout << "Loaded data successfully." << std::endl;
 }
 
-std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, const std::string& set) {
+std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& dataJson, const std::string& set) {
 	std::unordered_map<std::string, UnitInfo> infoList;
 	for (auto& unit : dataJson["sets"][set]["champions"]) {
         std::string apiName = unit["apiName"].get<std::string>();
         std::string dispName = unit["name"].get<std::string>();
 		int rarity = unit["cost"].get<int>() - 1;
-		std::string emote;
-		auto unitEmotesObj = getObj(emoteJson, "unitData");
-		if (unitEmotesObj) {
-			auto emoteID = getJsonStr(*unitEmotesObj, apiName);
-			emote = emoteID.value_or(defaultEmote);
-		} else {
-			emote = defaultEmote;
-		}
-		infoList[apiName] = UnitInfo(dispName, rarity, emote);
+		infoList[apiName] = UnitInfo(dispName, rarity);
     }
 	return infoList;
 }
