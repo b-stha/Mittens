@@ -23,7 +23,7 @@ std::optional<int> Data::getJsonInt(const nlohmann::json& j, const std::string& 
 	return std::nullopt;
 }
 
-CDragonData Data::loadCDragonData(const nlohmann::json& emoteJson) {
+void Data::loadData() {
 	nlohmann::json dataJson;
 	std::string urlPath = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json";
 	try {
@@ -36,11 +36,10 @@ CDragonData Data::loadCDragonData(const nlohmann::json& emoteJson) {
 	std::cout << "Enter set number to load (e.g., \"11\", \"12\"): ";
 	std::string latestSet;
 	std::getline(std::cin, latestSet);
-	std::unordered_map<std::string, UnitInfo> unitData = loadUnitData(emoteJson, dataJson, latestSet);
-	std::unordered_map<std::string, TraitInfo> traitData = loadTraitData(emoteJson, dataJson, latestSet);
+	std::unordered_map<std::string, UnitInfo> unitData = loadUnitData(dataJson, latestSet);
+	std::unordered_map<std::string, TraitInfo> traitData = loadTraitData(dataJson, latestSet);
 
-	std::cout << "Loaded CDragon data." << std::endl;
-	return CDragonData(traitData, unitData);
+	std::cout << "Loaded data." << std::endl;
 }
 
 void Data::loadJson() {
