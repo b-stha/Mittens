@@ -79,29 +79,18 @@ std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::jso
 	return infoList;
 }
 
-std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, const std::string& set) {
+std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::json& dataJson, const std::string& set) {
 	std::unordered_map<std::string, TraitInfo> infoList;
 	for (auto& trait : dataJson["sets"][set]["traits"]) {
 		std::string apiName = trait["apiName"];
 		std::string dispName = trait["name"];
 		std::vector<int> traitLevels;
-		std::unordered_map<int, std::string> styles;
 
 		for (auto& level : trait["effects"]) {
 			auto levelVal = getJsonInt(level, "minUnits");
 			traitLevels.push_back(levelVal.value_or(0));
 		}
-		auto traitEmotesObj = getObj(emoteJson, "traitData");
-		if (traitEmotesObj) {
-			auto traitObj = getObj(*traitEmotesObj, apiName);
-			if (traitObj) {
-				for (auto& [innerKey, innerValue] : traitObj->items()) {
-					auto emoteID = getJsonStr(*traitObj, innerKey);
-					styles[std::stoi(innerKey)] = emoteID.value_or(defaultEmote);
-				}
-			}
-		}
-		infoList[apiName] = TraitInfo(dispName, traitLevels, styles);
+		infoList[apiName] = TraitInfo(dispName, traitLevels);
 	}
 	return infoList;
 }
