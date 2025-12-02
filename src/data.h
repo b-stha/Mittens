@@ -13,8 +13,7 @@ public:
 	const std::string& getName() const { return name; };
 	const std::vector<int>& getBreakpoints() const { return breakpoints; };
 	TraitInfo(const std::string& name,
-			  const std::vector<int>& breakpoints,
-			  const std::unordered_map<int, std::string>& styles)
+			  const std::vector<int>& breakpoints)
 		: name(name), breakpoints(breakpoints) {}
 	TraitInfo() = default;
 private:
@@ -27,8 +26,7 @@ public:
 	const std::string& getName() const { return name; };
 	int getRarity() const { return rarity; };
 	UnitInfo(const std::string& name,
-			 int rarity,
-			 const std::string& emote)
+			 int rarity)
 		: name(name), rarity(rarity) {}
 	UnitInfo() = default;
 private:
@@ -36,40 +34,27 @@ private:
 	int rarity;
 };
 
-class CDragonData{
-public:
+class Data {
 	using TraitDataMap = std::unordered_map<std::string, TraitInfo>;
 	using UnitDataMap =  std::unordered_map<std::string, UnitInfo>;
-
-	const TraitDataMap& getTraitData() const { return traitData; }
-	const UnitDataMap& getUnitData() const { return unitData; }
-	CDragonData(const TraitDataMap& traitDataInit,
-				const UnitDataMap& unitDataInit)
-		: traitData(traitDataInit), unitData(unitDataInit) {}
-	CDragonData() = default;
-private:
-    TraitDataMap traitData;
-    UnitDataMap unitData;
-};
-
-class Data {
 public:
 	Data() {
 		loadJson();
 	}
-	const CDragonData& getCDragonData() const { return dragon; }
+	const TraitDataMap& getTraitData() const { return traitData; }
+	const UnitDataMap& getUnitData() const { return unitData; }
 	const std::unordered_map<std::string, uint32_t>& getRankColor() const { return rankColor; }
 	const std::unordered_map<int, std::string>& getPlacementData() const { return placementData; }
 
 private:
 	void loadJson();
-	CDragonData loadCDragonData(const nlohmann::json& emoteJson);
-	std::unordered_map<std::string, UnitInfo> loadUnitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, const std::string& set);
-	std::unordered_map<std::string, TraitInfo> loadTraitData(const nlohmann::json& emoteJson, const nlohmann::json& dataJson, const std::string& set);
+	std::unordered_map<std::string, UnitInfo> loadUnitData(const nlohmann::json& dataJson, const std::string& set);
+	std::unordered_map<std::string, TraitInfo> loadTraitData(const nlohmann::json& dataJson, const std::string& set);
 	const nlohmann::json* getObj(const nlohmann::json& j, const std::string& key) const;
 	std::optional<std::string> getJsonStr(const nlohmann::json& j, const std::string& key) const;
 	std::optional<int> getJsonInt(const nlohmann::json& j, const std::string& key) const;
-	CDragonData dragon;
+    TraitDataMap traitData;
+    UnitDataMap unitData;
 	std::unordered_map<std::string, std::string> emoteMap;
 	std::unordered_map<std::string, std::string> rankRegalia = {
 	{"IRON", "https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_iron.png"},
