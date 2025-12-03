@@ -42,30 +42,8 @@ void Data::loadData() {
 	std::cout << "Loaded data." << std::endl;
 }
 
-void Data::loadJson() {
-	const std::string filePath = "/home/MK/Documents/mittens/build/setdata.json"; // for emote IDs
-	std::ifstream file(filePath);
-	if (!file.is_open()) {
-		throw std::runtime_error("Error opening setdata.json");
-	}
-
-	nlohmann::json emoteJson;
-	file >> emoteJson;
-	file.close();
-	std::cout << "Loaded JSON data from " << filePath << std::endl;
-	
-	auto itemEmotesJson = getObj(emoteJson, "itemEmotes");
-	if (!itemEmotesJson) {
-		throw std::runtime_error("itemEmotes object not found in setdata.json");
-	} else {
-		for (auto& [key, value] : itemEmotesJson->items()) {
-			auto emoteID = getJsonStr(*itemEmotesJson, key);
-			itemEmotes[key] = emoteID.value_or(defaultEmote);
-		}
-		std::cout << "Loaded item emotes." << std::endl;
-	}
-	dragon = loadCDragonData(emoteJson);
-	std::cout << "Loaded data successfully." << std::endl;
+void Data::loadEmojis(const dpp::cluster& cluster) {
+	dpp::emoji_map emojis = cluster.application_emojis_get();
 }
 
 std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& dataJson, const std::string& set) {
