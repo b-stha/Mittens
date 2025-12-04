@@ -3,6 +3,8 @@
 #include "parsejson.h"
 #include "bot.h"
 #include "apikeys.h"
+#include "Worker.h"
+#include "data.h"
 #include <dpp/dpp.h>
 #include <atomic>
 #include <memory>
@@ -24,6 +26,8 @@ int main() {
     }
     
     Bot mittens;
+    Riot riotAPI(&mittens.getBotCluster(), TFT_APIKEY);
+    Worker worker(&riotAPI, &mittens, loadedData.get());
     mittens.run();
     signal(SIGINT, [](int code) {
         running = false;
@@ -36,28 +40,8 @@ int main() {
             if (!mittens.getUserVec().empty()) {
                 for (auto& user : mittens.getUserVec())
                 {
-                    user->setPrevTier(user->getPlayerRank().first);
-                    std::string checkMatch = fetchMatchID(*user, TFT_APIKEY);
-                    user->updateLP();
-                    League playerLeague = fetchLeague(*user, TFT_APIKEY);
-
-                    user->setPlayerRank(playerLeague);
-
-                    if (user->getCurrMatch() != checkMatch) {
-                        user->setprevMatch(user->getCurrMatch());
-                        user->setCurrMatch(checkMatch);
-                        Info updatedInfo = fetchInfo(user->getCurrMatch(), TFT_APIKEY);
-                        user->setMatchInfo(updatedInfo);
-                        dpp::embed embOutput = mittens.createResult(*user, *loadedData);
-                        dpp::message msg(user->getChannelID(), embOutput);
-                        bot.message_create(msg);
-                    }
-
-                    if (user->getPlayerRank().first != user->getPrevTier()) {
-                        dpp::embed promoMsg = mittens.createPromoMsg(*user, *loadedData);
-                        dpp::message msg(user->getChannelID(), promoMsg);
-                        bot.message_create(msg);
-                    }
+                    worker.enqueue(user.get());
+                    worker.startTask();
                 }
             }
             std::this_thread::sleep_for(std::chrono::seconds(10));
