@@ -22,7 +22,7 @@ void Riot::fetchMatchID(Player& player, std::function<void()> next) {
 		player.setCurrMatch(matchIDjson[0].get<std::string>());
 		if (next) {
 			next();
-	}
+		}
 	});
 }
 
@@ -82,28 +82,46 @@ void Riot::fetchPUUID(const std::string& name, const std::string& tag, std::func
 		std::string puuid = idJson["puuid"].get<std::string>();
 		if (next) {
 			next(puuid);
+		}
+	});
 }
 
-std::string fetchSummonerID(const std::string& puuid, const std::string& apiKey) {
-	std::string summonerURL = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/" + puuid + "?api_key=" + apiKey;
+void Riot::fetchSummonerID(Player& player) {
+	std::string summonerURL = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/" + player.getPUUID() + "?api_key=" + apiKey;
+	botCluster->request(summonerURL, dpp::m_get, [&player](const dpp::http_request_completion_t& http) {
+		if (http.status != 200) {
+			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
+			return;
+		}
+		json summonerJson = json::parse(http.body);
+		if (summonerJson.empty()) {
+			std::cout << "No summoner info found for player with PUUID: " + player.getPUUID() << std::endl;
+			return;
+		}
 
-	json summonerJSON = makeReq(summonerURL, 10, 1000);
-
-	if (!summonerJSON.empty()) {
-		return summonerJSON["id"].get<std::string>();
-	}
-
-	throw std::runtime_error("Error finding summoner ID...");
+		std::string summonerID = summonerJson["id"].get<std::string>();
+		player.setSummonerID(summonerID);
+	});
 }
 
-League fetchLeague(Player& player, const std::string& apiKey) {
+void Riot::fetchLeague(Player& player, std::function<void()> next) {
 	std::string leagueURL = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/" + player.getSummonerID() + "?api_key=" + apiKey;
+	botCluster->request(leagueURL, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
+		if (http.status != 200) {
+			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
+			return;
+		}
+		json leagueJson = json::parse(http.body);
+		if (leagueJson.empty()) {
+			std::cout << "No league info found for summoner ID: " + player.getSummonerID() << std::endl;
+			return;
+		}
 
-	json leagueJSON = makeReq(leagueURL, 10, 1000);
-
-	if (!leagueJSON.empty()) {
-		return leagueJSON[0].get<League>();
-	}
-
-	throw std::runtime_error("No ranked information...");
+		League playerLeague = leagueJson[0].get<League>();
+		player.setPrevTier(player.getPlayerRank().first);
+		player.setPlayerRank(playerLeague);
+		if (next) {
+			next();
+		}
+	});
 }
