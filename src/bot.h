@@ -21,6 +21,7 @@ private:
     void registerCommands();
     void readyHandler();
     dpp::cluster botCluster;
+    Riot* riotAPI;
     std::vector<std::unique_ptr<Player>> userVec;
 };
 

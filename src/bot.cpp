@@ -37,30 +37,24 @@ void Bot::registerCommands() {
 				userInputArr.emplace_back("NA1");
 			}
 			
-			try {
-				std::string puuid = fetchPUUID(userInputArr[0], userInputArr[1], TFT_APIKEY);
+			riotAPI->fetchPUUID(userInputArr[0], userInputArr[1], [this, userInput, currChannel, userInputArr, &event](const std::string& puuid) {
 				if (notPlayerExists(this->userVec, puuid)) {
 					auto pPlayer = std::make_unique<Player>(puuid);
 					pPlayer->setChannelID(currChannel);
 					pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
 
-					std::string summonerID = fetchSummonerID(puuid, TFT_APIKEY);
-					pPlayer->setSummonerID(summonerID);
-					League initLeague = fetchLeague(*pPlayer, TFT_APIKEY);
-					pPlayer->setPlayerRank(initLeague);
-					this->userVec.push_back(std::move(pPlayer));
-					event.reply(userInput + " successfully added");
+					riotAPI->fetchSummonerID(*pPlayer);
+					riotAPI->fetchLeague(*pPlayer, [this, pPlayer = pPlayer.get(), &event, userInput]() {
+						this->userVec.push_back(std::move(std::unique_ptr<Player>(pPlayer)));
+						event.reply(userInput + " successfully added");
+					});
 				}
 				else {
 					event.reply(userInput + " already exists.");
 				}
-			}
-			catch (const std::exception& e) {
-				std::cout << e.what() << std::endl; 
-				event.reply(userInput + " not found...");
-			}
+			});
 		}
-    });
+	});
 }
 
 void Bot::readyHandler() {
@@ -141,7 +135,7 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 					if (static_cast<size_t>(traitIdx) < breakpoints.size()) {
 					currBreakpoint = breakpoints[traitIdx];
 					} else {
-					currBreakpoint = 0;
+						currBreakpoint = 0;
 					}
 				}
 			} else {
