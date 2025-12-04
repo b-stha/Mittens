@@ -8,8 +8,8 @@ class RiotAPI {
 public:
     RiotAPI(dpp::cluster* bot, const std::string& apiKey)
         : botCluster(bot), apiKey(apiKey) {}
-    void fetchMatchID(const Player& player);
-    void fetchInfo(const Player& player);
+    void fetchMatchID(Player& player, std::function<void()> next = {});
+    void fetchInfo(Player& player, std::function<void()> next = {});
     void setName(Player& player);
     void fetchPUUID(const std::string& name, const std::string& tag);
     void fetchSummonerID(const Player& player);

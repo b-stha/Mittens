@@ -2,25 +2,49 @@
 #include "parsejson.h"
 #include "helpers.h"
 
-std::string fetchMatchID(const Player& player, const std::string apiKey) {
+void Riot::fetchMatchID(Player& player, std::function<void()> next) {
 	std::string matchIDurl = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/" + player.getPUUID() + "/ids?count=1&api_key=" + apiKey;
-	json matchIDjson = makeReq(matchIDurl, 10, 1000);
-
-	if (matchIDjson.is_array() && !matchIDjson.empty()) {
-		return matchIDjson[0].get<std::string>();
+	botCluster->request(matchIDurl, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
+		if (http.status != 200) {
+			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
+			return;
+		}
+		json matchIDjson = json::parse(http.body);
+		if (matchIDjson.empty()) {
+			std::cout << "No matches found for player with PUUID: " + player.getPUUID() << std::endl;
+			return;
+		}
+		if (matchIDjson[0].get<std::string>() == player.getCurrMatch()) {
+			return;
+		}
+		
+		player.setPrevMatch(player.getCurrMatch());
+		player.setCurrMatch(matchIDjson[0].get<std::string>());
+		if (next) {
+			next();
 	}
-	else {
-		throw std::runtime_error("Invalid JSON structure: expected non-empty array");
-	}
-};
+	});
+}
 
-Info fetchInfo(const std::string matchID, const std::string apiKey) {
-	std::string infoURL = "https://americas.api.riotgames.com/tft/match/v1/matches/" + matchID + "?api_key=" + apiKey;
-    std::cout << infoURL << std::endl;
-	json infoJson = makeReq(infoURL, 10, 1000);
+void Riot::fetchInfo(Player& player, std::function<void()> next) {
+	std::string infoURL = "https://americas.api.riotgames.com/tft/match/v1/matches/" + player.getCurrMatch() + "?api_key=" + apiKey;
+    botCluster->request(infoURL, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
+		if (http.status != 200) {
+			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
+			return;
+		}
+		json infoJson = json::parse(http.body);
+		if (infoJson.empty()) {
+			std::cout << "No match info found for match ID: " + player.getCurrMatch() << std::endl;
+			return;
+		}
 
-	return infoJson["info"].get<Info>();
-	
+		Info matchInfo = infoJson.get<Info>();
+		player.setMatchInfo(matchInfo);
+		if (next) {
+			next();
+		}
+	});
 };
 
 void setName(Player& player, const std::string apiKey) {
