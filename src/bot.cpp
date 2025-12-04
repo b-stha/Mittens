@@ -105,14 +105,13 @@ std::string augListStr(const Player& player) {
 void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& data) {
 	for (const auto& unit : player.myMatchInfo.units) {
 		std::string apiName = unit.characterID, unitName, unitIconName;
-		std::unordered_map<std::string, UnitInfo> unitData = data.getCDragonData().getUnitData();
+		std::unordered_map<std::string, UnitInfo> unitData = data.getUnitData();
 		const auto it = unitData.find(apiName);
 		if (it != unitData.end()) {
 			unitName = it->second.getName();
-			unitIconName = it->second.getEmote() + " " + unitName;
+			unitIconName = data.getEmote(apiName) + " " + unitName;
 		} else {
 			unitName = "null";
-			unitIconName = data.getDefaultEmote() + " " + unitName;
 		}
 
 		unitName = setStrWidth(unitName, 10);
@@ -131,28 +130,22 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 		if (trait.style != 0) {
 			std::string traitName, traitIcon;
 			int currBreakpoint;
-			const auto& traitData = data.getCDragonData().getTraitData();
+			const auto& traitData = data.getTraitData();
 			const auto it = traitData.find(trait.apiName);
 			if (it != traitData.end()) {
 				traitName = it->second.getName();
-				const auto& styles = it->second.getStyles();
-				const auto innerIt = styles.find(trait.style);
-				if (innerIt != styles.end()) {
-					traitIcon = innerIt->second;
-				} else {
-					traitIcon = data.getDefaultEmote();
-				}
+				traitIcon = data.getEmote(trait.apiName + "_" + std::to_string(trait.style));
 				int traitIdx = trait.level - 1;
 				const auto& breakpoints = it->second.getBreakpoints();
-				if (traitIdx >= 0 && traitIdx < breakpoints.size()) {
-					currBreakpoint = breakpoints[trait.level - 1];
-				}
-				else {
+				if (traitIdx >= 0) {
+					if (static_cast<size_t>(traitIdx) < breakpoints.size()) {
+					currBreakpoint = breakpoints[traitIdx];
+					} else {
 					currBreakpoint = 0;
+					}
 				}
 			} else {
 				traitName = "null";
-				traitIcon = data.getDefaultEmote();
 				currBreakpoint = 0;
 			}
 
@@ -162,8 +155,8 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 				traitIcon + " " + std::to_string(trait.numUnits) + "/" + std::to_string(currBreakpoint) + " " + traitName,
 				true);
 		}
-	};
-};
+	}
+}
 
 std::string Bot::itemListStr(const Unit& unit, const Data& data) {
 	std::string itemListOutput = "";
@@ -172,13 +165,8 @@ std::string Bot::itemListStr(const Unit& unit, const Data& data) {
 		itemListOutput += (emptyItem * 3);
 	}
 	else {
-		const auto& itemEmotes = data.getItemEmotes();
 		for (const auto& item : unit.items) {
-            if (itemEmotes.count(item) > 0) {
-			    itemListOutput += itemEmotes.at(item) + " "; 
-                continue;
-            }
-            itemListOutput += "<:steamhappy:1123798178030964848>";
+			itemListOutput += data.getEmote(item) + " "; 
 		}
 	}
 	return itemListOutput;
@@ -233,7 +221,7 @@ dpp::embed Bot::createPromoMsg(const Player& player, const Data& data) {
 	dpp::embed promoEmbed = dpp::embed()
 		.set_color(data.getRankColor().at(playerTier))
 		.set_title("PROMOTION")
-		.set_thumbnail(data.getRankData().at(playerTier)[0])
+		.set_thumbnail(data.getRankData().at(playerTier))
 		.add_field(
 			name + " has promoted to " + playerTier,
 			"",
