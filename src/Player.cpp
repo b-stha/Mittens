@@ -30,7 +30,7 @@ void Player::setNameTag(std::string inputName, std::string inputTag) {
 	tagLine = inputTag;
 };
 
-void Player::setprevMatch(std::string matchID) {
+void Player::setPrevMatch(std::string matchID) {
 	prevMatchID = matchID;
 };
 

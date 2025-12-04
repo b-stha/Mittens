@@ -48,7 +48,7 @@ public:
 	Player(std::string inputPuuid);
 	void setMatchInfo(const Info& info);
 	void setNameTag(std::string inputName, std::string inputTag);
-	void setprevMatch(std::string matchID);
+	void setPrevMatch(std::string matchID);
 	void setCurrMatch(std::string matchID);
 	std::string getCurrMatch() const;
 	std::string getPUUID() const;
