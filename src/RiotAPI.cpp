@@ -47,29 +47,41 @@ void Riot::fetchInfo(Player& player, std::function<void()> next) {
 	});
 };
 
-void setName(Player& player, const std::string apiKey) {
+void Riot::setName(Player& player) {
 	std::string nameURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-puuid/" + player.getPUUID() + "?api_key=" + apiKey;
-	json nameJson = makeReq(nameURL, 10, 1000);
+	botCluster->request(nameURL, dpp::m_get, [&player](const dpp::http_request_completion_t& http) {
+		if (http.status != 200) {
+			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
+			return;
+		}
+		json nameJson = json::parse(http.body);
+		if (nameJson.empty()) {
+			std::cout << "No name info found for player with PUUID: " + player.getPUUID() << std::endl;
+			return;
+		}
 
-	if (nameJson.is_array() && !nameJson.empty()) {
-		player.setNameTag(nameJson[0].get<std::string>(), nameJson[1].get<std::string>());
-	}
-	else {
-		throw std::runtime_error("Invalid JSON structure: expected non-empty array");
-	}
+		std::string name = nameJson["gameName"].get<std::string>();
+		std::string tag = nameJson["tagLine"].get<std::string>();
+		player.setNameTag(name, tag);
+	});
 }
 
-std::string fetchPUUID(const std::string& name, const std::string& tag, const std::string& apiKey) {
+void Riot::fetchPUUID(const std::string& name, const std::string& tag, std::function<void(const std::string&)> next) {
     std::string fixedName = fillSpaces(name);
 	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + fixedName + "/" + tag + "?api_key=" + apiKey;
-    std::cout << idURL << std::endl;
-	json idJSON = makeReq(idURL, 10, 1000);
-
-	if (!idJSON.empty()) {
-		return idJSON["puuid"].get<std::string>();
-	}
-
-	throw std::runtime_error("Error finding player...");
+    botCluster->request(idURL, dpp::m_get, [name, tag, next](const dpp::http_request_completion_t& http) {
+		if (http.status != 200) {
+			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
+			return;
+		}
+		json idJson = json::parse(http.body);
+		if (idJson.empty()) {
+			std::cout << "No PUUID found for player: " + name + "#" + tag << std::endl;
+			return;
+		}
+		std::string puuid = idJson["puuid"].get<std::string>();
+		if (next) {
+			next(puuid);
 }
 
 std::string fetchSummonerID(const std::string& puuid, const std::string& apiKey) {

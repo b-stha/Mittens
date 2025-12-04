@@ -11,7 +11,7 @@ public:
     void fetchMatchID(Player& player, std::function<void()> next = {});
     void fetchInfo(Player& player, std::function<void()> next = {});
     void setName(Player& player);
-    void fetchPUUID(const std::string& name, const std::string& tag);
+    void fetchPUUID(const std::string& name, const std::string& tag, std::function<void(const std::string&)> next = {});
     void fetchSummonerID(const Player& player);
     void fetchLeague(Player& player);
 
