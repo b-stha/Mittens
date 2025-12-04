@@ -72,3 +72,13 @@ std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::j
 	}
 	return infoList;
 }
+
+const std::string& Data::getEmote(const std::string& emoteName) const {
+	auto it = emoteMap.find(emoteName);
+	if (it != emoteMap.end()) {
+		return it->second;
+	} else {
+		static const std::string defaultEmote = "<:steamhappy:1123798178030964848>";
+		return defaultEmote;
+	}
+}

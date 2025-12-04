@@ -45,6 +45,8 @@ public:
 	const UnitDataMap& getUnitData() const { return unitData; }
 	const std::unordered_map<std::string, uint32_t>& getRankColor() const { return rankColor; }
 	const std::unordered_map<int, std::string>& getPlacementData() const { return placementData; }
+	const std::unordered_map<std::string, std::string>& getRankData() const { return rankRegalia; }
+	const std::string& getEmote(const std::string& emoteName) const;
 
 private:
 	void loadJson();
