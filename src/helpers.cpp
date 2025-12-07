@@ -52,15 +52,3 @@ std::string fillSpaces(std::string input) {
     }
     return input;
 }
-
-int subtractLP(const Player& player) {
-	if (player.getPlayerLP().first == 0) {
-		return (player.getPlayerLP().second - 100);
-	}
-
-	return (player.getPlayerLP().second - player.getPlayerLP().first);
-}
-
-bool sortByStyle(const Trait& t1, const Trait& t2) {
-	return t1.style > t2.style;
-}
