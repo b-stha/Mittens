@@ -1,11 +1,12 @@
 #include "bot.h"
-#include "helpers.h"
 #include "RiotAPI.h"
 #include "apikeys.h"
 #include "data.h"
+#include "Player.h"
 
 Bot::Bot()
-		: botCluster(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content) {
+		: botCluster(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content), riotAPI(botCluster, TFT_APIKEY) {
+	;
 	botCluster.on_log(dpp::utility::cout_logger());
 	readyHandler();
 	registerCommands();
@@ -37,14 +38,14 @@ void Bot::registerCommands() {
 				userInputArr.emplace_back("NA1");
 			}
 			
-			riotAPI->fetchPUUID(userInputArr[0], userInputArr[1], [this, userInput, currChannel, userInputArr, &event](const std::string& puuid) {
+			riotAPI.fetchPUUID(userInputArr[0], userInputArr[1], [this, userInput, currChannel, userInputArr, &event](const std::string& puuid) {
 				if (notPlayerExists(this->userVec, puuid)) {
 					auto pPlayer = std::make_unique<Player>(puuid);
 					pPlayer->setChannelID(currChannel);
 					pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
 
-					riotAPI->fetchSummonerID(*pPlayer);
-					riotAPI->fetchLeague(*pPlayer, [this, pPlayer = pPlayer.get(), &event, userInput]() {
+					riotAPI.fetchSummonerID(*pPlayer);
+					riotAPI.fetchLeague(*pPlayer, [this, pPlayer = pPlayer.get(), &event, userInput]() {
 						this->userVec.push_back(std::move(std::unique_ptr<Player>(pPlayer)));
 						event.reply(userInput + " successfully added");
 					});
@@ -97,12 +98,12 @@ std::string augListStr(const Player& player) {
 };*/
 
 void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& data) {
-	for (const auto& unit : player.myMatchInfo.units) {
+	for (const auto& unit : player.getMatchInfo().units) {
 		std::string apiName = unit.characterID, unitName, unitIconName;
 		std::unordered_map<std::string, UnitInfo> unitData = data.getUnitData();
 		const auto it = unitData.find(apiName);
 		if (it != unitData.end()) {
-			unitName = it->second.getName();
+			unitName = it->second.name;
 			unitIconName = data.getEmote(apiName) + " " + unitName;
 		} else {
 			unitName = "null";
@@ -130,17 +131,17 @@ void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& da
 };
 
 void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& data) {
-	for (const auto& trait : player.myMatchInfo.traits) {
+	for (const auto& trait : player.getMatchInfo().traits) {
 		if (trait.style != 0) {
 			std::string traitName, traitIcon;
 			int currBreakpoint;
 			const auto& traitData = data.getTraitData();
 			const auto it = traitData.find(trait.apiName);
 			if (it != traitData.end()) {
-				traitName = it->second.getName();
+				traitName = it->second.name;
 				traitIcon = data.getEmote(trait.apiName + "_" + std::to_string(trait.style));
 				int traitIdx = trait.level - 1;
-				const auto& breakpoints = it->second.getBreakpoints();
+				const auto& breakpoints = it->second.breakpoints;
 				if (traitIdx >= 0) {
 					if (static_cast<size_t>(traitIdx) < breakpoints.size()) {
 					currBreakpoint = breakpoints[traitIdx];
@@ -165,12 +166,12 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 dpp::embed Bot::createResult(const Player& player, const Data& data) {
     std::string name = player.getFullName()[0];
 	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
-	std::string matchResultURL = profileURL + player.getCurrMatch();
+	std::string matchResultURL = profileURL + player.getCurrMatchID();
 	//std::string augmentList = augListStr(player);
 	std::string playerTier = player.getPlayerRank().first;
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(data.getRankColor().at(playerTier))
-		.set_title(data.getPlacementData().at(player.myMatchInfo.placement) + " PLACE")
+		.set_title(data.getPlacementData().at(player.getMatchInfo().placement) + " PLACE")
 		.set_url(matchResultURL)
 		.set_author(name + "'s match result", profileURL, "")
 		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
@@ -178,9 +179,9 @@ dpp::embed Bot::createResult(const Player& player, const Data& data) {
 			data.getRankData().at(playerTier)[1] + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
 			"\n"
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
-			"Level: " + std::to_string(player.myMatchInfo.level) + "\n"
-			"Gold Left: " + std::to_string(player.myMatchInfo.goldLeft) + "\n"
-			"Board Value: " + std::to_string(player.myMatchInfo.boardValue),
+			"Level: " + std::to_string(player.getMatchInfo().level) + "\n"
+			"Gold Left: " + std::to_string(player.getMatchInfo().goldLeft) + "\n"
+			"Board Value: " + std::to_string(player.getMatchInfo().boardValue),
 			false
 		)/*
 		.add_field(
