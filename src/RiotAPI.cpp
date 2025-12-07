@@ -1,6 +1,13 @@
 #include "RiotAPI.h"
-#include "parsejson.h"
-#include "helpers.h"
+#include "Player.h"
+#include <nlohmann/json.hpp>
+#include <string>
+
+using json = nlohmann::json;
+
+Riot::Riot(dpp::cluster& bot, const std::string& apiKey)
+	: botCluster(bot), apiKey(apiKey)
+	{}
 
 void Riot::fetchMatchID(Player& player, std::function<void()> next) {
 	std::string matchIDurl = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/" + player.getPUUID() + "/ids?count=1&api_key=" + apiKey;
