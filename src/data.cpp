@@ -1,5 +1,4 @@
 #include "data.h"
-#include "parsejson.h"
 #include <fstream>
 
 const nlohmann::json* Data::getObj(const nlohmann::json& j, const std::string& key) const {
@@ -42,8 +41,18 @@ void Data::loadData() {
 	std::cout << "Loaded data." << std::endl;
 }
 
-void Data::loadEmojis(const dpp::cluster& cluster) {
-	dpp::emoji_map emojis = cluster.application_emojis_get();
+void Data::loadEmojis(dpp::cluster& cluster) {
+	cluster.application_emojis_get([this](const dpp::confirmation_callback_t& cc){
+		if (cc.is_error()) {
+			dpp::error_info what = cc.get_error();
+			std::cerr << "Error loading emojis: " << what.human_readable << std::endl;
+			std::exit(1);
+		}
+		dpp::emoji_map returnedMap = cc.get<dpp::emoji_map>();
+		for (auto& [key, value] : returnedMap) {
+			emoteMap[value.name] = key;
+		}
+	});
 }
 
 std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& dataJson, const std::string& set) {
