@@ -42,6 +42,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
         ${OPENSSL_INCLUDE_DIR}
         ${cpr_SOURCE_DIR}/include
         ${nlohmann_json_INCLUDE_DIRS}

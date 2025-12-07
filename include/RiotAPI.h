@@ -2,13 +2,14 @@
 #define RIOTAPI_H
 
 #include <string>
-#include "Player.h"
 #include <functional>
+#include <dpp/dpp.h>
+
+class Player;
 
 class Riot {
 public:
-    Riot(dpp::cluster* bot, const std::string& apiKey)
-        : botCluster(bot), apiKey(apiKey) {}
+    Riot(dpp::cluster& bot, const std::string& apiKey);
     void fetchMatchID(Player& player, std::function<void()> next = {});
     void fetchInfo(Player& player, std::function<void()> next = {});
     void setName(Player& player);
@@ -17,7 +18,7 @@ public:
     void fetchLeague(Player& player, std::function<void()> next = {});
 
 private:
-    dpp::cluster* botCluster;
+    dpp::cluster& botCluster;
     std::string apiKey;
 };
 

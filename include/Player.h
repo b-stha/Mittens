@@ -4,58 +4,29 @@
 #include <string>
 #include <vector>
 #include <dpp/dpp.h>
-
-struct Unit {
-	std::string characterID;
-	std::vector<std::string> items;
-	int rarity = 0;
-	int tier = 0;
-};
-
-struct Trait {
-	std::string apiName;
-	int level;
-	int style;
-	int numUnits;
-};
-
-struct PlayerMatchInfo {
-	//std::vector<std::string> augments;
-	std::vector<Trait> traits;
-	std::vector<Unit> units;
-	int goldLeft = 0;
-	int level = 0;
-	int placement = 0;
-	std::string puuid;
-	int boardValue;
-	int companionID;
-	int calcBoardValue();
-};
-
-struct Info {
-	double gameLength;
-	std::vector<PlayerMatchInfo> playerInfoList;
-};
+#include "MatchInfo.h"
 
 struct League {
 	std::string tier;
-	std::string rank;
+	std::string prevTier;
+	int prevLP = 0;
 	int currLP = 0;
+	std::string rank;
 };
 
 class Player {
 public:
 	Player(std::string inputPuuid);
-	void setMatchInfo(const Info& info);
+	void setMatchInfo(const MatchInfo& info);
 	void setNameTag(std::string inputName, std::string inputTag);
 	void setPrevMatch(std::string matchID);
 	void setCurrMatch(std::string matchID);
-	std::string getCurrMatch() const;
+	std::string getCurrMatchID() const;
 	std::string getPUUID() const;
 	std::vector<std::string> getFullName() const;
 	std::vector<int> getTime() const;
 	void setChannelID(dpp::snowflake inputChannelID);
-	dpp::snowflake getChannelID();
+	dpp::snowflake getChannelID() const;
 	void setSummonerID(std::string summonerID);
 	std::string getSummonerID() const;
 	std::pair<std::string, std::string> getPlayerRank() const;
@@ -64,12 +35,10 @@ public:
 	void updateLP();
 	std::string getPrevTier() const;
 	void setPrevTier(std::string tier);
-	void addTrait(const Trait& trait);	
-	PlayerMatchInfo myMatchInfo;
+	const MatchInfo& getMatchInfo() const;
 private:
+	MatchInfo matchInfo;
 	dpp::snowflake channelID;
-	double gameLenMin = 0;
-	double gameLenSec = 0;
 	std::string puuid;
 	std::string prevMatchID = "";
 	std::string currMatchID = "";
@@ -77,8 +46,6 @@ private:
 	std::string tagLine = "";
 	std::string summonerID;
 	League playerRank;
-	int prevLP = 0;
-	std::string prevTier;
 };
 
 #endif
