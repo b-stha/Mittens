@@ -109,7 +109,17 @@ void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& da
 		}
 
 		unitName = setStrWidth(unitName, 10);
-		std::string unitItems = itemListStr(unit, data);
+		std::string unitItems = "";
+		std::string emptyItem = "<:transparent:1250910469330567292>";
+		if (unit.items.empty()) {
+			unitItems += (emptyItem * 3);
+		}
+		else {
+			for (const auto& item : unit.items) {
+				unitItems += data.getEmote(item) + " "; 
+			}
+		}
+
 		embedObj.add_field(
 			"", 
 			starCount(unit.tier) + "\n" + 
@@ -150,20 +160,6 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 				true);
 		}
 	}
-}
-
-std::string Bot::itemListStr(const Unit& unit, const Data& data) {
-	std::string itemListOutput = "";
-	std::string emptyItem = "<:transparent:1250910469330567292>";
-	if (unit.items.empty()) {
-		itemListOutput += (emptyItem * 3);
-	}
-	else {
-		for (const auto& item : unit.items) {
-			itemListOutput += data.getEmote(item) + " "; 
-		}
-	}
-	return itemListOutput;
 }
 
 dpp::embed Bot::createResult(const Player& player, const Data& data) {
