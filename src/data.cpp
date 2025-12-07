@@ -61,7 +61,10 @@ std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::jso
         std::string apiName = unit["apiName"].get<std::string>();
         std::string dispName = unit["name"].get<std::string>();
 		int rarity = unit["cost"].get<int>() - 1;
-		infoList[apiName] = UnitInfo(dispName, rarity);
+		UnitInfo unitInfo;
+		unitInfo.name = dispName;
+		unitInfo.rarity = rarity;
+		infoList[apiName] = unitInfo;
     }
 	return infoList;
 }
@@ -77,7 +80,10 @@ std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::j
 			auto levelVal = getJsonInt(level, "minUnits");
 			traitLevels.push_back(levelVal.value_or(0));
 		}
-		infoList[apiName] = TraitInfo(dispName, traitLevels);
+		TraitInfo traitInfo;
+		traitInfo.name = dispName;
+		traitInfo.breakpoints = traitLevels;
+		infoList[apiName] = traitInfo;
 	}
 	return infoList;
 }
