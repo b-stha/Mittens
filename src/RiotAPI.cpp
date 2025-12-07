@@ -39,7 +39,17 @@ void Riot::fetchInfo(Player& player, std::function<void()> next) {
 			return;
 		}
 
-		Info matchInfo = infoJson.get<Info>();
+		json allInfo = matchJson["info"];
+		MatchInfo matchInfo;
+		for (const json participant : allInfo["participants"]) {
+			if (player.getPUUID() == participant["puuid"].get<std::string>()) {
+				double totGameLength = allInfo["game_length"].get<double>() / 60.0;
+				matchInfo.gameLenSec = modf(totGameLength, &matchInfo.gameLenMin) * 60;
+				matchInfo = participant.get<MatchInfo>();
+				matchInfo.boardValue = matchInfo.calcBoardValue();
+			}
+		}
+
 		player.setMatchInfo(matchInfo);
 		if (next) {
 			next();
