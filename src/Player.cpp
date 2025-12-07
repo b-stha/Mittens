@@ -35,9 +35,9 @@ std::vector<std::string> Player::getFullName() const {
 }
 
 std::vector<int> Player::getTime() const {
-    std::cout << gameLenMin << ":" << gameLenSec << std::endl;
-	int min = static_cast<int>(gameLenMin);
-	int sec = static_cast<int>(gameLenSec);
+    std::cout << matchInfo.gameLenMin << ":" << matchInfo.gameLenSec << std::endl;
+	int min = static_cast<int>(matchInfo.gameLenMin);
+	int sec = static_cast<int>(matchInfo.gameLenSec);
 	std::vector<int> timeVec{ min, sec };
 	return timeVec;
 }
@@ -63,7 +63,7 @@ void Player::setPlayerRank(League inLeague) {
 }
 
 void Player::updateLP() {
-	prevLP = playerRank.currLP;
+	playerRank.prevLP = playerRank.currLP;
 }
 
 std::pair<std::string, std::string> Player::getPlayerRank() const {
@@ -71,15 +71,11 @@ std::pair<std::string, std::string> Player::getPlayerRank() const {
 }
 
 std::pair<int,int> Player::getPlayerLP() const {
-	return std::make_pair(prevLP, playerRank.currLP);
+	return std::make_pair(playerRank.prevLP, playerRank.currLP);
 }
 
 std::string Player::getPrevTier() const {
-	return prevTier;
-}
-
-void Player::setPrevTier(std::string tier) {
-	prevTier = tier;
+	return playerRank.prevTier;
 }
 
 const MatchInfo& Player::getMatchInfo() const {
