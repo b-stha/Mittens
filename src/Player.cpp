@@ -25,7 +25,7 @@ void Player::setCurrMatch(std::string matchID) {
 	currMatchID = matchID;
 };
 
-std::string Player::getCurrMatch() const {
+std::string Player::getCurrMatchID() const {
 	return currMatchID;
 };
 
@@ -42,7 +42,7 @@ std::vector<int> Player::getTime() const {
 	return timeVec;
 }
 
-dpp::snowflake Player::getChannelID() {
+dpp::snowflake Player::getChannelID() const {
 	return channelID;
 }
 
