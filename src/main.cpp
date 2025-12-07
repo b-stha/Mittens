@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "RiotAPI.h"
-#include "parsejson.h"
 #include "bot.h"
 #include "apikeys.h"
 #include "Worker.h"
@@ -26,8 +25,7 @@ int main() {
     }
     
     Bot mittens;
-    Riot riotAPI(&mittens.getBotCluster(), TFT_APIKEY);
-    Worker worker(&riotAPI, &mittens, loadedData.get());
+    Worker worker(&mittens, loadedData.get());
     mittens.run();
     signal(SIGINT, [](int code) {
         running = false;
