@@ -17,7 +17,6 @@ struct League {
 class Player {
 public:
 	Player(std::string inputPuuid);
-	void setMatchInfo(const MatchInfo& info);
 	void setNameTag(std::string inputName, std::string inputTag);
 	void setPrevMatch(std::string matchID);
 	void setCurrMatch(std::string matchID);

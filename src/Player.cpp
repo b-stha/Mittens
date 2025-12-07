@@ -8,19 +8,6 @@ Player::Player(std::string inputPuuid) {
 	puuid = inputPuuid;
 }
 
-void Player::setMatchInfo(const Info& info) {
-	for (const auto& player : info.playerInfoList) {
-		if (puuid == player.puuid) {
-			myMatchInfo = player;
-			myMatchInfo.boardValue = myMatchInfo.calcBoardValue();
-			double totGameLength = info.gameLength / 60.0;
-			gameLenSec = modf(totGameLength, &gameLenMin) * 60;
-			return;
-		}
-	}
-	throw std::runtime_error("Participant with the specified PUUID not found");
-};
-
 std::string Player::getPUUID() const {
 	return puuid;
 };
