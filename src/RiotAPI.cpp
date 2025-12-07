@@ -11,7 +11,7 @@ Riot::Riot(dpp::cluster& bot, const std::string& apiKey)
 
 void Riot::fetchMatchID(Player& player, std::function<void()> next) {
 	std::string matchIDurl = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/" + player.getPUUID() + "/ids?count=1&api_key=" + apiKey;
-	botCluster->request(matchIDurl, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
+	botCluster.request(matchIDurl, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
 		if (http.status != 200) {
 			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
 			return;
@@ -21,11 +21,11 @@ void Riot::fetchMatchID(Player& player, std::function<void()> next) {
 			std::cout << "No matches found for player with PUUID: " + player.getPUUID() << std::endl;
 			return;
 		}
-		if (matchIDjson[0].get<std::string>() == player.getCurrMatch()) {
+		if (matchIDjson[0].get<std::string>() == player.getCurrMatchID()) {
 			return;
 		}
 		
-		player.setPrevMatch(player.getCurrMatch());
+		player.setPrevMatch(player.getCurrMatchID());
 		player.setCurrMatch(matchIDjson[0].get<std::string>());
 		if (next) {
 			next();
@@ -34,15 +34,15 @@ void Riot::fetchMatchID(Player& player, std::function<void()> next) {
 }
 
 void Riot::fetchInfo(Player& player, std::function<void()> next) {
-	std::string infoURL = "https://americas.api.riotgames.com/tft/match/v1/matches/" + player.getCurrMatch() + "?api_key=" + apiKey;
-    botCluster->request(infoURL, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
+	std::string infoURL = "https://americas.api.riotgames.com/tft/match/v1/matches/" + player.getCurrMatchID() + "?api_key=" + apiKey;
+    botCluster.request(infoURL, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
 		if (http.status != 200) {
 			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
 			return;
 		}
-		json infoJson = json::parse(http.body);
-		if (infoJson.empty()) {
-			std::cout << "No match info found for match ID: " + player.getCurrMatch() << std::endl;
+		json matchJson = json::parse(http.body);
+		if (matchJson.empty()) {
+			std::cout << "No match info found for match ID: " + player.getCurrMatchID() << std::endl;
 			return;
 		}
 
@@ -66,7 +66,7 @@ void Riot::fetchInfo(Player& player, std::function<void()> next) {
 
 void Riot::setName(Player& player) {
 	std::string nameURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-puuid/" + player.getPUUID() + "?api_key=" + apiKey;
-	botCluster->request(nameURL, dpp::m_get, [&player](const dpp::http_request_completion_t& http) {
+	botCluster.request(nameURL, dpp::m_get, [&player](const dpp::http_request_completion_t& http) {
 		if (http.status != 200) {
 			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
 			return;
@@ -86,7 +86,7 @@ void Riot::setName(Player& player) {
 void Riot::fetchPUUID(const std::string& name, const std::string& tag, std::function<void(const std::string&)> next) {
     std::string fixedName = fillSpaces(name);
 	std::string idURL = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + fixedName + "/" + tag + "?api_key=" + apiKey;
-    botCluster->request(idURL, dpp::m_get, [name, tag, next](const dpp::http_request_completion_t& http) {
+    botCluster.request(idURL, dpp::m_get, [name, tag, next](const dpp::http_request_completion_t& http) {
 		if (http.status != 200) {
 			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
 			return;
@@ -105,7 +105,7 @@ void Riot::fetchPUUID(const std::string& name, const std::string& tag, std::func
 
 void Riot::fetchSummonerID(Player& player) {
 	std::string summonerURL = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/" + player.getPUUID() + "?api_key=" + apiKey;
-	botCluster->request(summonerURL, dpp::m_get, [&player](const dpp::http_request_completion_t& http) {
+	botCluster.request(summonerURL, dpp::m_get, [&player](const dpp::http_request_completion_t& http) {
 		if (http.status != 200) {
 			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
 			return;
@@ -123,7 +123,7 @@ void Riot::fetchSummonerID(Player& player) {
 
 void Riot::fetchLeague(Player& player, std::function<void()> next) {
 	std::string leagueURL = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/" + player.getSummonerID() + "?api_key=" + apiKey;
-	botCluster->request(leagueURL, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
+	botCluster.request(leagueURL, dpp::m_get, [&player, next](const dpp::http_request_completion_t& http) {
 		if (http.status != 200) {
 			std::cout <<"HTTP request failed with status: " + std::to_string(http.status) << std::endl;
 			return;

@@ -1,4 +1,8 @@
-#include "Worker.h"  
+#include "Worker.h"
+#include "Player.h"
+#include "RiotAPI.h"
+#include "data.h"
+#include "bot.h"
 
 void Worker::startTask() {
     if (isRunning && playerQueue.empty()) {
@@ -9,10 +13,10 @@ void Worker::startTask() {
     Player* currPlayer = playerQueue.front();
     playerQueue.pop();
 
-    riotAPI->fetchMatchID(*currPlayer, [this, currPlayer]() {
+    mittens->getRiotObj().fetchMatchID(*currPlayer, [this, currPlayer]() {
         currPlayer->updateLP(); // care this step
-        riotAPI->fetchLeague(*currPlayer, [this, currPlayer]() {
-            riotAPI->fetchInfo(*currPlayer, [this, currPlayer]() {
+        mittens->getRiotObj().fetchLeague(*currPlayer, [this, currPlayer]() {
+            mittens->getRiotObj().fetchInfo(*currPlayer, [this, currPlayer]() {
                 dpp::embed embOutput = mittens->createResult(*currPlayer, *loadedData);
                 dpp::message msg(currPlayer->getChannelID(), embOutput);
                 mittens->getBotCluster().message_create(msg);
