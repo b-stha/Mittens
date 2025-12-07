@@ -127,9 +127,14 @@ void Riot::fetchLeague(Player& player, std::function<void()> next) {
 			return;
 		}
 
-		League playerLeague = leagueJson[0].get<League>();
-		player.setPrevTier(player.getPlayerRank().first);
+		League playerLeague;
+		playerLeague.prevLP = playerLeague.currLP;
+		playerLeague.prevTier = playerLeague.tier;
+		playerLeague.rank = leagueJson[0]["rank"].get<std::string>();
+		playerLeague.currLP = leagueJson[0]["leaguePoints"].get<int>();
+		playerLeague.tier = leagueJson[0]["rank"].get<std::string>();
 		player.setPlayerRank(playerLeague);
+
 		if (next) {
 			next();
 		}
