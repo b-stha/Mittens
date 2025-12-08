@@ -12,6 +12,7 @@ class Worker {
 public:
     void startTask();
     void finishTask();
+    const std::shared_ptr<Data>& getData() const;
     void enqueue(Player* player);
     Worker(Bot* bot)
         : pMittens(bot) {}

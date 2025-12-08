@@ -1,6 +1,7 @@
 #ifndef BOT_H
 #define BOT_H
 
+#include <atomic>
 #include <dpp/dpp.h>
 #include "RiotAPI.h"
 
@@ -18,6 +19,8 @@ public:
     std::string augListStr(const Player& player, const Data& data);
     dpp::embed createResult(const Player& player, const Data& data);
     dpp::embed createPromoMsg(const Player& player, const Data& data);
+    const std::shared_ptr<Data>& getLoadedData() const { return pLoadedData; }
+    Worker* getWorker() { return pWorker.get(); }
     void run();
 private:
     void registerCommands();
