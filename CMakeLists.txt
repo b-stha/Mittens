@@ -32,8 +32,9 @@ add_executable(${PROJECT_NAME}
         src/bot.cpp
         src/data.cpp
         src/helpers.cpp
-        src/parsejson.cpp
         src/main.cpp
+        src/Worker.cpp
+        src/MatchInfo.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -59,7 +60,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 
 add_executable(data_writer
         src/data_writer.cpp
-        src/parsejson.cpp
         src/data.cpp
         src/Player.cpp
         src/helpers.cpp
@@ -71,6 +71,7 @@ set_target_properties(data_writer PROPERTIES
 )
 
 target_include_directories(data_writer PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
         ${OPENSSL_INCLUDE_DIR}
         ${cpr_SOURCE_DIR}/include
         ${nlohmann_json_INCLUDE_DIRS}
