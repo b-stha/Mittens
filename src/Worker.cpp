@@ -13,18 +13,19 @@ void Worker::startTask() {
     Player* currPlayer = playerQueue.front();
     playerQueue.pop();
 
-    mittens->getRiotObj().fetchMatchID(*currPlayer, [this, currPlayer]() {
+    pMittens->getRiotObj().fetchMatchID(*currPlayer, [this, currPlayer]() {
         currPlayer->updateLP(); // care this step
-        mittens->getRiotObj().fetchLeague(*currPlayer, [this, currPlayer]() {
-            mittens->getRiotObj().fetchInfo(*currPlayer, [this, currPlayer]() {
-                dpp::embed embOutput = mittens->createResult(*currPlayer, *loadedData);
+        pMittens->getRiotObj().fetchLeague(*currPlayer, [this, currPlayer]() {
+            pMittens->getRiotObj().fetchInfo(*currPlayer, [this, currPlayer]() {
+                auto data = this->getData();
+                dpp::embed embOutput = pMittens->createResult(*currPlayer, *data);
                 dpp::message msg(currPlayer->getChannelID(), embOutput);
-                mittens->getBotCluster().message_create(msg);
+                pMittens->getBotCluster().message_create(msg);
 
                 if (currPlayer->getPlayerRank().first != currPlayer->getPrevTier()) {
-                    dpp::embed promoMsg = mittens->createPromoMsg(*currPlayer, *loadedData);
+                    dpp::embed promoMsg = pMittens->createPromoMsg(*currPlayer, *data);
                     dpp::message promoMsgObj(currPlayer->getChannelID(), promoMsg);
-                    mittens->getBotCluster().message_create(promoMsgObj);
+                    pMittens->getBotCluster().message_create(promoMsgObj);
                 }
                 finishTask();
             });
@@ -37,6 +38,10 @@ void Worker::finishTask() {
     if (!playerQueue.empty()) {
         startTask();
     }
+}
+
+const std::shared_ptr<Data>& Worker::getData() const {
+    return pMittens->getLoadedData();
 }
 
 void Worker::enqueue(Player* player) {
