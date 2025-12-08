@@ -1,5 +1,6 @@
 #include "data.h"
 #include <fstream>
+#include <thread>
 
 const nlohmann::json* Data::getObj(const nlohmann::json& j, const std::string& key) const {
 	if (j.contains(key) && j[key].is_object()) {
@@ -20,39 +21,6 @@ std::optional<int> Data::getJsonInt(const nlohmann::json& j, const std::string& 
 		return j[key].get<int>();
 	}
 	return std::nullopt;
-}
-
-void Data::loadData() {
-	nlohmann::json dataJson;
-	std::string urlPath = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json";
-	try {
-		dataJson = makeReq(urlPath, 10, 1000);
-		std::cout << "Fetched JSON data from " << urlPath << std::endl;
-	} catch (const std::exception& e) {
-		throw std::runtime_error(std::string("Error fetching data from Community Dragon: ") + e.what());
-	}
-
-	std::cout << "Enter set number to load (e.g., \"11\", \"12\"): ";
-	std::string latestSet;
-	std::getline(std::cin, latestSet);
-	std::unordered_map<std::string, UnitInfo> unitData = loadUnitData(dataJson, latestSet);
-	std::unordered_map<std::string, TraitInfo> traitData = loadTraitData(dataJson, latestSet);
-
-	std::cout << "Loaded data." << std::endl;
-}
-
-void Data::loadEmojis(dpp::cluster& cluster) {
-	cluster.application_emojis_get([this](const dpp::confirmation_callback_t& cc){
-		if (cc.is_error()) {
-			dpp::error_info what = cc.get_error();
-			std::cerr << "Error loading emojis: " << what.human_readable << std::endl;
-			std::exit(1);
-		}
-		dpp::emoji_map returnedMap = cc.get<dpp::emoji_map>();
-		for (auto& [key, value] : returnedMap) {
-			emoteMap[value.name] = key;
-		}
-	});
 }
 
 std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& dataJson, const std::string& set) {
@@ -96,4 +64,74 @@ const std::string& Data::getEmote(const std::string& emoteName) const {
 		static const std::string defaultEmote = "<:steamhappy:1123798178030964848>";
 		return defaultEmote;
 	}
+}
+
+std::future<void> Data::loadData(dpp::cluster& cluster) {
+	auto pPromise = std::make_shared<std::promise<void>>();
+	auto future = pPromise->get_future();
+
+	std::string url = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json";
+	cluster.request(url, dpp::m_get, [this, pPromise](const dpp::http_request_completion_t& http) mutable {
+		if (http.status != 200 ) {
+			try {
+				throw std::runtime_error("HTTP request failed with status: " + std::to_string(http.status));
+			} catch (...) {
+				pPromise->set_exception(std::current_exception());
+			}
+    		return;
+		}
+		nlohmann::json dataJson = nlohmann::json::parse(http.body);
+		std::string latestSet = "16";
+
+		this->unitData = loadUnitData(dataJson, latestSet);
+		this->traitData = loadTraitData(dataJson, latestSet);
+
+		pPromise->set_value();
+	});
+	return future;
+}
+
+std::future<void> Data::loadEmojis(dpp::cluster& cluster) {
+	auto pPromise = std::make_shared<std::promise<void>>();
+	auto future = pPromise->get_future();
+	std::cout << "Cluster app id: " << cluster.me.id << std::endl;
+	cluster.application_emojis_get([this, pPromise](const dpp::confirmation_callback_t& cc) mutable {
+		if (cc.is_error()) {			
+			try {
+			throw std::runtime_error("HTTP request failed with status: " + cc.get_error().human_readable);
+			} catch (...) {
+				pPromise->set_exception(std::current_exception());
+			}
+			return;
+		}
+		dpp::emoji_map returnedMap = cc.get<dpp::emoji_map>();
+		for (auto& [key, value] : returnedMap) {
+			emoteMap[value.name] = key;
+		}
+		pPromise->set_value();
+	});
+	return future;
+}
+
+std::future<std::shared_ptr<Data>> Data::asyncCreateData(dpp::cluster& cluster) {
+    auto promise = std::make_shared<std::promise<std::shared_ptr<Data>>>();
+    auto future = promise->get_future();
+
+	auto pData = std::shared_ptr<Data>(new Data());
+
+    std::future<void> fData = pData->loadData(cluster);
+    std::future<void> fEmojis = pData->loadEmojis(cluster);
+
+    std::thread([promise, pData, fData = std::move(fData), fEmojis = std::move(fEmojis)]() mutable {
+        try {
+            fData.get();
+            fEmojis.get();
+
+            promise->set_value(pData);
+        } catch (...) {
+			promise->set_exception(std::current_exception());
+        }
+    }).detach();
+
+    return future;
 }
