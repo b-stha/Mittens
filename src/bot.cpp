@@ -3,6 +3,7 @@
 #include "apikeys.h"
 #include "data.h"
 #include "Player.h"
+#include "helpers.h"
 
 Bot::Bot()
 		: botCluster(BOT_TOKEN, dpp::i_default_intents | dpp::i_message_content), riotAPI(botCluster, TFT_APIKEY) {

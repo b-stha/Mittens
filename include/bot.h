@@ -2,10 +2,10 @@
 #define BOT_H
 
 #include <dpp/dpp.h>
+#include "RiotAPI.h"
 
 class Data;
 class Player;
-class Riot;
 
 class Bot {
 public:

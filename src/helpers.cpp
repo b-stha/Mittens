@@ -1,4 +1,7 @@
+#include "Player.h"
 #include "helpers.h"
+#include <vector>
+#include <string>
 #include <sstream>
 
 std::string operator * (std::string a, unsigned int b) {
