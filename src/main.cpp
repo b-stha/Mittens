@@ -10,36 +10,30 @@
 
 using json = nlohmann::json;
 std::atomic <bool> running = false;
-std::unique_ptr<Data> loadedData;
+std::shared_ptr<Data> loadedData;
 
 void stop() {
     running = false;
 }
 
 int main() {
-    try {
-        loadedData = std::make_unique<Data>();
-    } catch (const std::exception& e) {
-        std::cerr << "Error loading data: " << e.what() << std::endl;
-        return 1;
-    }
-    
     Bot mittens;
-    Worker worker(&mittens, loadedData.get());
     mittens.run();
+
     signal(SIGINT, [](int code) {
         running = false;
         });
 
     running = true;
     auto &bot = mittens.getBotCluster();
+    Worker* worker = mittens.getWorker();
     try {
             while (running) {
             if (!mittens.getUserVec().empty()) {
                 for (auto& user : mittens.getUserVec())
                 {
-                    worker.enqueue(user.get());
-                    worker.startTask();
+                    worker->enqueue(user.get());
+                    worker->startTask();
                 }
             }
             std::this_thread::sleep_for(std::chrono::seconds(10));

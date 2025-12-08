@@ -62,6 +62,18 @@ void Bot::registerCommands() {
 
 void Bot::readyHandler() {
     botCluster.on_ready([this](const dpp::ready_t& event) {
+		std::thread([this]() {
+			auto fData = Data::asyncCreateData(botCluster);
+			try {
+				auto readyData = fData.get();
+				this->pLoadedData = std::move(readyData);
+				this->isReady.store(true);
+			} catch (const std::exception& e) {
+				std::cerr << "Data initialization failed: " << e.what() << std::endl;
+			}
+
+		}).detach();
+	});
         if (dpp::run_once<struct register_bot_commands>()) {
             botCluster.global_command_create(dpp::slashcommand("ping", "Ping pong!", botCluster.me.id));
 
@@ -76,10 +88,9 @@ void Bot::readyHandler() {
                 if (callback.is_error()) {
                     std::cout << callback.http_info.body << "\n";
                 }
-                });
+			});
         }
-    });
-}
+};
 
 /*
 std::string augListStr(const Player& player) {
