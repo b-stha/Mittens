@@ -13,13 +13,12 @@ public:
     void startTask();
     void finishTask();
     void enqueue(Player* player);
-    Worker(Bot* bot, Data* data)
-        : mittens(bot), loadedData(data) {}
+    Worker(Bot* bot)
+        : pMittens(bot) {}
 private:
 	bool isRunning = false;
     std::queue<Player*> playerQueue;
-    Bot* mittens;
-    Data* loadedData;
+    Bot* pMittens;
 };
 
 #endif

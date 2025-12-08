@@ -25,6 +25,9 @@ private:
     dpp::cluster botCluster;
     Riot riotAPI;
     std::vector<std::unique_ptr<Player>> userVec;
+    std::unique_ptr<Worker> pWorker;
+    std::shared_ptr<Data> pLoadedData;
+    std::atomic<bool> isReady;
 };
 
 #endif
