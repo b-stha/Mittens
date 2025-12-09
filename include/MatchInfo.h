@@ -37,9 +37,8 @@ struct MatchInfo {
 	//std::vector<std::string> augments;
 	std::vector<Trait> traits;
 	std::vector<Unit> units;
-	double gameLength;
-	double gameLenMin = 0;
-	double gameLenSec = 0;
+	int gameLenMin = 0;
+	int gameLenSec = 0;
 	int goldLeft = 0;
 	int level = 0;
 	int placement = 0;
@@ -62,4 +61,5 @@ inline void from_json(const nlohmann::json& j, MatchInfo& p)
 	    return t1.style > t2.style;
     });
 };
+
 #endif
