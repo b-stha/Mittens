@@ -70,17 +70,26 @@ std::future<void> Data::loadData(dpp::cluster& cluster) {
 	auto pPromise = std::make_shared<std::promise<void>>();
 	auto future = pPromise->get_future();
 
-	std::string url = "https://raw.communitydragon.org/pbe/cdragon/tft/en_us.json";
-	cluster.request(url, dpp::m_get, [this, pPromise](const dpp::http_request_completion_t& http) mutable {
+	std::string url = "https://raw.communitydragon.org/latest/cdragon/tft/en_us.json";
+	cluster.request(url, dpp::m_get, [this, pPromise, url](const dpp::http_request_completion_t& http) mutable {
 		if (http.status != 200 ) {
 			try {
-				throw std::runtime_error("HTTP request failed with status: " + std::to_string(http.status));
+				throw std::runtime_error("HTTP request failed with status: " + std::to_string(http.status) + 
+				"\nurl: " + url +
+				"\nbody: " + http.body);
 			} catch (...) {
 				pPromise->set_exception(std::current_exception());
 			}
     		return;
 		}
-		nlohmann::json dataJson = nlohmann::json::parse(http.body);
+		nlohmann::json dataJson;
+		try {
+			dataJson = nlohmann::json::parse(http.body);
+		} catch (const nlohmann::json::parse_error& e) {
+			std::cerr << "JSON parse error for url:" << url << " -  " << e.what()
+					<< "\nbody: " << http.body << std::endl;
+			return;
+		}
 		std::string latestSet = "16";
 
 		this->unitData = loadUnitData(dataJson, latestSet);
