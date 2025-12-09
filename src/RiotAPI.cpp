@@ -72,9 +72,10 @@ void Riot::fetchInfo(Player& player, std::function<void()> next) {
 		MatchInfo matchInfo;
 		for (const json participant : allInfo["participants"]) {
 			if (player.getPUUID() == participant["puuid"].get<std::string>()) {
-				double totGameLength = allInfo["game_length"].get<double>() / 60.0;
-				matchInfo.gameLenSec = modf(totGameLength, &matchInfo.gameLenMin) * 60;
 				matchInfo = participant.get<MatchInfo>();
+				double totalSeconds = participant["time_eliminated"].get<double>();
+				matchInfo.gameLenMin = static_cast<int>(totalSeconds / 60);
+				matchInfo.gameLenSec = static_cast<int>(totalSeconds) % 60;
 				matchInfo.boardValue = matchInfo.calcBoardValue();
 			}
 		}
