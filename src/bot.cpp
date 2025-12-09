@@ -39,21 +39,21 @@ void Bot::registerCommands() {
 				userInputArr.emplace_back(userInput);
 				userInputArr.emplace_back("NA1");
 			}
-			
-			riotAPI.fetchPUUID(userInputArr[0], userInputArr[1], [this, userInput, currChannel, userInputArr, &event](const std::string& puuid) {
+			auto eventCopy = event;
+			riotAPI.fetchPUUID(userInputArr[0], userInputArr[1], [this, userInput, currChannel, userInputArr, eventCopy](const std::string& puuid) {
 				if (notPlayerExists(this->userVec, puuid)) {
-					auto pPlayer = std::make_unique<Player>(puuid);
+					auto pPlayer = std::make_shared<Player>(puuid);
 					pPlayer->setChannelID(currChannel);
 					pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
 
-					riotAPI.fetchSummonerID(*pPlayer);
-					riotAPI.fetchLeague(*pPlayer, [this, pPlayer = pPlayer.get(), &event, userInput]() {
-						this->userVec.push_back(std::move(std::unique_ptr<Player>(pPlayer)));
-						event.reply(userInput + " successfully added");
+					//riotAPI.fetchSummonerID(*pPlayer);
+					riotAPI.fetchLeague(*pPlayer, [this, pPlayer, eventCopy, userInput]() {
+						this->userVec.push_back(std::move(std::shared_ptr<Player>(pPlayer)));
+						eventCopy.reply(userInput + " successfully added");
 					});
 				}
 				else {
-					event.reply(userInput + " already exists.");
+					eventCopy.reply(userInput + " already exists.");
 				}
 			});
 		}
@@ -68,12 +68,13 @@ void Bot::readyHandler() {
 				auto readyData = fData.get();
 				this->pLoadedData = std::move(readyData);
 				this->isReady.store(true);
+				std::cout << "Data initialization succeeded." << std::endl;
 			} catch (const std::exception& e) {
 				std::cerr << "Data initialization failed: " << e.what() << std::endl;
 			}
 
 		}).detach();
-	});
+
         if (dpp::run_once<struct register_bot_commands>()) {
             botCluster.global_command_create(dpp::slashcommand("ping", "Ping pong!", botCluster.me.id));
 
@@ -89,7 +90,8 @@ void Bot::readyHandler() {
                     std::cout << callback.http_info.body << "\n";
                 }
 			});
-        }
+		};
+	});
 };
 
 /*
@@ -152,7 +154,8 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 			const auto it = traitData.find(trait.apiName);
 			if (it != traitData.end()) {
 				traitName = it->second.name;
-				traitIcon = data.getEmote(trait.apiName + "_" + std::to_string(trait.style));
+				std::string emojiName = trait.apiName + "_" + std::to_string(trait.style);
+				traitIcon = data.getEmote(emojiName);
 				int traitIdx = trait.level - 1;
 				const auto& breakpoints = it->second.breakpoints;
 				if (traitIdx >= 0) {
