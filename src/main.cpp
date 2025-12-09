@@ -8,9 +8,7 @@
 #include <atomic>
 #include <memory>
 
-using json = nlohmann::json;
 std::atomic <bool> running = false;
-std::shared_ptr<Data> loadedData;
 
 void stop() {
     running = false;
