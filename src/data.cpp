@@ -56,7 +56,10 @@ std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::j
 	return infoList;
 }
 
-const std::string& Data::getEmote(const std::string& emoteName) const {
+const std::string& Data::getEmote(std::string emoteName) const {
+	if (emoteName.length() > 32) {
+		emoteName.erase(32, std::string::npos);
+	}
 	auto it = emoteMap.find(emoteName);
 	if (it != emoteMap.end()) {
 		return it->second;
