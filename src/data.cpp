@@ -110,7 +110,7 @@ std::future<void> Data::loadEmojis(dpp::cluster& cluster) {
 	cluster.application_emojis_get([this, pPromise](const dpp::confirmation_callback_t& cc) mutable {
 		if (cc.is_error()) {			
 			try {
-			throw std::runtime_error("HTTP request failed with status: " + cc.get_error().human_readable);
+				throw std::runtime_error("HTTP request failed with status: " + cc.get_error().human_readable);
 			} catch (...) {
 				pPromise->set_exception(std::current_exception());
 			}
@@ -118,7 +118,7 @@ std::future<void> Data::loadEmojis(dpp::cluster& cluster) {
 		}
 		dpp::emoji_map returnedMap = cc.get<dpp::emoji_map>();
 		for (auto& [key, value] : returnedMap) {
-			emoteMap[value.name] = key;
+			emoteMap[value.name] = value.get_mention();
 		}
 		pPromise->set_value();
 	});
