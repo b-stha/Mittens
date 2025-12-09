@@ -81,6 +81,6 @@ const MatchInfo& Player::getMatchInfo() const {
 	return matchInfo;
 }
 
-void Player::setMatchInfo(const MatchInfo currMatch) {
+void Player::setMatchInfo(const MatchInfo& currMatch) {
 	matchInfo = currMatch;
 }

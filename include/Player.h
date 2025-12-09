@@ -35,7 +35,7 @@ public:
 	std::string getPrevTier() const;
 	void setPrevTier(std::string tier);
 	const MatchInfo& getMatchInfo() const;
-	void setMatchInfo(const MatchInfo currMatch);
+	void setMatchInfo(const MatchInfo& currMatch);
 private:
 	MatchInfo matchInfo;
 	dpp::snowflake channelID;
