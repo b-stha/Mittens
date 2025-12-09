@@ -3,10 +3,12 @@
 
 #include <atomic>
 #include <dpp/dpp.h>
+#include <memory>
 #include "RiotAPI.h"
 
 class Data;
 class Player;
+struct Worker;
 
 class Bot {
 public:

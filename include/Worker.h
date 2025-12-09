@@ -2,6 +2,7 @@
 #define WORKER_H
 
 #include <queue>
+#include <memory>
 
 class Player;
 class Riot;
