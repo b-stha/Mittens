@@ -56,20 +56,7 @@ std::unordered_map<std::string, TraitInfo> Data::loadTraitData(const nlohmann::j
 	return infoList;
 }
 
-const std::string& Data::getEmote(std::string emoteName) const {
-	if (emoteName.length() > 32) {
-		emoteName.erase(32, std::string::npos);
-	}
-	auto it = emoteMap.find(emoteName);
-	if (it != emoteMap.end()) {
-		return it->second;
-	} else {
-		static const std::string defaultEmote = "<:steamhappy:1123798178030964848>";
-		return defaultEmote;
-	}
-}
-
-std::future<void> Data::loadData(dpp::cluster& cluster) {
+std::future<void> Data::loadSetData(dpp::cluster& cluster) {
 	auto pPromise = std::make_shared<std::promise<void>>();
 	auto future = pPromise->get_future();
 
@@ -100,6 +87,61 @@ std::future<void> Data::loadData(dpp::cluster& cluster) {
 
 		pPromise->set_value();
 	});
+	return future;
+}
+
+std::future<void> Data::loadTacticianData(dpp::cluster& cluster) {
+	auto pPromise = std::make_shared<std::promise<void>>();
+	auto future = pPromise->get_future();
+
+	std::string url = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/companions.json";
+	cluster.request(url, dpp::m_get, [this, pPromise, url](const dpp::http_request_completion_t& http) mutable {
+		if (http.status != 200 ) {
+			try {
+				throw std::runtime_error("HTTP request failed with status: " + std::to_string(http.status) + 
+				"\nurl: " + url +
+				"\nbody: " + http.body);
+			} catch (...) {
+				pPromise->set_exception(std::current_exception());
+			}
+			return;
+		}
+		nlohmann::json tacticianJson;
+		try {
+			tacticianJson = nlohmann::json::parse(http.body);
+		} catch (const nlohmann::json::parse_error& e) {
+			std::cerr << "JSON parse error for url:" << url << " -  " << e.what()
+					<< "\nbody: " << http.body << std::endl;
+			return;
+		}
+		for (auto& tactician : tacticianJson) {
+			int id = tactician["itemId"].get<int>();
+			std::string icon = tactician["loadoutsIcon"].get<std::string>();
+			this->tacticianMap[id] = icon;
+		}
+		pPromise->set_value();
+	});
+	return future;
+}
+
+std::future<void> Data::loadData(dpp::cluster& cluster) {
+	auto pPromise = std::make_shared<std::promise<void>>();
+	auto future = pPromise->get_future();
+
+	std::future<void> fSetData = loadSetData(cluster);
+	std::future<void> fTacticianData = loadTacticianData(cluster);
+
+	std::thread([pPromise, fSetData = std::move(fSetData), fTacticianData = std::move(fTacticianData)]() mutable {
+		try {
+			fSetData.get();
+			fTacticianData.get();
+
+			pPromise->set_value();
+		} catch (...) {
+			pPromise->set_exception(std::current_exception());
+		}
+	}).detach();
+
 	return future;
 }
 
