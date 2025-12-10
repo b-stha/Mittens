@@ -42,7 +42,7 @@ struct MatchInfo {
 	int level = 0;
 	int placement = 0;
 	int boardValue;
-	int companionID;
+	int tacticianID;
 	int calcBoardValue();
 };
 inline void from_json(const nlohmann::json& j, MatchInfo& p)
@@ -54,7 +54,7 @@ inline void from_json(const nlohmann::json& j, MatchInfo& p)
     j.at("level").get_to(p.level);
     j.at("placement").get_to(p.placement);
     j.at("traits").get_to(p.traits);
-    j.at("companion").at("item_ID").get_to(p.companionID);
+    j.at("companion").at("item_ID").get_to(p.tacticianID);
     std::sort(p.traits.begin(), p.traits.end(), 
         [](const Trait& t1, const Trait& t2) {
 	    return t1.style > t2.style;

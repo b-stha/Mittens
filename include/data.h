@@ -28,7 +28,8 @@ public:
 	const std::unordered_map<std::string, uint32_t>& getRankColor() const { return rankColor; }
 	const std::unordered_map<int, std::string>& getPlacementData() const { return placementData; }
 	const std::unordered_map<std::string, std::string>& getRankData() const { return rankRegalia; }
-	const std::string& getEmote(std::string emoteName) const;
+	const std::string getEmote(std::string emoteName) const;
+	const std::string getTacticianIcon(int id) const;
 	static std::future<std::shared_ptr<Data>> asyncCreateData(dpp::cluster& cluster);
 
 private:
@@ -65,7 +66,7 @@ private:
 		{"PLATINUM", dpp::colors::deep_sky_blue},	
 		{"EMERALD", dpp::colors::emerald},	
 		{"DIAMOND", dpp::colors::light_purple_blue},	
-		{"MASTER", dpp::colors::vivid_violet},	
+		{"MASTER", dpp::colors::vivid_violet},
 		{"GRANDMASTER", dpp::colors::scarlet_red},	
 		{"CHALLENGER", dpp::colors::azure},	
 		{"UNRANKED", dpp::colors::gray}};

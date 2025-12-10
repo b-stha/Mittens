@@ -1,6 +1,7 @@
 #include "data.h"
 #include <fstream>
 #include <thread>
+#include <filesystem>
 
 const nlohmann::json* Data::getObj(const nlohmann::json& j, const std::string& key) const {
 	if (j.contains(key) && j[key].is_object()) {
@@ -21,6 +22,33 @@ std::optional<int> Data::getJsonInt(const nlohmann::json& j, const std::string& 
 		return j[key].get<int>();
 	}
 	return std::nullopt;
+}
+
+const std::string Data::getEmote(std::string emoteName) const {
+	if (emoteName.length() > 32) {
+		emoteName.erase(32, std::string::npos);
+	}
+	auto it = emoteMap.find(emoteName);
+	if (it != emoteMap.end()) {
+		return it->second;
+	} else {
+		std::string defaultEmote = "<:steamhappy:1123798178030964848>";
+		return defaultEmote;
+	}
+}
+
+const std::string Data::getTacticianIcon(int id) const {
+	auto it = tacticianMap.find(id);
+	if (it != tacticianMap.end()) {
+		std::string iconName = std::filesystem::path(it->second).filename().string();
+		std::transform(iconName.begin(), iconName.end(), iconName.begin(),
+			[](unsigned char c){ return std::tolower(c); });
+		std::string url = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/loadouts/companions/" + iconName;
+		return url;
+	} else {
+		std::string defaultIcon = "https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png";
+		return defaultIcon;
+	}
 }
 
 std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::json& dataJson, const std::string& set) {
