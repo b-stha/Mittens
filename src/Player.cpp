@@ -57,7 +57,7 @@ std::string Player::getSummonerID() const {
 	return summonerID;
 }
 
-void Player::setPlayerRank(League inLeague) {
+void Player::setPlayerLeague(const League& inLeague) {
 	playerRank = inLeague;
 }
 
@@ -65,18 +65,21 @@ void Player::updateLP() {
 	playerRank.prevLP = playerRank.currLP;
 }
 
+void Player::updateTier() {
+	playerRank.prevTier = playerRank.tier;
+}
+
 std::pair<std::string, std::string> Player::getPlayerRank() const {
 	return std::make_pair(playerRank.tier, playerRank.rank);
+}
+
+std::string Player::getPrevRank() const {
+	return playerRank.prevTier;
 }
 
 std::pair<int,int> Player::getPlayerLP() const {
 	return std::make_pair(playerRank.prevLP, playerRank.currLP);
 }
-
-std::string Player::getPrevTier() const {
-	return playerRank.prevTier;
-}
-
 const MatchInfo& Player::getMatchInfo() const {
 	return matchInfo;
 }

@@ -30,10 +30,10 @@ public:
 	std::string getSummonerID() const;
 	std::pair<std::string, std::string> getPlayerRank() const;
 	std::pair<int, int> getPlayerLP() const;
-	void setPlayerRank(League inLeague);
+	std::string getPrevRank() const;
 	void updateLP();
-	std::string getPrevTier() const;
-	void setPrevTier(std::string tier);
+	void updateTier();
+	void setPlayerLeague(const League& inLeague);
 	const MatchInfo& getMatchInfo() const;
 	void setMatchInfo(const MatchInfo& currMatch);
 private:
