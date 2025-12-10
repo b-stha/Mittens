@@ -34,6 +34,8 @@ public:
 private:
 	Data() = default;
 	std::future<void> loadData(dpp::cluster& cluster);
+	std::future<void> loadSetData(dpp::cluster& cluster);
+	std::future<void> loadTacticianData(dpp::cluster& cluster);
 	std::future<void> loadEmojis(dpp::cluster& cluster);
 	std::unordered_map<std::string, UnitInfo> loadUnitData(const nlohmann::json& dataJson, const std::string& set);
 	std::unordered_map<std::string, TraitInfo> loadTraitData(const nlohmann::json& dataJson, const std::string& set);
@@ -43,6 +45,7 @@ private:
     TraitDataMap traitData;
     UnitDataMap unitData;
 	std::unordered_map<std::string, std::string> emoteMap;
+	std::unordered_map<int, std::string> tacticianMap;
 	std::unordered_map<std::string, std::string> rankRegalia = {
 		{"IRON", "https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_iron.png"},
 		{"BRONZE", "https://raw.communitydragon.org/latest/game/assets/ux/tftmobile/particles/tft_regalia_bronze.png"},
