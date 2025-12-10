@@ -45,7 +45,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_SOURCE_DIR}/include
         ${OPENSSL_INCLUDE_DIR}
-        ${cpr_SOURCE_DIR}/include
         ${nlohmann_json_INCLUDE_DIRS}
 )
 
@@ -55,10 +54,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 	OpenSSL::SSL
 	OpenSSL::Crypto
         nlohmann_json::nlohmann_json
-        cpr::cpr
 )
 
-add_executable(data_writer
+add_executable(data_writer EXCLUDE_FROM_ALL
         src/data_writer.cpp
         src/data.cpp
         src/Player.cpp
@@ -70,7 +68,7 @@ set_target_properties(data_writer PROPERTIES
         CXX_STANDARD_REQUIRED ON
 )
 
-target_include_directories(data_writer PRIVATE
+target_include_directories(data_writer PRIVATE 
         ${CMAKE_SOURCE_DIR}/include
         ${OPENSSL_INCLUDE_DIR}
         ${cpr_SOURCE_DIR}/include

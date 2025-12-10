@@ -32,7 +32,6 @@ inline void from_json(const nlohmann::json& j, Trait& t) {
     j.at("num_units").get_to(t.numUnits);
 };
 
-
 struct MatchInfo {
 	//std::vector<std::string> augments;
 	std::vector<Trait> traits;
