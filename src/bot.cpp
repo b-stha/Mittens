@@ -190,7 +190,7 @@ dpp::embed Bot::createResult(const Player& player, const Data& data) {
 		.set_title(data.getPlacementData().at(player.getMatchInfo().placement) + " PLACE")
 		.set_url(matchResultURL)
 		.set_author(name + "'s match result", profileURL, "")
-		.set_thumbnail("https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png")
+		.set_thumbnail(data.getTacticianIcon(player.getMatchInfo().tacticianID))
 		.add_field(
 			data.getRankData().at(playerTier)[1] + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
 			"\n"
