@@ -31,8 +31,8 @@ public:
 	std::pair<std::string, std::string> getPlayerRank() const;
 	std::pair<int, int> getPlayerLP() const;
 	std::string getPrevRank() const;
-	void updateLP();
-	void updateTier();
+	void updateLP(const int newLP);
+	void updateTier(const std::string newTier, const std::string newRank);
 	void setPlayerLeague(const League& inLeague);
 	const MatchInfo& getMatchInfo() const;
 	void setMatchInfo(const MatchInfo& currMatch);
