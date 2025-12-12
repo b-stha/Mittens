@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <nlohmann/json.hpp>
+#include "helpers.h"
 
 struct Unit {
 	std::string characterID;
@@ -14,6 +15,7 @@ struct Unit {
 inline void from_json(const nlohmann::json& j, Unit& u)
 {
     j.at("character_id").get_to(u.characterID);
+	u.characterID = lowerCase(u.characterID);
     j.at("itemNames").get_to(u.items);
     j.at("rarity").get_to(u.rarity);
     j.at("tier").get_to(u.tier);

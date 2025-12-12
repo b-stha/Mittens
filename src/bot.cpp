@@ -119,7 +119,7 @@ void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& da
 		const auto it = unitData.find(apiName);
 		if (it != unitData.end()) {
 			unitName = it->second.name;
-			unitIconName = data.getEmote(apiName) + " " + unitName;
+			unitIconName = data.getEmote(lowerCase(apiName)) + " " + unitName;
 		} else {
 			unitName = "null";
 		}
@@ -132,7 +132,7 @@ void Bot::unitListStr(const Player& player, dpp::embed& embedObj, const Data& da
 		}
 		else {
 			for (const auto& item : unit.items) {
-				unitItems += data.getEmote(item) + " "; 
+				unitItems += data.getEmote(lowerCase(item)) + " "; 
 			}
 		}
 
@@ -154,7 +154,7 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 			const auto it = traitData.find(trait.apiName);
 			if (it != traitData.end()) {
 				traitName = it->second.name;
-				std::string emojiName = trait.apiName + "_" + std::to_string(trait.style);
+				std::string emojiName = lowerCase(trait.apiName) + "_" + std::to_string(trait.style);
 				traitIcon = data.getEmote(emojiName);
 				int traitIdx = trait.level - 1;
 				const auto& breakpoints = it->second.breakpoints;
@@ -192,7 +192,7 @@ dpp::embed Bot::createResult(const Player& player, const Data& data) {
 		.set_author(name + "'s match result", profileURL, "")
 		.set_thumbnail(data.getTacticianIcon(player.getMatchInfo().tacticianID))
 		.add_field(
-			data.getRankData().at(playerTier)[1] + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)" ,
+			getRankField(player, data),
 			"\n"
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.getMatchInfo().level) + "\n"

@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include "data.h"
 
 std::string operator * (std::string a, unsigned int b) {
 	std::string output = "";
@@ -54,4 +55,18 @@ std::string fillSpaces(std::string input) {
         }
     }
     return input;
+}
+
+std::string lowerCase(std::string str) {
+	std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+	return str;
+}
+
+std::string getRankField(const Player& player, const Data& data) {
+	std::string playerTier = player.getPlayerRank().first;
+	if (player.getPlayerRank().first == "UNRANKED") {
+		return data.getEmote(lowerCase("UNRANKED")) + " UNRANKED ";
+	}
+
+	return data.getEmote(lowerCase(playerTier)) + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)";
 }

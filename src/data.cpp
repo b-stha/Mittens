@@ -2,6 +2,7 @@
 #include <fstream>
 #include <thread>
 #include <filesystem>
+#include "helpers.h"
 
 const nlohmann::json* Data::getObj(const nlohmann::json& j, const std::string& key) const {
 	if (j.contains(key) && j[key].is_object()) {
@@ -41,9 +42,9 @@ const std::string Data::getTacticianIcon(int id) const {
 	auto it = tacticianMap.find(id);
 	if (it != tacticianMap.end()) {
 		std::string iconName = std::filesystem::path(it->second).filename().string();
-		std::transform(iconName.begin(), iconName.end(), iconName.begin(),
-			[](unsigned char c){ return std::tolower(c); });
-		std::string url = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/loadouts/companions/" + iconName;
+		iconName = lowerCase(iconName);
+		std::string url = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/loadouts/companions/" + 
+		iconName;
 		return url;
 	} else {
 		std::string defaultIcon = "https://ddragon.leagueoflegends.com/cdn/13.24.1/img/tft-tactician/Tooltip_TFTAvatar_BubbleTea_BubbleTea_Tier1.LL_TFTAvatar_BubbleTea.png";
@@ -55,6 +56,7 @@ std::unordered_map<std::string, UnitInfo> Data::loadUnitData(const nlohmann::jso
 	std::unordered_map<std::string, UnitInfo> infoList;
 	for (auto& unit : dataJson["sets"][set]["champions"]) {
         std::string apiName = unit["apiName"].get<std::string>();
+		apiName = lowerCase(apiName);
         std::string dispName = unit["name"].get<std::string>();
 		int rarity = unit["cost"].get<int>() - 1;
 		UnitInfo unitInfo;
@@ -188,7 +190,7 @@ std::future<void> Data::loadEmojis(dpp::cluster& cluster) {
 		}
 		dpp::emoji_map returnedMap = cc.get<dpp::emoji_map>();
 		for (auto& [key, value] : returnedMap) {
-			emoteMap[value.name] = value.get_mention();
+			emoteMap[lowerCase(value.name)] = value.get_mention();
 		}
 		pPromise->set_value();
 	});
