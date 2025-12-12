@@ -2,9 +2,7 @@ Mittens: A Discord bot that outputs your most recent match live!
 
 Written in C++, using the DPP library. Currently a work in progress.
 
-<img width="578" height="662" alt="image" src="https://github.com/user-attachments/assets/e3f48b04-4a0a-49b5-aedf-75f296234091" />
-
-
+<img width="561" height="647" alt="image" src="https://github.com/user-attachments/assets/f5ce85e9-6cbc-41cd-9c00-c8fa8287f0cb" />
 
 Features:
 - Post-game information
