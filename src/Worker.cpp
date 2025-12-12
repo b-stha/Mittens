@@ -14,7 +14,6 @@ void Worker::startTask() {
     playerQueue.pop();
 
     pMittens->getRiotObj().fetchMatchID(*currPlayer, [this, currPlayer]() {
-        currPlayer->updateLP(); // care this step
         pMittens->getRiotObj().fetchLeague(*currPlayer, [this, currPlayer]() {
             pMittens->getRiotObj().fetchInfo(*currPlayer, [this, currPlayer]() {
                 auto data = this->getData();
@@ -22,7 +21,7 @@ void Worker::startTask() {
                 dpp::message msg(currPlayer->getChannelID(), embOutput);
                 pMittens->getBotCluster().message_create(msg);
 
-                if (currPlayer->getPlayerRank().first != currPlayer->getPrevTier()) {
+                if (currPlayer->getPlayerRank().first != currPlayer->getPrevRank()) {
                     dpp::embed promoMsg = pMittens->createPromoMsg(*currPlayer, *data);
                     dpp::message promoMsgObj(currPlayer->getChannelID(), promoMsg);
                     pMittens->getBotCluster().message_create(promoMsgObj);

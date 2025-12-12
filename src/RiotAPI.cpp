@@ -193,18 +193,14 @@ void Riot::fetchLeague(Player& player, std::function<void()> next) {
 			return;
 		}
 
-		if (!leagueJson.is_array() || leagueJson.empty()) {
-			std::cerr << "leagueJson is not a valid array or is empty!" << std::endl;
-			return;
+		if (leagueJson.empty()) {
+			player.updateLP(0);
+			player.updateTier("UNRANKED", "");
 		}
-
-		League playerLeague;
-		playerLeague.prevLP = playerLeague.currLP;
-		playerLeague.prevTier = playerLeague.tier;
-
-		playerLeague.currLP - leagueJson[0]["leaguePoints"].get<int>();
-		playerLeague.tier = leagueJson[0]["tier"].get<std::string>();
-		playerLeague.rank = leagueJson[0]["rank"].get<std::string>();
+		else {
+			player.updateLP(leagueJson[0]["leaguePoints"].get<int>());
+			player.updateTier(leagueJson[0]["tier"].get<std::string>(), leagueJson[0]["rank"].get<std::string>());
+		}
 
 		if (next) {
 			next();
