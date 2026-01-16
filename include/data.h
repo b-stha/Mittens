@@ -31,7 +31,7 @@ public:
 	const std::string getEmote(std::string emoteName) const;
 	const std::string getTacticianIcon(int id) const;
 	static std::future<std::shared_ptr<Data>> asyncCreateData(dpp::cluster& cluster);
-
+	int getQueueID(const std::string& queueName) const;
 private:
 	Data() = default;
 	std::future<void> loadData(dpp::cluster& cluster);
@@ -79,6 +79,11 @@ private:
 		{6,"SIXTH"},
 		{7,"SEVENTH"},
 		{8,"EIGHTH"}};
+	std::unordered_map<std::string, int> queueIDMap = {
+		{"ranked", 1100},
+		{"double_up", 1160},
+		{"normal", 1090}
+	};
 };
 
 #endif

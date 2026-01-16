@@ -219,3 +219,12 @@ std::future<std::shared_ptr<Data>> Data::asyncCreateData(dpp::cluster& cluster) 
 
     return future;
 }
+
+int Data::getQueueID(const std::string& queueName) const {
+	auto it = queueIDMap.find(queueName);
+	if (it != queueIDMap.end()) {
+		return it->second;
+	} else {
+		return -1;
+	}
+}

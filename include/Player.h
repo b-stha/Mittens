@@ -44,7 +44,11 @@ public:
 	void setPlayerLeague(const std::vector<League>& inLeague);
 	MatchInfo getMatchInfo() const;
 	void setMatchInfo(const MatchInfo& currMatch);
+	std::unordered_set<int> getAddedQueues() const;
+	void addQueue(int queueID);
 private:
+	mutable std::mutex playerMutex;
+	std::unordered_set<int> addedQueues;
 	MatchInfo matchInfo;
 	dpp::snowflake channelID;
 	std::string puuid;

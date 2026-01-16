@@ -17,14 +17,20 @@ void Worker::startTask() {
         pMittens->getRiotObj().fetchLeague(*currPlayer, [this, currPlayer]() {
             pMittens->getRiotObj().fetchInfo(*currPlayer, [this, currPlayer]() {
                 auto data = this->getData();
-                dpp::embed embOutput = pMittens->createResult(*currPlayer, *data);
-                dpp::message msg(currPlayer->getChannelID(), embOutput);
-                pMittens->getBotCluster().message_create(msg);
-
-                if (currPlayer->getPlayerRank().first != currPlayer->getPrevRank()) {
-                    dpp::embed promoMsg = pMittens->createPromoMsg(*currPlayer, *data);
-                    dpp::message promoMsgObj(currPlayer->getChannelID(), promoMsg);
-                    pMittens->getBotCluster().message_create(promoMsgObj);
+                int currQueueID = currPlayer->getMatchInfo().queueID;
+                std::unordered_set<int> addedQueues = currPlayer->getAddedQueues();
+                if (addedQueues.contains(currQueueID)) {
+                    switch (currQueueID) {
+                        case 1100: // ranked
+                            pMittens->createRankedEmbed(*currPlayer, *data);
+                            break;
+                        case 1160: // double up
+                            pMittens->createDoubleUpEmbed(*currPlayer, *data);
+                            break;
+                        default: // unranked
+                            pMittens->createUnrankedEmbed(*currPlayer, *data);
+                            break;
+                    }
                 }
                 finishTask();
             });

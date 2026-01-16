@@ -5,6 +5,8 @@
 #include <dpp/dpp.h>
 #include <memory>
 #include "RiotAPI.h"
+#include <unordered_map>
+#include <mutex>
 
 class Data;
 class Player;
@@ -31,7 +33,7 @@ private:
     void readyHandler();
     dpp::cluster botCluster;
     Riot riotAPI;
-    std::vector<std::shared_ptr<Player>> userVec;
+    std::unordered_map<std::string, std::shared_ptr<Player>> userMap;
     std::unique_ptr<Worker> pWorker;
     std::shared_ptr<Data> pLoadedData;
     std::atomic<bool> isReady;

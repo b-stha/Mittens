@@ -32,33 +32,81 @@ void Bot::registerCommands() {
 			}
 			dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 			dpp::snowflake currChannel = event.command.channel_id;
-			std::string userInput = std::get<std::string>(cmd_data.options[0].value);
-			std::cout << userInput << std::endl;
+			std::string name = std::get<std::string>(cmd_data.options[0].value);
+			std::cout << name << std::endl;
 			std::vector<std::string> userInputArr;
 
-			if (userInput.find("#") != std::string::npos) { 
-				userInputArr = split(userInput, '#');
+			if (name.find("#") != std::string::npos) { 
+				userInputArr = split(name, '#');
 			}
 			else {
-				userInputArr.emplace_back(userInput);
+				userInputArr.emplace_back(name);
 				userInputArr.emplace_back("NA1");
 			}
+
+			const std::string queueOpt = std::get<std::string>(cmd_data.options[1].value);
+
 			auto eventCopy = event;
-			riotAPI.fetchPUUID(userInputArr[0], userInputArr[1], [this, userInput, currChannel, userInputArr, eventCopy](const std::string& puuid) {
-				if (notPlayerExists(this->userVec, puuid)) {
-					auto pPlayer = std::make_shared<Player>(puuid);
+			auto data = this->getLoadedData();
+			riotAPI.fetchPUUID(userInputArr[0], userInputArr[1], [this, name, currChannel, userInputArr, eventCopy, queueOpt, data](const std::string& puuid) {
+				bool isNewUser = false;
+				std::shared_ptr<Player> pPlayer;
+				{
+					std::lock_guard<std::mutex> lock(this->userMapMutex);
+					auto it = this->userMap.find(puuid);
+					if (it == this->userMap.end()) {
+						pPlayer = std::make_shared<Player>(puuid);
 					pPlayer->setChannelID(currChannel);
 					pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
+						this->userMap.emplace(puuid, pPlayer);
+						isNewUser = true;
+					}
+					else {
+						pPlayer = it->second;
+					}
+				}
+				bool addedAnything = false;
+				if (queueOpt == "all") {
 
-					//riotAPI.fetchSummonerID(*pPlayer);
-					riotAPI.fetchLeague(*pPlayer, [this, pPlayer, eventCopy, userInput]() {
-						this->userVec.push_back(std::move(std::shared_ptr<Player>(pPlayer)));
-						eventCopy.reply(userInput + " successfully added");
-					});
+					for (const std::string& opt : {"ranked", "double_up", "normal"}) {
+						const int queueId = data->getQueueID(opt);
+						if (pPlayer->getAddedQueues().count(queueId) == 0) {
+							pPlayer->addQueue(queueId);
+							addedAnything = true;
+						}
+					}
+
+					if (addedAnything) {
+						eventCopy.reply(name + " updated with all queues.");
+					} else {
+						eventCopy.reply(name + " already has all queues.");
+					}
 				}
 				else {
-					eventCopy.reply(userInput + " already exists.");
+					const int queueId = data->getQueueID(queueOpt);
+
+					if (pPlayer->getAddedQueues().count(queueId) == 0) {
+						pPlayer->addQueue(queueId);
+						addedAnything = true;
+					}
 				}
+
+				if (!isNewUser) {
+					if (addedAnything) {
+						pPlayer->setCurrMatch("");
+						eventCopy.reply(name + " updated (" + queueOpt + ").");
+					} else {
+						eventCopy.reply(name + " already had " + queueOpt + ".");
+					}
+					return;
+				}
+				riotAPI.fetchLeague(pPlayer, [eventCopy, name, queueOpt](bool ok) mutable {
+					if (!ok) {
+						eventCopy.reply("Failed to fetch league info for " + name + ".");
+						return;
+					}
+					eventCopy.reply(name + " successfully added (" + queueOpt + ").");
+				});
 			});
 		}
 	});
@@ -88,6 +136,13 @@ void Bot::readyHandler() {
             add.add_option(
                 dpp::command_option(dpp::co_string, "username", "name#tag", true)
             );
+			add.add_option(
+				dpp::command_option(dpp::co_string, "queue", "Queue to add", true)
+				.add_choice(dpp::command_option_choice("ranked", "ranked"))
+				.add_choice(dpp::command_option_choice("normal", "normal"))
+				.add_choice(dpp::command_option_choice("double up", "double_up"))
+				.add_choice(dpp::command_option_choice("all", "all"))
+			);
 
             botCluster.global_command_create(add, [this](const dpp::confirmation_callback_t& callback) {
                 if (callback.is_error()) {

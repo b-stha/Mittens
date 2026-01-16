@@ -45,6 +45,7 @@ struct MatchInfo {
 	int placement = 0;
 	int boardValue;
 	int tacticianID;
+	int queueID;
 	int calcBoardValue();
 };
 inline void from_json(const nlohmann::json& j, MatchInfo& p)
