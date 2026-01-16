@@ -17,7 +17,7 @@ public:
     Bot();
     dpp::cluster& getBotCluster() { return botCluster; }
     Riot& getRiotObj() { return riotAPI; }
-    const std::vector<std::shared_ptr<Player>>& getUserVec() const { return userVec; }
+    std::vector<std::shared_ptr<Player>> getUserSnapshot();
     void unitListStr(const Player& player, dpp::embed& embedObj, const Data& data);
     void traitListStr(const Player& player, dpp::embed& embedObj, const Data& data);
     std::string augListStr(const Player& player, const Data& data);
@@ -37,6 +37,7 @@ private:
     std::unique_ptr<Worker> pWorker;
     std::shared_ptr<Data> pLoadedData;
     std::atomic<bool> isReady;
+    std::mutex userMapMutex;
 };
 
 #endif

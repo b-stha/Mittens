@@ -56,8 +56,8 @@ void Bot::registerCommands() {
 					auto it = this->userMap.find(puuid);
 					if (it == this->userMap.end()) {
 						pPlayer = std::make_shared<Player>(puuid);
-					pPlayer->setChannelID(currChannel);
-					pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
+						pPlayer->setChannelID(currChannel);
+						pPlayer->setNameTag(userInputArr[0], userInputArr[1]);
 						this->userMap.emplace(puuid, pPlayer);
 						isNewUser = true;
 					}
@@ -239,7 +239,7 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 }
 
 void Bot::createRankedEmbed(const Player& player, const Data& data) {
-    std::string name = player.getFullName()[0];
+	std::string name = player.getFullName()[0];
 	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
 	std::string matchResultURL = profileURL + player.getCurrMatchID();
 	//std::string augmentList = augListStr(player);
@@ -400,3 +400,12 @@ dpp::embed Bot::createPromoMsg(const Player& player, const Data& data, std::stri
 
 	return promoEmbed;
 };
+
+std::vector<std::shared_ptr<Player>> Bot::getUserSnapshot() {
+	std::vector<std::shared_ptr<Player>> snapshot;
+	std::lock_guard<std::mutex> lock(this->userMapMutex);
+	for (const auto& [puuid, playerPtr] : this->userMap) {
+		snapshot.emplace_back(playerPtr);
+	}
+	return snapshot;
+}

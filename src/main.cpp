@@ -26,13 +26,17 @@ int main() {
     auto &bot = mittens.getBotCluster();
     Worker* worker = mittens.getWorker();
     try {
-            while (running) {
-            if (!mittens.getUserVec().empty()) {
-                for (auto& user : mittens.getUserVec())
-                {
-                    worker->enqueue(user.get());
-                    worker->startTask();
+        while (running) {
+            auto userSnapshot = mittens.getUserSnapshot();
+            if (!userSnapshot.empty()) {
+                for (auto& user : userSnapshot) {
+                    if (worker->enqueue(user)) {
+                        std::cout << "enqueued: " << user->getPUUID() << "\n";
+                    } else {
+                        std::cout << "skipped dup: " << user->getPUUID() << "\n";
+                    }
                 }
+                worker->startTask();
             }
             std::this_thread::sleep_for(std::chrono::seconds(10));
         };
