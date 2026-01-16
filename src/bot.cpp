@@ -26,6 +26,10 @@ void Bot::registerCommands() {
 			return;
         }
 		if (commandName == "add") {
+			if (!isReady.load() || !pLoadedData) {
+				event.reply("Bot is still initializing data, please try again later.");
+				return;
+			}
 			dpp::command_interaction cmd_data = std::get<dpp::command_interaction>(event.command.data);
 			dpp::snowflake currChannel = event.command.channel_id;
 			std::string userInput = std::get<std::string>(cmd_data.options[0].value);
