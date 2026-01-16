@@ -61,29 +61,69 @@ void Player::setPlayerLeague(const League& inLeague) {
 	playerRank = inLeague;
 }
 
-void Player::updateLP(const int newLP) {
-	playerRank.prevLP = playerRank.currLP;
-	playerRank.currLP = newLP;
+void Player::updateRankedLP(const int newLP) {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	leagues[0].prevLP = leagues[0].currLP;
+	leagues[0].currLP = newLP;
 }
 
-void Player::updateTier(const std::string newTier, const std::string newRank) {
-	playerRank.prevTier = playerRank.tier;
-	playerRank.tier = newTier;
-	playerRank.rank = newRank;
+void Player::updateDoubleUpLP(const int newLP) {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	leagues[1].prevLP = leagues[1].currLP;
+	leagues[1].currLP = newLP;
 }
 
-std::pair<std::string, std::string> Player::getPlayerRank() const {
-	return std::make_pair(playerRank.tier, playerRank.rank);
+void Player::updateRankedTier(const std::string newTier, const std::string newRank) {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	leagues[0].prevTier = leagues[0].tier;
+	leagues[0].tier = newTier;
+	leagues[0].rank = newRank;
 }
 
-std::string Player::getPrevRank() const {
-	return playerRank.prevTier;
+void Player::updateDoubleUpTier(const std::string newTier, const std::string newRank) {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	leagues[1].prevTier = leagues[1].tier;
+	leagues[1].tier = newTier;
+	leagues[1].rank = newRank;
 }
 
-std::pair<int,int> Player::getPlayerLP() const {
-	return std::make_pair(playerRank.prevLP, playerRank.currLP);
+std::pair<std::string, std::string> Player::getRank() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return std::make_pair(leagues[0].tier, leagues[0].rank);
 }
-const MatchInfo& Player::getMatchInfo() const {
+
+std::pair<std::string, std::string> Player::getDoubleUpRank() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return std::make_pair(leagues[1].tier, leagues[1].rank);
+}
+
+std::vector<League> Player::getAllRanks() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return leagues;
+}
+
+std::pair<int,int> Player::getRankedLP() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return std::make_pair(leagues[0].prevLP, leagues[0].currLP);
+}
+
+std::pair<int,int> Player::getDoubleUpLP() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return std::make_pair(leagues[1].prevLP, leagues[1].currLP);
+}
+
+std::string Player::getPrevRanked() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return leagues[0].prevTier;
+}
+
+std::string Player::getPrevDoubleUp() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
+	return leagues[1].prevTier;
+}
+
+MatchInfo Player::getMatchInfo() const {
+	std::lock_guard<std::mutex> lock(playerMutex);
 	return matchInfo;
 }
 

@@ -194,12 +194,25 @@ void Riot::fetchLeague(Player& player, std::function<void()> next) {
 		}
 
 		if (leagueJson.empty()) {
-			player.updateLP(0);
-			player.updateTier("UNRANKED", "");
+			std::cout << "No league data found for player with PUUID: " + pPlayer->getPUUID() << std::endl;
+			next(false);
+			return;
 		}
-		else {
-			player.updateLP(leagueJson[0]["leaguePoints"].get<int>());
-			player.updateTier(leagueJson[0]["tier"].get<std::string>(), leagueJson[0]["rank"].get<std::string>());
+		
+		if (pPlayer->getAllRanks().empty()) {
+			std::vector<League> initLeagues(2);
+			pPlayer->setPlayerLeague(initLeagues);
+		}
+
+		for (const json& leagueEntry : leagueJson) {
+			std::string queueType = leagueEntry["queueType"].get<std::string>();
+			if (queueType == "RANKED_TFT_DOUBLE_UP") {
+				pPlayer->updateDoubleUpLP(leagueEntry["leaguePoints"].get<int>());
+				pPlayer->updateDoubleUpTier(leagueEntry["tier"].get<std::string>(), leagueEntry["rank"].get<std::string>());
+		}
+			else if (queueType == "RANKED_TFT") {
+				pPlayer->updateRankedLP(leagueEntry["leaguePoints"].get<int>());
+				pPlayer->updateRankedTier(leagueEntry["tier"].get<std::string>(), leagueEntry["rank"].get<std::string>());
 		}
 
 		if (next) {

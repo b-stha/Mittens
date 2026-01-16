@@ -5,13 +5,15 @@
 #include <vector>
 #include <dpp/dpp.h>
 #include "MatchInfo.h"
+#include <unordered_set>
+#include <mutex>
 
 struct League {
-	std::string tier;
-	std::string prevTier;
+	std::string tier = "UNRANKED";
+	std::string prevTier = "UNRANKED";
 	int prevLP = 0;
 	int currLP = 0;
-	std::string rank;
+	std::string rank = "";
 };
 
 class Player {
@@ -28,13 +30,19 @@ public:
 	dpp::snowflake getChannelID() const;
 	void setSummonerID(std::string summonerID);
 	std::string getSummonerID() const;
-	std::pair<std::string, std::string> getPlayerRank() const;
-	std::pair<int, int> getPlayerLP() const;
-	std::string getPrevRank() const;
-	void updateLP(const int newLP);
-	void updateTier(const std::string newTier, const std::string newRank);
-	void setPlayerLeague(const League& inLeague);
-	const MatchInfo& getMatchInfo() const;
+	std::pair<std::string, std::string> getRank() const;
+	std::pair<std::string, std::string> getDoubleUpRank() const;
+	std::vector<League> getAllRanks() const;
+	std::pair<int, int> getRankedLP() const;
+	std::pair<int, int> getDoubleUpLP() const;
+	std::string getPrevRanked() const;
+	std::string getPrevDoubleUp() const;
+	void updateRankedLP(const int newLP);
+	void updateDoubleUpLP(const int newLP);
+	void updateRankedTier(const std::string newTier, const std::string newRank);
+	void updateDoubleUpTier(const std::string newTier, const std::string newRank);
+	void setPlayerLeague(const std::vector<League>& inLeague);
+	MatchInfo getMatchInfo() const;
 	void setMatchInfo(const MatchInfo& currMatch);
 private:
 	MatchInfo matchInfo;
@@ -45,7 +53,7 @@ private:
 	std::string userName = "";
 	std::string tagLine = "";
 	std::string summonerID;
-	League playerRank;
+	std::vector<League> leagues;
 };
 
 #endif
