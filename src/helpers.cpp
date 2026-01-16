@@ -75,8 +75,8 @@ std::string getRankField(const Player& player, const Data& data, std::string que
 	else if (queueType == "RANKED") {
 		playerTier = player.getRank().first;
 		if (playerTier == "UNRANKED") {
-		return data.getEmote(lowerCase("UNRANKED")) + " UNRANKED ";
-	}
+			return data.getEmote(lowerCase("UNRANKED")) + " UNRANKED ";
+		}
 		playerTier = player.getRank().first;
 		return data.getEmote(lowerCase(playerTier)) + " " + playerTier + " " + player.getRank().second + " (" + std::to_string(player.getRankedLP().second) + " LP)";
 	}

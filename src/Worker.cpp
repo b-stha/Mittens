@@ -5,17 +5,43 @@
 #include "bot.h"
 
 void Worker::startTask() {
-    if (isRunning && playerQueue.empty()) {
+    std::shared_ptr<Player> currPlayer = nullptr;
+    {
+        std::lock_guard<std::mutex> lock(queueMutex);
+        if (isRunning || playerQueue.empty()) {
         return;
     }
-
     isRunning = true;
-    Player* currPlayer = playerQueue.front();
+        currPlayer = playerQueue.front();
     playerQueue.pop();
+        queuedOrRunningPuuids.erase(currPlayer->getPUUID());
+        activePuuid = currPlayer->getPUUID();
+    }
 
-    pMittens->getRiotObj().fetchMatchID(*currPlayer, [this, currPlayer]() {
-        pMittens->getRiotObj().fetchLeague(*currPlayer, [this, currPlayer]() {
-            pMittens->getRiotObj().fetchInfo(*currPlayer, [this, currPlayer]() {
+    auto doneOnce = std::make_shared<std::atomic_bool>(false);
+    auto finishSafely = [this, doneOnce]() {
+        bool expected = false;
+        if (!doneOnce->compare_exchange_strong(expected, true)) {
+            return;
+        }
+        this->finishTask();
+    };
+
+    pMittens->getRiotObj().fetchMatchID(currPlayer, [this, currPlayer, finishSafely](bool matchFetched) mutable{
+        if (!matchFetched) {
+            finishSafely();
+            return;
+        }
+        pMittens->getRiotObj().fetchLeague(currPlayer, [this, currPlayer, finishSafely](bool leagueFetched) mutable {
+            if (!leagueFetched) {
+                finishSafely();
+                return;
+            }
+            pMittens->getRiotObj().fetchInfo(currPlayer, [this, currPlayer, finishSafely](bool infoFetched) mutable {
+                if (!infoFetched) {
+                    finishSafely();
+                    return;
+                }
                 auto data = this->getData();
                 int currQueueID = currPlayer->getMatchInfo().queueID;
                 std::unordered_set<int> addedQueues = currPlayer->getAddedQueues();
@@ -39,13 +65,19 @@ void Worker::startTask() {
 }
 
 void Worker::finishTask() {
+    bool shouldStartAnother = false;
+    {
+        std::lock_guard<std::mutex> lock(queueMutex);
     isRunning = false;
-    if (!playerQueue.empty()) {
+        shouldStartAnother = !playerQueue.empty();
+    }
+
+    if (shouldStartAnother) {
         startTask();
     }
 }
 
-const std::shared_ptr<Data>& Worker::getData() const {
+std::shared_ptr<Data> Worker::getData() const {
     return pMittens->getLoadedData();
 }
 
