@@ -14,7 +14,7 @@ std::string starCount(const int& tier);
 std::vector<std::string> split(const std::string& s, char delim);
 bool notPlayerExists(const std::vector<std::shared_ptr<Player>>& players, const std::string& puuid);
 std::string fillSpaces(std::string input);
-std::string getRankField(const Player& player, const Data& data);
+std::string getRankField(const Player& player, const Data& data, std::string queueType);
 std::string lowerCase(std::string str);
 
 #endif

@@ -62,11 +62,24 @@ std::string lowerCase(std::string str) {
 	return str;
 }
 
-std::string getRankField(const Player& player, const Data& data) {
-	std::string playerTier = player.getPlayerRank().first;
-	if (player.getPlayerRank().first == "UNRANKED") {
+std::string getRankField(const Player& player, const Data& data, std::string queueType) {
+	std::string playerTier = "";
+	if (queueType == "DOUBLE_UP") {
+		player.getDoubleUpRank().first;
+		if (playerTier == "UNRANKED") {
+			return data.getEmote(lowerCase("UNRANKED")) + " UNRANKED ";
+		}
+		playerTier = player.getDoubleUpRank().first;
+		return data.getEmote(lowerCase(playerTier)) + " " + playerTier + " " + player.getDoubleUpRank().second + " (" + std::to_string(player.getDoubleUpLP().second) + " LP)";
+	}
+	else if (queueType == "RANKED") {
+		playerTier = player.getRank().first;
+		if (playerTier == "UNRANKED") {
 		return data.getEmote(lowerCase("UNRANKED")) + " UNRANKED ";
 	}
+		playerTier = player.getRank().first;
+		return data.getEmote(lowerCase(playerTier)) + " " + playerTier + " " + player.getRank().second + " (" + std::to_string(player.getRankedLP().second) + " LP)";
+	}
 
-	return data.getEmote(lowerCase(playerTier)) + " " + playerTier + " " + player.getPlayerRank().second + " (" + std::to_string(player.getPlayerLP().second) + " LP)";
+	return "Error displaying rank.";
 }

@@ -19,9 +19,11 @@ public:
     void unitListStr(const Player& player, dpp::embed& embedObj, const Data& data);
     void traitListStr(const Player& player, dpp::embed& embedObj, const Data& data);
     std::string augListStr(const Player& player, const Data& data);
-    dpp::embed createResult(const Player& player, const Data& data);
-    dpp::embed createPromoMsg(const Player& player, const Data& data);
-    const std::shared_ptr<Data>& getLoadedData() const { return pLoadedData; }
+    void createRankedEmbed(const Player& player, const Data& data);
+    void createDoubleUpEmbed(const Player& player, const Data& data);
+    void createUnrankedEmbed(const Player& player, const Data& data);
+    dpp::embed createPromoMsg(const Player& player, const Data& data, std::string queueType);
+    std::shared_ptr<Data> getLoadedData() const { return pLoadedData; }
     Worker* getWorker() { return pWorker.get(); }
     void run();
 private:

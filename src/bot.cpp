@@ -179,20 +179,20 @@ void Bot::traitListStr(const Player& player, dpp::embed& embedObj, const Data& d
 	}
 }
 
-dpp::embed Bot::createResult(const Player& player, const Data& data) {
+void Bot::createRankedEmbed(const Player& player, const Data& data) {
     std::string name = player.getFullName()[0];
 	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
 	std::string matchResultURL = profileURL + player.getCurrMatchID();
 	//std::string augmentList = augListStr(player);
-	std::string playerTier = player.getPlayerRank().first;
+	std::string playerTier = player.getRank().first;
 	dpp::embed outEmbed = dpp::embed()
 		.set_color(data.getRankColor().at(playerTier))
 		.set_title(data.getPlacementData().at(player.getMatchInfo().placement) + " PLACE")
 		.set_url(matchResultURL)
-		.set_author(name + "'s match result", profileURL, "")
+		.set_author(name + "'s ranked match result", profileURL, "")
 		.set_thumbnail(data.getTacticianIcon(player.getMatchInfo().tacticianID))
 		.add_field(
-			getRankField(player, data),
+			getRankField(player, data, "RANKED"),
 			"\n"
 			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
 			"Level: " + std::to_string(player.getMatchInfo().level) + "\n"
@@ -219,11 +219,115 @@ dpp::embed Bot::createResult(const Player& player, const Data& data) {
 		);
 	unitListStr(player, outEmbed, data);
 
-	return outEmbed;
-};
+	dpp::message msg(player.getChannelID(), outEmbed);
+	botCluster.message_create(msg);
 
-dpp::embed Bot::createPromoMsg(const Player& player, const Data& data) {
-	std::string playerTier = player.getPlayerRank().first;
+	if (player.getRank().first != player.getPrevRanked()) {
+		dpp::embed promoMsg = createPromoMsg(player, data, "RANKED");
+		dpp::message promoMsgObj(player.getChannelID(), promoMsg);
+		botCluster.message_create(promoMsgObj);
+	}
+}
+
+void Bot::createDoubleUpEmbed(const Player& player, const Data& data) {
+	std::string name = player.getFullName()[0];
+	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
+	std::string matchResultURL = profileURL + player.getCurrMatchID();
+	//std::string augmentList = augListStr(player);
+	std::string playerTier = player.getDoubleUpRank().first;
+	int doubleUpPlacement = (player.getMatchInfo().placement + 1) / 2;
+	dpp::embed outEmbed = dpp::embed()
+		.set_color(data.getRankColor().at(playerTier))
+		.set_title(data.getPlacementData().at(doubleUpPlacement) + " PLACE (DOUBLE UP)")
+		.set_url(matchResultURL)
+		.set_author(name + "'s Double Up match result", profileURL, "")
+		.set_thumbnail(data.getTacticianIcon(player.getMatchInfo().tacticianID))
+		.add_field(
+			getRankField(player, data, "DOUBLE_UP"),
+			"\n"
+			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
+			"Level: " + std::to_string(player.getMatchInfo().level) + "\n"
+			"Gold Left: " + std::to_string(player.getMatchInfo().goldLeft) + "\n"
+			"Board Value: " + std::to_string(player.getMatchInfo().boardValue),
+			false
+		)/*
+		.add_field(
+			"Augments",
+			augmentList,
+			false
+		)*/
+		.add_field(
+			"Traits",
+			"",
+			false
+		);
+	traitListStr(player, outEmbed, data);
+	outEmbed
+		.add_field(
+			"Units",
+			"",
+			false
+		);
+	unitListStr(player, outEmbed, data);
+
+	dpp::message msg(player.getChannelID(), outEmbed);
+	botCluster.message_create(msg);
+
+	if (player.getDoubleUpRank().first != player.getPrevDoubleUp()) {
+		dpp::embed promoMsg = createPromoMsg(player, data, "DOUBLE_UP");
+		dpp::message promoMsgObj(player.getChannelID(), promoMsg);
+		botCluster.message_create(promoMsgObj);
+	}
+}
+
+void Bot::createUnrankedEmbed(const Player& player, const Data& data) {
+	std::string name = player.getFullName()[0];
+	std::string profileURL = "https://tactics.tools/player/na/" + fillSpaces(name) + "/" + player.getFullName()[1] + "/";
+	std::string matchResultURL = profileURL + player.getCurrMatchID();
+	//std::string augmentList = augListStr(player);
+	dpp::embed outEmbed = dpp::embed()
+		.set_color(dpp::colors::gray)
+		.set_title(data.getPlacementData().at(player.getMatchInfo().placement) + " PLACE")
+		.set_url(matchResultURL)
+		.set_author(name + "'s normal match result", profileURL, "")
+		.set_thumbnail(data.getTacticianIcon(player.getMatchInfo().tacticianID))
+		.add_field(
+			"NORMAL",
+			"\n"
+			"Duration: " + std::to_string(player.getTime()[0]) + ":" + std::to_string(player.getTime()[1]) + "\n"
+			"Level: " + std::to_string(player.getMatchInfo().level) + "\n"
+			"Gold Left: " + std::to_string(player.getMatchInfo().goldLeft) + "\n"
+			"Board Value: " + std::to_string(player.getMatchInfo().boardValue),
+			false
+		)/*
+		.add_field(
+			"Augments",
+			augmentList,
+			false
+		)*/
+		.add_field(
+			"Traits",
+			"",
+			false
+		);
+	traitListStr(player, outEmbed, data);
+	outEmbed
+		.add_field(
+			"Units",
+			"",
+			false
+		);
+	unitListStr(player, outEmbed, data);
+}
+
+dpp::embed Bot::createPromoMsg(const Player& player, const Data& data, std::string queueType) {
+	std::string playerTier = "";
+	if (queueType == "DOUBLE_UP") {
+		std::string playerTier = player.getDoubleUpRank().first;
+	}
+	else if (queueType == "RANKED") {
+		std::string playerTier = player.getRank().first;
+	}
 	std::string name = player.getFullName()[0];
 	dpp::embed promoEmbed = dpp::embed()
 		.set_color(data.getRankColor().at(playerTier))
